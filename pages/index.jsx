@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { staticRequest } from 'tinacms'
 import { useTina } from 'tinacms/dist/edit-state'
-import {StyledIntro, StyledConcertsSection} from './index.styles'
+import {StyledIntro, StyledConcertsSection} from '../pages-styles/index.styles'
 import ConcertCard from '../components/concert-card'
 import SectionTitle from '../components/section-title'
 
