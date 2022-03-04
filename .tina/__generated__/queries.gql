@@ -1,0 +1,155 @@
+query getHomeDocument($relativePath: String!) {
+  getHomeDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...HomeParts
+    }
+  }
+}
+
+query getHomeList {
+  getHomeList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...HomeParts
+        }
+      }
+    }
+  }
+}
+
+query getStructureDocument($relativePath: String!) {
+  getStructureDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...StructureParts
+    }
+  }
+}
+
+query getStructureList {
+  getStructureList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...StructureParts
+        }
+      }
+    }
+  }
+}
+
+query getConductorsDocument($relativePath: String!) {
+  getConductorsDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...ConductorsParts
+    }
+  }
+}
+
+query getConductorsList {
+  getConductorsList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...ConductorsParts
+        }
+      }
+    }
+  }
+}
+
+query getConcertsDocument($relativePath: String!) {
+  getConcertsDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...ConcertsParts
+    }
+  }
+}
+
+query getConcertsList {
+  getConcertsList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...ConcertsParts
+        }
+      }
+    }
+  }
+}

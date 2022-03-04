@@ -1,0 +1,70 @@
+{
+  "DocumentConnection": {
+    "type": "DocumentConnection",
+    "resolveType": "multiCollectionDocumentList",
+    "collections": [
+      "home",
+      "structure",
+      "conductors",
+      "concerts"
+    ]
+  },
+  "Node": {
+    "type": "Node",
+    "resolveType": "nodeDocument"
+  },
+  "DocumentNode": {
+    "type": "DocumentNode",
+    "resolveType": "multiCollectionDocument",
+    "createDocument": "create",
+    "updateDocument": "update"
+  },
+  "HomeDocument": {
+    "type": "HomeDocument",
+    "resolveType": "collectionDocument",
+    "collection": "home",
+    "createHomeDocument": "create",
+    "updateHomeDocument": "update"
+  },
+  "HomeConnection": {
+    "type": "HomeConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "home"
+  },
+  "StructureDocument": {
+    "type": "StructureDocument",
+    "resolveType": "collectionDocument",
+    "collection": "structure",
+    "createStructureDocument": "create",
+    "updateStructureDocument": "update"
+  },
+  "StructureConnection": {
+    "type": "StructureConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "structure"
+  },
+  "ConductorsDocument": {
+    "type": "ConductorsDocument",
+    "resolveType": "collectionDocument",
+    "collection": "conductors",
+    "createConductorsDocument": "create",
+    "updateConductorsDocument": "update"
+  },
+  "ConductorsConnection": {
+    "type": "ConductorsConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "conductors"
+  },
+  "ConcertsDocument": {
+    "type": "ConcertsDocument",
+    "resolveType": "collectionDocument",
+    "collection": "concerts",
+    "createConcertsDocument": "create",
+    "updateConcertsDocument": "update"
+  },
+  "ConcertsConnection": {
+    "type": "ConcertsConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "concerts"
+  }
+}

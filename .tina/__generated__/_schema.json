@@ -1,0 +1,522 @@
+{
+  "version": {
+    "fullVersion": "0.59.6",
+    "major": "0",
+    "minor": "59",
+    "patch": "6"
+  },
+  "meta": {},
+  "collections": [
+    {
+      "label": "Home",
+      "name": "home",
+      "path": "_pages/home",
+      "fields": [
+        {
+          "type": "string",
+          "label": "Title",
+          "name": "title",
+          "namespace": [
+            "home",
+            "title"
+          ]
+        }
+      ],
+      "namespace": [
+        "home"
+      ]
+    },
+    {
+      "label": "Structure",
+      "name": "structure",
+      "path": "_pages/structure",
+      "fields": [
+        {
+          "label": "I. housle",
+          "name": "first_violins",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "first_violins",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "first_violins"
+          ]
+        },
+        {
+          "label": "II. housle",
+          "name": "second_violins",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "second_violins",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "second_violins"
+          ]
+        },
+        {
+          "label": "Violy",
+          "name": "viols",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "viols",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "viols"
+          ]
+        },
+        {
+          "label": "Violoncella",
+          "name": "violoncellos",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "violoncellos",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "violoncellos"
+          ]
+        },
+        {
+          "label": "Kontrabasy",
+          "name": "basses",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "basses",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "basses"
+          ]
+        },
+        {
+          "label": "Flétny",
+          "name": "flutes",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "flutes",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "flutes"
+          ]
+        },
+        {
+          "label": "Hoboje",
+          "name": "oboes",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "oboes",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "oboes"
+          ]
+        },
+        {
+          "label": "Klarinety",
+          "name": "clarinets",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "clarinets",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "clarinets"
+          ]
+        },
+        {
+          "label": "Fagoty",
+          "name": "bassoons",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "bassoons",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "bassoons"
+          ]
+        },
+        {
+          "label": "Lesní rohy",
+          "name": "french_horns",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "french_horns",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "french_horns"
+          ]
+        },
+        {
+          "label": "Trubky",
+          "name": "trumpets",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "trumpets",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "trumpets"
+          ]
+        },
+        {
+          "label": "Trombóny",
+          "name": "trombones",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "trombones",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "trombones"
+          ]
+        },
+        {
+          "label": "Tuba",
+          "name": "tube",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "tube",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "tube"
+          ]
+        },
+        {
+          "label": "Bicí/tympán",
+          "name": "drums",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Jmeno hrace",
+              "name": "players",
+              "type": "string",
+              "list": true,
+              "namespace": [
+                "structure",
+                "drums",
+                "players"
+              ]
+            }
+          ],
+          "namespace": [
+            "structure",
+            "drums"
+          ]
+        }
+      ],
+      "namespace": [
+        "structure"
+      ]
+    },
+    {
+      "label": "Conductors",
+      "name": "conductors",
+      "path": "_pages/conductors",
+      "fields": [
+        {
+          "label": "Dirigenti",
+          "name": "conductors",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Fotka",
+              "name": "photo",
+              "type": "image",
+              "namespace": [
+                "conductors",
+                "conductors",
+                "photo"
+              ]
+            },
+            {
+              "label": "Jmeno",
+              "name": "name",
+              "type": "string",
+              "namespace": [
+                "conductors",
+                "conductors",
+                "name"
+              ]
+            },
+            {
+              "label": "Text",
+              "name": "text",
+              "type": "string",
+              "ui": {
+                "component": "textarea"
+              },
+              "namespace": [
+                "conductors",
+                "conductors",
+                "text"
+              ]
+            }
+          ],
+          "namespace": [
+            "conductors",
+            "conductors"
+          ]
+        }
+      ],
+      "namespace": [
+        "conductors"
+      ]
+    },
+    {
+      "label": "Concerts",
+      "name": "concerts",
+      "path": "_pages/concerts",
+      "fields": [
+        {
+          "label": "Seznam koncertu",
+          "name": "concerts",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "label": "Nazev",
+              "name": "name",
+              "type": "string",
+              "namespace": [
+                "concerts",
+                "concerts",
+                "name"
+              ]
+            },
+            {
+              "label": "Datum",
+              "name": "date",
+              "type": "datetime",
+              "ui": {
+                "dateFormat": "DD.MM.YYYY"
+              },
+              "namespace": [
+                "concerts",
+                "concerts",
+                "date"
+              ]
+            },
+            {
+              "label": "Cas",
+              "name": "time",
+              "type": "string",
+              "namespace": [
+                "concerts",
+                "concerts",
+                "time"
+              ]
+            },
+            {
+              "label": "Adresa",
+              "name": "address",
+              "type": "string",
+              "namespace": [
+                "concerts",
+                "concerts",
+                "address"
+              ]
+            },
+            {
+              "label": "Dirigent",
+              "name": "conductor",
+              "type": "string",
+              "namespace": [
+                "concerts",
+                "concerts",
+                "conductor"
+              ]
+            },
+            {
+              "label": "Soliste",
+              "name": "solists",
+              "type": "string",
+              "namespace": [
+                "concerts",
+                "concerts",
+                "solists"
+              ]
+            },
+            {
+              "label": "Cena",
+              "name": "price",
+              "type": "string",
+              "namespace": [
+                "concerts",
+                "concerts",
+                "price"
+              ]
+            },
+            {
+              "label": "Popis",
+              "name": "description",
+              "type": "rich-text",
+              "namespace": [
+                "concerts",
+                "concerts",
+                "description"
+              ]
+            }
+          ],
+          "namespace": [
+            "concerts",
+            "concerts"
+          ]
+        }
+      ],
+      "namespace": [
+        "concerts"
+      ]
+    }
+  ]
+}

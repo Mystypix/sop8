@@ -1,21 +1,30 @@
 {
-  "name": "sop8",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "tina-dev": "yarn tinacms server:start -c \"next dev\"",
+    "tina-build": "yarn tinacms server:start -c \"next build\"",
+    "tina-start": "yarn tinacms server:start -c \"next start\""
   },
   "dependencies": {
-    "next": "12.0.10",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "styled-components": "^5.3.3"
+    "@tinacms/auth": "^0.50.2",
+    "@tinacms/cli": "^0.60.5",
+    "classnames": "2.3.1",
+    "date-fns": "2.28.0",
+    "gray-matter": "4.0.3",
+    "next": "latest",
+    "next-tinacms-cloudinary": "^3.5.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "remark": "14.0.2",
+    "remark-html": "15.0.1",
+    "styled-components": "^5.3.3",
+    "tinacms": "^0.66.4"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^2.0.2",
-    "eslint": "8.8.0",
-    "eslint-config-next": "12.0.10"
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4"
   }
 }

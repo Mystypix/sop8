@@ -1,0 +1,85 @@
+fragment HomeParts on Home {
+  title
+}
+
+fragment StructureParts on Structure {
+  first_violins {
+    __typename
+    players
+  }
+  second_violins {
+    __typename
+    players
+  }
+  viols {
+    __typename
+    players
+  }
+  violoncellos {
+    __typename
+    players
+  }
+  basses {
+    __typename
+    players
+  }
+  flutes {
+    __typename
+    players
+  }
+  oboes {
+    __typename
+    players
+  }
+  clarinets {
+    __typename
+    players
+  }
+  bassoons {
+    __typename
+    players
+  }
+  french_horns {
+    __typename
+    players
+  }
+  trumpets {
+    __typename
+    players
+  }
+  trombones {
+    __typename
+    players
+  }
+  tube {
+    __typename
+    players
+  }
+  drums {
+    __typename
+    players
+  }
+}
+
+fragment ConductorsParts on Conductors {
+  conductors {
+    __typename
+    photo
+    name
+    text
+  }
+}
+
+fragment ConcertsParts on Concerts {
+  concerts {
+    __typename
+    name
+    date
+    time
+    address
+    conductor
+    solists
+    price
+    description
+  }
+}
