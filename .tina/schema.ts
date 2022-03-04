@@ -310,4 +310,8 @@ export default defineSchema({
       ]
     }
   ],
-});
+})
+
+export config = defineConfig({
+  apiURL: `https://content.tinajs.io/content/${myClientId}/github/${myBranch}`,
+})
