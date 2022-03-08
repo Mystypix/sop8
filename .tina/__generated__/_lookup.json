@@ -4,6 +4,7 @@
     "resolveType": "multiCollectionDocumentList",
     "collections": [
       "home",
+      "about",
       "structure",
       "conductors",
       "concerts"
@@ -30,6 +31,18 @@
     "type": "HomeConnection",
     "resolveType": "collectionDocumentList",
     "collection": "home"
+  },
+  "AboutDocument": {
+    "type": "AboutDocument",
+    "resolveType": "collectionDocument",
+    "collection": "about",
+    "createAboutDocument": "create",
+    "updateAboutDocument": "update"
+  },
+  "AboutConnection": {
+    "type": "AboutConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "about"
   },
   "StructureDocument": {
     "type": "StructureDocument",

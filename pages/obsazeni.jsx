@@ -11,7 +11,7 @@ export default function Structure({data: initialData, query}) {
     data: initialData,
   })
 
-  const {groups} = data.getStructureDocument.data
+  const {first_violins} = data.getStructureDocument.data
   return (
     <>
       <Layout>
@@ -20,18 +20,7 @@ export default function Structure({data: initialData, query}) {
         </Head>
         <Header />
         <div>
-          {groups.map((group) => {
-            return (
-              <div key={group.groupName}>
-                <h3>{group.groupName}</h3>
-                <div>
-                  {group.players.map(playerName => {
-                    return <div key={playerName}>{playerName}</div>
-                  })}
-                </div>
-              </div>
-            )
-          })}
+          {first_violins.map(({player}) => <div key={player}>{player}</div>)}
         </div>
       </Layout>
     </>
@@ -44,9 +33,47 @@ export const getStaticProps = async () => {
     query StructureQuery($relativePath: String!) {
       getStructureDocument(relativePath: $relativePath) {
         data {
-          groups {
-            groupName
-            players
+          first_violins {
+            player
+          }
+          second_violins {
+            player
+          }
+          viols {
+            player
+          }
+          violoncellos {
+            player
+          }
+          basses {
+            player
+          }
+          flutes {
+            player
+          }
+          oboes {
+            player
+          }
+          clarinets {
+            player
+          }
+          bassoons {
+            player
+          }
+          french_horns {
+            player
+          }
+          trumpets {
+            player
+          }
+          trombones {
+            player
+          }
+          tube {
+            player
+          }
+          drums {
+            player
           }
         }
       }

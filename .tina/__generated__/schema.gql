@@ -50,6 +50,8 @@ type Query {
   getDocumentFields: JSON!
   getHomeDocument(relativePath: String): HomeDocument!
   getHomeList(before: String, after: String, first: Float, last: Float): HomeConnection!
+  getAboutDocument(relativePath: String): AboutDocument!
+  getAboutList(before: String, after: String, first: Float, last: Float): AboutConnection!
   getStructureDocument(relativePath: String): StructureDocument!
   getStructureList(before: String, after: String, first: Float, last: Float): StructureConnection!
   getConductorsDocument(relativePath: String): ConductorsDocument!
@@ -81,7 +83,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float): DocumentConnection!
 }
 
-union DocumentNode = HomeDocument | StructureDocument | ConductorsDocument | ConcertsDocument
+union DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertsDocument
 
 type Home {
   title: String
@@ -107,60 +109,84 @@ type HomeConnection implements Connection {
   edges: [HomeConnectionEdges]
 }
 
+type About {
+  description: JSON
+}
+
+type AboutDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: About!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type AboutConnectionEdges {
+  cursor: String
+  node: AboutDocument
+}
+
+type AboutConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Float!
+  edges: [AboutConnectionEdges]
+}
+
 type StructureFirst_violins {
-  players: [String]
+  player: String
 }
 
 type StructureSecond_violins {
-  players: [String]
+  player: String
 }
 
 type StructureViols {
-  players: [String]
+  player: String
 }
 
 type StructureVioloncellos {
-  players: [String]
+  player: String
 }
 
 type StructureBasses {
-  players: [String]
+  player: String
 }
 
 type StructureFlutes {
-  players: [String]
+  player: String
 }
 
 type StructureOboes {
-  players: [String]
+  player: String
 }
 
 type StructureClarinets {
-  players: [String]
+  player: String
 }
 
 type StructureBassoons {
-  players: [String]
+  player: String
 }
 
 type StructureFrench_horns {
-  players: [String]
+  player: String
 }
 
 type StructureTrumpets {
-  players: [String]
+  player: String
 }
 
 type StructureTrombones {
-  players: [String]
+  player: String
 }
 
 type StructureTube {
-  players: [String]
+  player: String
 }
 
 type StructureDrums {
-  players: [String]
+  player: String
 }
 
 type Structure {
@@ -271,6 +297,8 @@ type Mutation {
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updateHomeDocument(relativePath: String!, params: HomeMutation!): HomeDocument!
   createHomeDocument(relativePath: String!, params: HomeMutation!): HomeDocument!
+  updateAboutDocument(relativePath: String!, params: AboutMutation!): AboutDocument!
+  createAboutDocument(relativePath: String!, params: AboutMutation!): AboutDocument!
   updateStructureDocument(relativePath: String!, params: StructureMutation!): StructureDocument!
   createStructureDocument(relativePath: String!, params: StructureMutation!): StructureDocument!
   updateConductorsDocument(relativePath: String!, params: ConductorsMutation!): ConductorsDocument!
@@ -281,6 +309,7 @@ type Mutation {
 
 input DocumentMutation {
   home: HomeMutation
+  about: AboutMutation
   structure: StructureMutation
   conductors: ConductorsMutation
   concerts: ConcertsMutation
@@ -290,60 +319,64 @@ input HomeMutation {
   title: String
 }
 
+input AboutMutation {
+  description: JSON
+}
+
 input StructureFirst_violinsMutation {
-  players: [String]
+  player: String
 }
 
 input StructureSecond_violinsMutation {
-  players: [String]
+  player: String
 }
 
 input StructureViolsMutation {
-  players: [String]
+  player: String
 }
 
 input StructureVioloncellosMutation {
-  players: [String]
+  player: String
 }
 
 input StructureBassesMutation {
-  players: [String]
+  player: String
 }
 
 input StructureFlutesMutation {
-  players: [String]
+  player: String
 }
 
 input StructureOboesMutation {
-  players: [String]
+  player: String
 }
 
 input StructureClarinetsMutation {
-  players: [String]
+  player: String
 }
 
 input StructureBassoonsMutation {
-  players: [String]
+  player: String
 }
 
 input StructureFrench_hornsMutation {
-  players: [String]
+  player: String
 }
 
 input StructureTrumpetsMutation {
-  players: [String]
+  player: String
 }
 
 input StructureTrombonesMutation {
-  players: [String]
+  player: String
 }
 
 input StructureTubeMutation {
-  players: [String]
+  player: String
 }
 
 input StructureDrumsMutation {
-  players: [String]
+  player: String
 }
 
 input StructureMutation {

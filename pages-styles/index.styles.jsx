@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledIntro = styled.section`
-    height: 100vh;
+    height: calc(100vh - 110px);
 `
 
 export const StyledConcertsSection = styled.section`

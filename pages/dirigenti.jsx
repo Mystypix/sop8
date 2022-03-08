@@ -1,5 +1,6 @@
 import Layout from '../components/layout'
 import Header from '../components/header'
+import Conductor from '../components/conductor'
 import Head from 'next/head'
 import { staticRequest } from 'tinacms'
 import { useTina } from 'tinacms/dist/edit-state'
@@ -12,6 +13,7 @@ export default function Conductors({data: initialData, query}) {
   })
 
   const {conductors} = data.getConductorsDocument.data
+  console.log('conductors', conductors)
   return (
     <>
       <Layout>
@@ -20,12 +22,9 @@ export default function Conductors({data: initialData, query}) {
         </Head>
         <Header />
         <div>
-          {conductors.map((conductor) => {
+          {conductors.map((props) => {
             return (
-              <div key={conductor.name}>
-                <h3>{conductor.name}</h3>
-                <p>{conductor.text}</p>
-              </div>
+              <Conductor key={props.name} {...props} />
             )
           })}
         </div>

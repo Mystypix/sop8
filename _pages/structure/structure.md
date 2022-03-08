@@ -1,10 +1,6 @@
 ---
-groups:
-  - groupName: Prvni housle
-    players:
-      - Something
-  - groupName: Druhe housle
-    players:
-      - Something else
+first_violins:
+  - player: Natalie Smaginova
+  - {}
 ---
 

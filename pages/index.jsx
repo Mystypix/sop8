@@ -33,9 +33,9 @@ export default function Index({data: initialData, query}) {
           <SectionTitle>
             Nejbližší koncerty
           </SectionTitle>
-          {concerts.map(({name, ...props}) => {
+          {concerts.map((props) => {
             return (
-              <ConcertCard key={name} name={name} {...props} />
+              <ConcertCard key={props.name} {...props} />
             )
           })}
         </StyledConcertsSection>

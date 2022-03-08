@@ -2,62 +2,66 @@ fragment HomeParts on Home {
   title
 }
 
+fragment AboutParts on About {
+  description
+}
+
 fragment StructureParts on Structure {
   first_violins {
     __typename
-    players
+    player
   }
   second_violins {
     __typename
-    players
+    player
   }
   viols {
     __typename
-    players
+    player
   }
   violoncellos {
     __typename
-    players
+    player
   }
   basses {
     __typename
-    players
+    player
   }
   flutes {
     __typename
-    players
+    player
   }
   oboes {
     __typename
-    players
+    player
   }
   clarinets {
     __typename
-    players
+    player
   }
   bassoons {
     __typename
-    players
+    player
   }
   french_horns {
     __typename
-    players
+    player
   }
   trumpets {
     __typename
-    players
+    player
   }
   trombones {
     __typename
-    players
+    player
   }
   tube {
     __typename
-    players
+    player
   }
   drums {
     __typename
-    players
+    player
   }
 }
 

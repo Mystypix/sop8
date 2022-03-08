@@ -1,6 +1,7 @@
 ---
 concerts:
   - name: Nejakej nazev
+    date: '2022-03-06T23:00:00.000Z'
     time: '19:00'
     address: Praha
     conductor: Nejakej ferda

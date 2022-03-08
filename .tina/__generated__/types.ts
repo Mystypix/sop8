@@ -69,6 +69,8 @@ export type Query = {
   getDocumentFields: Scalars['JSON'];
   getHomeDocument: HomeDocument;
   getHomeList: HomeConnection;
+  getAboutDocument: AboutDocument;
+  getAboutList: AboutConnection;
   getStructureDocument: StructureDocument;
   getStructureList: StructureConnection;
   getConductorsDocument: ConductorsDocument;
@@ -108,6 +110,19 @@ export type QueryGetHomeDocumentArgs = {
 
 
 export type QueryGetHomeListArgs = {
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
+};
+
+
+export type QueryGetAboutDocumentArgs = {
+  relativePath?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetAboutListArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
@@ -187,7 +202,7 @@ export type CollectionDocumentsArgs = {
   last?: InputMaybe<Scalars['Float']>;
 };
 
-export type DocumentNode = HomeDocument | StructureDocument | ConductorsDocument | ConcertsDocument;
+export type DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertsDocument;
 
 export type Home = {
   __typename?: 'Home';
@@ -217,74 +232,102 @@ export type HomeConnection = Connection & {
   edges?: Maybe<Array<Maybe<HomeConnectionEdges>>>;
 };
 
+export type About = {
+  __typename?: 'About';
+  description?: Maybe<Scalars['JSON']>;
+};
+
+export type AboutDocument = Node & Document & {
+  __typename?: 'AboutDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: About;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type AboutConnectionEdges = {
+  __typename?: 'AboutConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<AboutDocument>;
+};
+
+export type AboutConnection = Connection & {
+  __typename?: 'AboutConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Float'];
+  edges?: Maybe<Array<Maybe<AboutConnectionEdges>>>;
+};
+
 export type StructureFirst_Violins = {
   __typename?: 'StructureFirst_violins';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type StructureSecond_Violins = {
   __typename?: 'StructureSecond_violins';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type StructureViols = {
   __typename?: 'StructureViols';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type StructureVioloncellos = {
   __typename?: 'StructureVioloncellos';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type StructureBasses = {
   __typename?: 'StructureBasses';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type StructureFlutes = {
   __typename?: 'StructureFlutes';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type StructureOboes = {
   __typename?: 'StructureOboes';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type StructureClarinets = {
   __typename?: 'StructureClarinets';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type StructureBassoons = {
   __typename?: 'StructureBassoons';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type StructureFrench_Horns = {
   __typename?: 'StructureFrench_horns';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type StructureTrumpets = {
   __typename?: 'StructureTrumpets';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type StructureTrombones = {
   __typename?: 'StructureTrombones';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type StructureTube = {
   __typename?: 'StructureTube';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type StructureDrums = {
   __typename?: 'StructureDrums';
-  players?: Maybe<Array<Maybe<Scalars['String']>>>;
+  player?: Maybe<Scalars['String']>;
 };
 
 export type Structure = {
@@ -410,6 +453,8 @@ export type Mutation = {
   createDocument: DocumentNode;
   updateHomeDocument: HomeDocument;
   createHomeDocument: HomeDocument;
+  updateAboutDocument: AboutDocument;
+  createAboutDocument: AboutDocument;
   updateStructureDocument: StructureDocument;
   createStructureDocument: StructureDocument;
   updateConductorsDocument: ConductorsDocument;
@@ -452,6 +497,18 @@ export type MutationCreateHomeDocumentArgs = {
 };
 
 
+export type MutationUpdateAboutDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: AboutMutation;
+};
+
+
+export type MutationCreateAboutDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: AboutMutation;
+};
+
+
 export type MutationUpdateStructureDocumentArgs = {
   relativePath: Scalars['String'];
   params: StructureMutation;
@@ -489,6 +546,7 @@ export type MutationCreateConcertsDocumentArgs = {
 
 export type DocumentMutation = {
   home?: InputMaybe<HomeMutation>;
+  about?: InputMaybe<AboutMutation>;
   structure?: InputMaybe<StructureMutation>;
   conductors?: InputMaybe<ConductorsMutation>;
   concerts?: InputMaybe<ConcertsMutation>;
@@ -498,60 +556,64 @@ export type HomeMutation = {
   title?: InputMaybe<Scalars['String']>;
 };
 
+export type AboutMutation = {
+  description?: InputMaybe<Scalars['JSON']>;
+};
+
 export type StructureFirst_ViolinsMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureSecond_ViolinsMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureViolsMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureVioloncellosMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureBassesMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureFlutesMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureOboesMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureClarinetsMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureBassoonsMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureFrench_HornsMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureTrumpetsMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureTrombonesMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureTubeMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureDrumsMutation = {
-  players?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  player?: InputMaybe<Scalars['String']>;
 };
 
 export type StructureMutation = {
@@ -598,7 +660,9 @@ export type ConcertsMutation = {
 
 export type HomePartsFragment = { __typename?: 'Home', title?: string | null };
 
-export type StructurePartsFragment = { __typename?: 'Structure', first_violins?: Array<{ __typename: 'StructureFirst_violins', players?: Array<string | null> | null } | null> | null, second_violins?: Array<{ __typename: 'StructureSecond_violins', players?: Array<string | null> | null } | null> | null, viols?: Array<{ __typename: 'StructureViols', players?: Array<string | null> | null } | null> | null, violoncellos?: Array<{ __typename: 'StructureVioloncellos', players?: Array<string | null> | null } | null> | null, basses?: Array<{ __typename: 'StructureBasses', players?: Array<string | null> | null } | null> | null, flutes?: Array<{ __typename: 'StructureFlutes', players?: Array<string | null> | null } | null> | null, oboes?: Array<{ __typename: 'StructureOboes', players?: Array<string | null> | null } | null> | null, clarinets?: Array<{ __typename: 'StructureClarinets', players?: Array<string | null> | null } | null> | null, bassoons?: Array<{ __typename: 'StructureBassoons', players?: Array<string | null> | null } | null> | null, french_horns?: Array<{ __typename: 'StructureFrench_horns', players?: Array<string | null> | null } | null> | null, trumpets?: Array<{ __typename: 'StructureTrumpets', players?: Array<string | null> | null } | null> | null, trombones?: Array<{ __typename: 'StructureTrombones', players?: Array<string | null> | null } | null> | null, tube?: Array<{ __typename: 'StructureTube', players?: Array<string | null> | null } | null> | null, drums?: Array<{ __typename: 'StructureDrums', players?: Array<string | null> | null } | null> | null };
+export type AboutPartsFragment = { __typename?: 'About', description?: any | null };
+
+export type StructurePartsFragment = { __typename?: 'Structure', first_violins?: Array<{ __typename: 'StructureFirst_violins', player?: string | null } | null> | null, second_violins?: Array<{ __typename: 'StructureSecond_violins', player?: string | null } | null> | null, viols?: Array<{ __typename: 'StructureViols', player?: string | null } | null> | null, violoncellos?: Array<{ __typename: 'StructureVioloncellos', player?: string | null } | null> | null, basses?: Array<{ __typename: 'StructureBasses', player?: string | null } | null> | null, flutes?: Array<{ __typename: 'StructureFlutes', player?: string | null } | null> | null, oboes?: Array<{ __typename: 'StructureOboes', player?: string | null } | null> | null, clarinets?: Array<{ __typename: 'StructureClarinets', player?: string | null } | null> | null, bassoons?: Array<{ __typename: 'StructureBassoons', player?: string | null } | null> | null, french_horns?: Array<{ __typename: 'StructureFrench_horns', player?: string | null } | null> | null, trumpets?: Array<{ __typename: 'StructureTrumpets', player?: string | null } | null> | null, trombones?: Array<{ __typename: 'StructureTrombones', player?: string | null } | null> | null, tube?: Array<{ __typename: 'StructureTube', player?: string | null } | null> | null, drums?: Array<{ __typename: 'StructureDrums', player?: string | null } | null> | null };
 
 export type ConductorsPartsFragment = { __typename?: 'Conductors', conductors?: Array<{ __typename: 'ConductorsConductors', photo?: string | null, name?: string | null, text?: string | null } | null> | null };
 
@@ -616,17 +680,29 @@ export type GetHomeListQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetHomeListQuery = { __typename?: 'Query', getHomeList: { __typename?: 'HomeConnection', totalCount: number, edges?: Array<{ __typename?: 'HomeConnectionEdges', node?: { __typename?: 'HomeDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Home', title?: string | null } } | null } | null> | null } };
 
+export type GetAboutDocumentQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type GetAboutDocumentQuery = { __typename?: 'Query', getAboutDocument: { __typename?: 'AboutDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'About', description?: any | null } } };
+
+export type GetAboutListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAboutListQuery = { __typename?: 'Query', getAboutList: { __typename?: 'AboutConnection', totalCount: number, edges?: Array<{ __typename?: 'AboutConnectionEdges', node?: { __typename?: 'AboutDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'About', description?: any | null } } | null } | null> | null } };
+
 export type GetStructureDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type GetStructureDocumentQuery = { __typename?: 'Query', getStructureDocument: { __typename?: 'StructureDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Structure', first_violins?: Array<{ __typename: 'StructureFirst_violins', players?: Array<string | null> | null } | null> | null, second_violins?: Array<{ __typename: 'StructureSecond_violins', players?: Array<string | null> | null } | null> | null, viols?: Array<{ __typename: 'StructureViols', players?: Array<string | null> | null } | null> | null, violoncellos?: Array<{ __typename: 'StructureVioloncellos', players?: Array<string | null> | null } | null> | null, basses?: Array<{ __typename: 'StructureBasses', players?: Array<string | null> | null } | null> | null, flutes?: Array<{ __typename: 'StructureFlutes', players?: Array<string | null> | null } | null> | null, oboes?: Array<{ __typename: 'StructureOboes', players?: Array<string | null> | null } | null> | null, clarinets?: Array<{ __typename: 'StructureClarinets', players?: Array<string | null> | null } | null> | null, bassoons?: Array<{ __typename: 'StructureBassoons', players?: Array<string | null> | null } | null> | null, french_horns?: Array<{ __typename: 'StructureFrench_horns', players?: Array<string | null> | null } | null> | null, trumpets?: Array<{ __typename: 'StructureTrumpets', players?: Array<string | null> | null } | null> | null, trombones?: Array<{ __typename: 'StructureTrombones', players?: Array<string | null> | null } | null> | null, tube?: Array<{ __typename: 'StructureTube', players?: Array<string | null> | null } | null> | null, drums?: Array<{ __typename: 'StructureDrums', players?: Array<string | null> | null } | null> | null } } };
+export type GetStructureDocumentQuery = { __typename?: 'Query', getStructureDocument: { __typename?: 'StructureDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Structure', first_violins?: Array<{ __typename: 'StructureFirst_violins', player?: string | null } | null> | null, second_violins?: Array<{ __typename: 'StructureSecond_violins', player?: string | null } | null> | null, viols?: Array<{ __typename: 'StructureViols', player?: string | null } | null> | null, violoncellos?: Array<{ __typename: 'StructureVioloncellos', player?: string | null } | null> | null, basses?: Array<{ __typename: 'StructureBasses', player?: string | null } | null> | null, flutes?: Array<{ __typename: 'StructureFlutes', player?: string | null } | null> | null, oboes?: Array<{ __typename: 'StructureOboes', player?: string | null } | null> | null, clarinets?: Array<{ __typename: 'StructureClarinets', player?: string | null } | null> | null, bassoons?: Array<{ __typename: 'StructureBassoons', player?: string | null } | null> | null, french_horns?: Array<{ __typename: 'StructureFrench_horns', player?: string | null } | null> | null, trumpets?: Array<{ __typename: 'StructureTrumpets', player?: string | null } | null> | null, trombones?: Array<{ __typename: 'StructureTrombones', player?: string | null } | null> | null, tube?: Array<{ __typename: 'StructureTube', player?: string | null } | null> | null, drums?: Array<{ __typename: 'StructureDrums', player?: string | null } | null> | null } } };
 
 export type GetStructureListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetStructureListQuery = { __typename?: 'Query', getStructureList: { __typename?: 'StructureConnection', totalCount: number, edges?: Array<{ __typename?: 'StructureConnectionEdges', node?: { __typename?: 'StructureDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Structure', first_violins?: Array<{ __typename: 'StructureFirst_violins', players?: Array<string | null> | null } | null> | null, second_violins?: Array<{ __typename: 'StructureSecond_violins', players?: Array<string | null> | null } | null> | null, viols?: Array<{ __typename: 'StructureViols', players?: Array<string | null> | null } | null> | null, violoncellos?: Array<{ __typename: 'StructureVioloncellos', players?: Array<string | null> | null } | null> | null, basses?: Array<{ __typename: 'StructureBasses', players?: Array<string | null> | null } | null> | null, flutes?: Array<{ __typename: 'StructureFlutes', players?: Array<string | null> | null } | null> | null, oboes?: Array<{ __typename: 'StructureOboes', players?: Array<string | null> | null } | null> | null, clarinets?: Array<{ __typename: 'StructureClarinets', players?: Array<string | null> | null } | null> | null, bassoons?: Array<{ __typename: 'StructureBassoons', players?: Array<string | null> | null } | null> | null, french_horns?: Array<{ __typename: 'StructureFrench_horns', players?: Array<string | null> | null } | null> | null, trumpets?: Array<{ __typename: 'StructureTrumpets', players?: Array<string | null> | null } | null> | null, trombones?: Array<{ __typename: 'StructureTrombones', players?: Array<string | null> | null } | null> | null, tube?: Array<{ __typename: 'StructureTube', players?: Array<string | null> | null } | null> | null, drums?: Array<{ __typename: 'StructureDrums', players?: Array<string | null> | null } | null> | null } } | null } | null> | null } };
+export type GetStructureListQuery = { __typename?: 'Query', getStructureList: { __typename?: 'StructureConnection', totalCount: number, edges?: Array<{ __typename?: 'StructureConnectionEdges', node?: { __typename?: 'StructureDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Structure', first_violins?: Array<{ __typename: 'StructureFirst_violins', player?: string | null } | null> | null, second_violins?: Array<{ __typename: 'StructureSecond_violins', player?: string | null } | null> | null, viols?: Array<{ __typename: 'StructureViols', player?: string | null } | null> | null, violoncellos?: Array<{ __typename: 'StructureVioloncellos', player?: string | null } | null> | null, basses?: Array<{ __typename: 'StructureBasses', player?: string | null } | null> | null, flutes?: Array<{ __typename: 'StructureFlutes', player?: string | null } | null> | null, oboes?: Array<{ __typename: 'StructureOboes', player?: string | null } | null> | null, clarinets?: Array<{ __typename: 'StructureClarinets', player?: string | null } | null> | null, bassoons?: Array<{ __typename: 'StructureBassoons', player?: string | null } | null> | null, french_horns?: Array<{ __typename: 'StructureFrench_horns', player?: string | null } | null> | null, trumpets?: Array<{ __typename: 'StructureTrumpets', player?: string | null } | null> | null, trombones?: Array<{ __typename: 'StructureTrombones', player?: string | null } | null> | null, tube?: Array<{ __typename: 'StructureTube', player?: string | null } | null> | null, drums?: Array<{ __typename: 'StructureDrums', player?: string | null } | null> | null } } | null } | null> | null } };
 
 export type GetConductorsDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -657,63 +733,68 @@ export const HomePartsFragmentDoc = gql`
   title
 }
     `;
+export const AboutPartsFragmentDoc = gql`
+    fragment AboutParts on About {
+  description
+}
+    `;
 export const StructurePartsFragmentDoc = gql`
     fragment StructureParts on Structure {
   first_violins {
     __typename
-    players
+    player
   }
   second_violins {
     __typename
-    players
+    player
   }
   viols {
     __typename
-    players
+    player
   }
   violoncellos {
     __typename
-    players
+    player
   }
   basses {
     __typename
-    players
+    player
   }
   flutes {
     __typename
-    players
+    player
   }
   oboes {
     __typename
-    players
+    player
   }
   clarinets {
     __typename
-    players
+    player
   }
   bassoons {
     __typename
-    players
+    player
   }
   french_horns {
     __typename
-    players
+    player
   }
   trumpets {
     __typename
-    players
+    player
   }
   trombones {
     __typename
-    players
+    player
   }
   tube {
     __typename
-    players
+    player
   }
   drums {
     __typename
-    players
+    player
   }
 }
     `;
@@ -783,6 +864,47 @@ export const GetHomeListDocument = gql`
   }
 }
     ${HomePartsFragmentDoc}`;
+export const GetAboutDocumentDocument = gql`
+    query getAboutDocument($relativePath: String!) {
+  getAboutDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...AboutParts
+    }
+  }
+}
+    ${AboutPartsFragmentDoc}`;
+export const GetAboutListDocument = gql`
+    query getAboutList {
+  getAboutList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...AboutParts
+        }
+      }
+    }
+  }
+}
+    ${AboutPartsFragmentDoc}`;
 export const GetStructureDocumentDocument = gql`
     query getStructureDocument($relativePath: String!) {
   getStructureDocument(relativePath: $relativePath) {
@@ -914,6 +1036,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     getHomeList(variables?: GetHomeListQueryVariables, options?: C): Promise<{data: GetHomeListQuery, variables: GetHomeListQueryVariables, query: string}> {
         return requester<{data: GetHomeListQuery, variables: GetHomeListQueryVariables, query: string}, GetHomeListQueryVariables>(GetHomeListDocument, variables, options);
+      },
+    getAboutDocument(variables: GetAboutDocumentQueryVariables, options?: C): Promise<{data: GetAboutDocumentQuery, variables: GetAboutDocumentQueryVariables, query: string}> {
+        return requester<{data: GetAboutDocumentQuery, variables: GetAboutDocumentQueryVariables, query: string}, GetAboutDocumentQueryVariables>(GetAboutDocumentDocument, variables, options);
+      },
+    getAboutList(variables?: GetAboutListQueryVariables, options?: C): Promise<{data: GetAboutListQuery, variables: GetAboutListQueryVariables, query: string}> {
+        return requester<{data: GetAboutListQuery, variables: GetAboutListQueryVariables, query: string}, GetAboutListQueryVariables>(GetAboutListDocument, variables, options);
       },
     getStructureDocument(variables: GetStructureDocumentQueryVariables, options?: C): Promise<{data: GetStructureDocumentQuery, variables: GetStructureDocumentQueryVariables, query: string}> {
         return requester<{data: GetStructureDocumentQuery, variables: GetStructureDocumentQueryVariables, query: string}, GetStructureDocumentQueryVariables>(GetStructureDocumentDocument, variables, options);

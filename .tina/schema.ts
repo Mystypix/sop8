@@ -1,4 +1,3 @@
-
 import { defineSchema } from "@tinacms/cli";
 
 export default defineSchema({
@@ -16,6 +15,18 @@ export default defineSchema({
       ],
     },
     {
+      label: "About",
+      name: "about",
+      path: "_pages/about",
+      fields: [
+        {
+          label: 'Popis',
+          name: 'description',
+          type: 'rich-text',
+        }
+      ]
+    },
+    {
       label: "Structure",
       name: "structure",
       path: "_pages/structure",
@@ -28,9 +39,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         },
@@ -42,9 +52,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         },
@@ -56,9 +65,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         },
@@ -70,9 +78,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         },
@@ -84,9 +91,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         },
@@ -98,9 +104,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         },
@@ -112,9 +117,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         },
@@ -126,9 +130,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         },
@@ -140,9 +143,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         },
@@ -154,9 +156,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         },
@@ -168,9 +169,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         },
@@ -182,9 +182,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         },
@@ -196,9 +195,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         },
@@ -210,9 +208,8 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'players',
+              name: 'player',
               type: 'string',
-              list: true,
             }
           ]
         }
@@ -312,6 +309,3 @@ export default defineSchema({
   ],
 })
 
-export config = defineConfig({
-  apiURL: `https://content.tinajs.io/content/${myClientId}/github/${myBranch}`,
-})
