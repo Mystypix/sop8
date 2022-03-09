@@ -5,10 +5,7 @@ import { defineConfig } from "tinacms";
 import '../styles/index.css'
 
 const branch = 'main'
-const apiURL =
-  process.env.NODE_ENV == 'development'
-    ? 'http://localhost:4001/graphql'
-    : `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`
+const apiURL = `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`
 
 const tinaConfig = defineConfig({
   apiURL,
