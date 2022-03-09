@@ -1,6 +1,7 @@
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Conductor from '../components/conductor'
+import SectionTitle from '../components/section-title'
 import Head from 'next/head'
 import { staticRequest } from 'tinacms'
 import { useTina } from 'tinacms/dist/edit-state'
@@ -21,6 +22,7 @@ export default function Conductors({data: initialData, query}) {
           <title>Symfonicky orchestr Prahy 8</title>
         </Head>
         <Header />
+        <SectionTitle>Dirigenti</SectionTitle>
         <div>
           {conductors.map((props) => {
             return (

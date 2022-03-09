@@ -16,7 +16,7 @@ export const StyledHeader = styled.nav`
     width: 100vw;
     height: 80px;
     background-color: ${props => props.isHomepage ? 'unset' : '#fff'};
-    color: ${props => props.isHomepage ? '#fff' : '#000'};    
+    color: ${props => props.isHomepage ? '#fff' : 'var(--color-text)'};    
     box-shadow: ${props => props.isHomepage ? 'unset' : '0 1px 10px 0 rgba(0,0,0,.1)'};    
 `
 
@@ -35,7 +35,7 @@ export const StyledLogo = ({ href, children }) => (
 const StyledItemAnchor = styled.a`
     margin: 0 10px;
     padding: 0 5px;
-    color: ${props => props.active ? "brown" : "inherit"};
+    color: ${props => props.active ? "var(--color-primary)" : "inherit"};
     font-size: 20px;
 `
 

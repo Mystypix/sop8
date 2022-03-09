@@ -2,15 +2,18 @@ import styled from 'styled-components'
 
 export const StyledWrapper = styled.div`
     display: flex;
-    margin: 0 auto 20px;
-    max-width: 500px;
+    margin: 0 auto 120px;
+    max-width: 800px;
     cursor: pointer;
 `
 
 export const StyledAvatar = styled.div`
+    flex: 0 0 200px;
+    margin-right: 60px;
     border-radius: 50%;
     overflow: hidden;
-    height: 100px;
+    width: 200px;
+    height: 200px;
 `
 
 export const StyledName = styled.div`
