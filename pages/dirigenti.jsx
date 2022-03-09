@@ -14,7 +14,6 @@ export default function Conductors({data: initialData, query}) {
   })
 
   const {conductors} = data.getConductorsDocument.data
-  console.log('conductors', conductors)
   return (
     <>
       <Layout>
