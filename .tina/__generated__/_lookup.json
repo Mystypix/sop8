@@ -7,7 +7,8 @@
       "about",
       "structure",
       "conductors",
-      "concerts"
+      "concerts",
+      "contact"
     ]
   },
   "Node": {
@@ -79,5 +80,17 @@
     "type": "ConcertsConnection",
     "resolveType": "collectionDocumentList",
     "collection": "concerts"
+  },
+  "ContactDocument": {
+    "type": "ContactDocument",
+    "resolveType": "collectionDocument",
+    "collection": "contact",
+    "createContactDocument": "create",
+    "updateContactDocument": "update"
+  },
+  "ContactConnection": {
+    "type": "ContactConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "contact"
   }
 }

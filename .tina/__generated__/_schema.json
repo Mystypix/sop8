@@ -522,6 +522,97 @@
       "namespace": [
         "concerts"
       ]
+    },
+    {
+      "label": "Contact",
+      "name": "contact",
+      "path": "_pages/contact",
+      "fields": [
+        {
+          "label": "Email",
+          "name": "email",
+          "type": "string",
+          "namespace": [
+            "contact",
+            "email"
+          ]
+        },
+        {
+          "label": "Vedouci orchestru",
+          "name": "leadership",
+          "type": "object",
+          "fields": [
+            {
+              "label": "Name",
+              "name": "name",
+              "type": "string",
+              "namespace": [
+                "contact",
+                "leadership",
+                "name"
+              ]
+            },
+            {
+              "label": "Telefon",
+              "name": "phone",
+              "type": "string",
+              "namespace": [
+                "contact",
+                "leadership",
+                "phone"
+              ]
+            },
+            {
+              "label": "Email",
+              "name": "email",
+              "type": "string",
+              "namespace": [
+                "contact",
+                "leadership",
+                "email"
+              ]
+            }
+          ],
+          "namespace": [
+            "contact",
+            "leadership"
+          ]
+        },
+        {
+          "label": "Info o zkouskach",
+          "name": "practice",
+          "type": "object",
+          "fields": [
+            {
+              "label": "Text",
+              "name": "text",
+              "type": "string",
+              "namespace": [
+                "contact",
+                "practice",
+                "text"
+              ]
+            },
+            {
+              "label": "Adressa",
+              "name": "address",
+              "type": "string",
+              "namespace": [
+                "contact",
+                "practice",
+                "address"
+              ]
+            }
+          ],
+          "namespace": [
+            "contact",
+            "practice"
+          ]
+        }
+      ],
+      "namespace": [
+        "contact"
+      ]
     }
   ]
 }

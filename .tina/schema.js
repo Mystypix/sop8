@@ -1,4 +1,4 @@
-import { defineSchema } from "@tinacms/cli";
+import { defineSchema, defineConfig } from 'tinacms'
 
 export default defineSchema({
   collections: [
@@ -305,7 +305,76 @@ export default defineSchema({
           ]
         }
       ]
+    },
+    {
+      label: 'Contact',
+      name: 'contact',
+      path: '_pages/contact',
+      fields: [
+        {
+          label: 'Email',
+          name: 'email',
+          type: 'string',
+        },
+        {
+          label: 'Vedouci orchestru',
+          name: 'leadership',
+          type: 'object',
+          fields: [
+            {
+              label: 'Name',
+              name: 'name',
+              type: 'string',
+            },
+            {
+              label: 'Telefon',
+              name: 'phone',
+              type: 'string',
+            },
+            {
+              label: 'Email',
+              name: 'email',
+              type: 'string',
+            }
+          ]
+        },
+        {
+          label: 'Info o zkouskach',
+          name: 'practice',
+          type: 'object',
+          fields: [
+            {
+              label: 'Text',
+              name: 'text',
+              type: 'string',
+            },
+            {
+              label: 'Adressa',
+              name: 'address',
+              type: 'string',
+            }
+          ]
+        }
+      ]
     }
   ],
 })
 
+const branch = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF
+const apiURL = process.env.NODE_ENV == 'development'
+  ? 'http://localhost:4001/graphql'
+  : `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`
+
+export const tinaConfig = defineConfig({
+  apiURL,
+  mediaStore: async () => {
+  // Load media store dynamically so it only loads in edit mode
+    const pack = await import("next-tinacms-cloudinary")
+    console.log('yes', pack)
+    return pack.TinaCloudCloudinaryMediaStore
+  },
+  cmsCallback: (cms) => {
+    cms.flags.set('tina-admin', true)
+    return cms
+  }
+})

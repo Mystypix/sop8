@@ -87,3 +87,18 @@ fragment ConcertsParts on Concerts {
     description
   }
 }
+
+fragment ContactParts on Contact {
+  email
+  leadership {
+    __typename
+    name
+    phone
+    email
+  }
+  practice {
+    __typename
+    text
+    address
+  }
+}

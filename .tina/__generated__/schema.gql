@@ -58,6 +58,8 @@ type Query {
   getConductorsList(before: String, after: String, first: Float, last: Float): ConductorsConnection!
   getConcertsDocument(relativePath: String): ConcertsDocument!
   getConcertsList(before: String, after: String, first: Float, last: Float): ConcertsConnection!
+  getContactDocument(relativePath: String): ContactDocument!
+  getContactList(before: String, after: String, first: Float, last: Float): ContactConnection!
 }
 
 type DocumentConnectionEdges {
@@ -83,7 +85,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float): DocumentConnection!
 }
 
-union DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertsDocument
+union DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertsDocument | ContactDocument
 
 type Home {
   title: String
@@ -291,6 +293,43 @@ type ConcertsConnection implements Connection {
   edges: [ConcertsConnectionEdges]
 }
 
+type ContactLeadership {
+  name: String
+  phone: String
+  email: String
+}
+
+type ContactPractice {
+  text: String
+  address: String
+}
+
+type Contact {
+  email: String
+  leadership: ContactLeadership
+  practice: ContactPractice
+}
+
+type ContactDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: Contact!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type ContactConnectionEdges {
+  cursor: String
+  node: ContactDocument
+}
+
+type ContactConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Float!
+  edges: [ContactConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
@@ -305,6 +344,8 @@ type Mutation {
   createConductorsDocument(relativePath: String!, params: ConductorsMutation!): ConductorsDocument!
   updateConcertsDocument(relativePath: String!, params: ConcertsMutation!): ConcertsDocument!
   createConcertsDocument(relativePath: String!, params: ConcertsMutation!): ConcertsDocument!
+  updateContactDocument(relativePath: String!, params: ContactMutation!): ContactDocument!
+  createContactDocument(relativePath: String!, params: ContactMutation!): ContactDocument!
 }
 
 input DocumentMutation {
@@ -313,6 +354,7 @@ input DocumentMutation {
   structure: StructureMutation
   conductors: ConductorsMutation
   concerts: ConcertsMutation
+  contact: ContactMutation
 }
 
 input HomeMutation {
@@ -419,6 +461,23 @@ input ConcertsConcertsMutation {
 
 input ConcertsMutation {
   concerts: [ConcertsConcertsMutation]
+}
+
+input ContactLeadershipMutation {
+  name: String
+  phone: String
+  email: String
+}
+
+input ContactPracticeMutation {
+  text: String
+  address: String
+}
+
+input ContactMutation {
+  email: String
+  leadership: ContactLeadershipMutation
+  practice: ContactPracticeMutation
 }
 
 schema {

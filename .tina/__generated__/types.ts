@@ -77,6 +77,8 @@ export type Query = {
   getConductorsList: ConductorsConnection;
   getConcertsDocument: ConcertsDocument;
   getConcertsList: ConcertsConnection;
+  getContactDocument: ContactDocument;
+  getContactList: ContactConnection;
 };
 
 
@@ -168,6 +170,19 @@ export type QueryGetConcertsListArgs = {
   last?: InputMaybe<Scalars['Float']>;
 };
 
+
+export type QueryGetContactDocumentArgs = {
+  relativePath?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetContactListArgs = {
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
+};
+
 export type DocumentConnectionEdges = {
   __typename?: 'DocumentConnectionEdges';
   cursor?: Maybe<Scalars['String']>;
@@ -202,7 +217,7 @@ export type CollectionDocumentsArgs = {
   last?: InputMaybe<Scalars['Float']>;
 };
 
-export type DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertsDocument;
+export type DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertsDocument | ContactDocument;
 
 export type Home = {
   __typename?: 'Home';
@@ -446,6 +461,49 @@ export type ConcertsConnection = Connection & {
   edges?: Maybe<Array<Maybe<ConcertsConnectionEdges>>>;
 };
 
+export type ContactLeadership = {
+  __typename?: 'ContactLeadership';
+  name?: Maybe<Scalars['String']>;
+  phone?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+};
+
+export type ContactPractice = {
+  __typename?: 'ContactPractice';
+  text?: Maybe<Scalars['String']>;
+  address?: Maybe<Scalars['String']>;
+};
+
+export type Contact = {
+  __typename?: 'Contact';
+  email?: Maybe<Scalars['String']>;
+  leadership?: Maybe<ContactLeadership>;
+  practice?: Maybe<ContactPractice>;
+};
+
+export type ContactDocument = Node & Document & {
+  __typename?: 'ContactDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: Contact;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type ContactConnectionEdges = {
+  __typename?: 'ContactConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<ContactDocument>;
+};
+
+export type ContactConnection = Connection & {
+  __typename?: 'ContactConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Float'];
+  edges?: Maybe<Array<Maybe<ContactConnectionEdges>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -461,6 +519,8 @@ export type Mutation = {
   createConductorsDocument: ConductorsDocument;
   updateConcertsDocument: ConcertsDocument;
   createConcertsDocument: ConcertsDocument;
+  updateContactDocument: ContactDocument;
+  createContactDocument: ContactDocument;
 };
 
 
@@ -544,12 +604,25 @@ export type MutationCreateConcertsDocumentArgs = {
   params: ConcertsMutation;
 };
 
+
+export type MutationUpdateContactDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: ContactMutation;
+};
+
+
+export type MutationCreateContactDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: ContactMutation;
+};
+
 export type DocumentMutation = {
   home?: InputMaybe<HomeMutation>;
   about?: InputMaybe<AboutMutation>;
   structure?: InputMaybe<StructureMutation>;
   conductors?: InputMaybe<ConductorsMutation>;
   concerts?: InputMaybe<ConcertsMutation>;
+  contact?: InputMaybe<ContactMutation>;
 };
 
 export type HomeMutation = {
@@ -658,6 +731,23 @@ export type ConcertsMutation = {
   concerts?: InputMaybe<Array<InputMaybe<ConcertsConcertsMutation>>>;
 };
 
+export type ContactLeadershipMutation = {
+  name?: InputMaybe<Scalars['String']>;
+  phone?: InputMaybe<Scalars['String']>;
+  email?: InputMaybe<Scalars['String']>;
+};
+
+export type ContactPracticeMutation = {
+  text?: InputMaybe<Scalars['String']>;
+  address?: InputMaybe<Scalars['String']>;
+};
+
+export type ContactMutation = {
+  email?: InputMaybe<Scalars['String']>;
+  leadership?: InputMaybe<ContactLeadershipMutation>;
+  practice?: InputMaybe<ContactPracticeMutation>;
+};
+
 export type HomePartsFragment = { __typename?: 'Home', title?: string | null };
 
 export type AboutPartsFragment = { __typename?: 'About', description?: any | null };
@@ -667,6 +757,8 @@ export type StructurePartsFragment = { __typename?: 'Structure', first_violins?:
 export type ConductorsPartsFragment = { __typename?: 'Conductors', conductors?: Array<{ __typename: 'ConductorsConductors', photo?: string | null, name?: string | null, text?: string | null } | null> | null };
 
 export type ConcertsPartsFragment = { __typename?: 'Concerts', concerts?: Array<{ __typename: 'ConcertsConcerts', name?: string | null, date?: string | null, time?: string | null, address?: string | null, conductor?: string | null, solists?: string | null, price?: string | null, description?: any | null } | null> | null };
+
+export type ContactPartsFragment = { __typename?: 'Contact', email?: string | null, leadership?: { __typename: 'ContactLeadership', name?: string | null, phone?: string | null, email?: string | null } | null, practice?: { __typename: 'ContactPractice', text?: string | null, address?: string | null } | null };
 
 export type GetHomeDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -727,6 +819,18 @@ export type GetConcertsListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetConcertsListQuery = { __typename?: 'Query', getConcertsList: { __typename?: 'ConcertsConnection', totalCount: number, edges?: Array<{ __typename?: 'ConcertsConnectionEdges', node?: { __typename?: 'ConcertsDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Concerts', concerts?: Array<{ __typename: 'ConcertsConcerts', name?: string | null, date?: string | null, time?: string | null, address?: string | null, conductor?: string | null, solists?: string | null, price?: string | null, description?: any | null } | null> | null } } | null } | null> | null } };
+
+export type GetContactDocumentQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type GetContactDocumentQuery = { __typename?: 'Query', getContactDocument: { __typename?: 'ContactDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Contact', email?: string | null, leadership?: { __typename: 'ContactLeadership', name?: string | null, phone?: string | null, email?: string | null } | null, practice?: { __typename: 'ContactPractice', text?: string | null, address?: string | null } | null } } };
+
+export type GetContactListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetContactListQuery = { __typename?: 'Query', getContactList: { __typename?: 'ContactConnection', totalCount: number, edges?: Array<{ __typename?: 'ContactConnectionEdges', node?: { __typename?: 'ContactDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Contact', email?: string | null, leadership?: { __typename: 'ContactLeadership', name?: string | null, phone?: string | null, email?: string | null } | null, practice?: { __typename: 'ContactPractice', text?: string | null, address?: string | null } | null } } | null } | null> | null } };
 
 export const HomePartsFragmentDoc = gql`
     fragment HomeParts on Home {
@@ -820,6 +924,22 @@ export const ConcertsPartsFragmentDoc = gql`
     solists
     price
     description
+  }
+}
+    `;
+export const ContactPartsFragmentDoc = gql`
+    fragment ContactParts on Contact {
+  email
+  leadership {
+    __typename
+    name
+    phone
+    email
+  }
+  practice {
+    __typename
+    text
+    address
   }
 }
     `;
@@ -1028,6 +1148,47 @@ export const GetConcertsListDocument = gql`
   }
 }
     ${ConcertsPartsFragmentDoc}`;
+export const GetContactDocumentDocument = gql`
+    query getContactDocument($relativePath: String!) {
+  getContactDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...ContactParts
+    }
+  }
+}
+    ${ContactPartsFragmentDoc}`;
+export const GetContactListDocument = gql`
+    query getContactList {
+  getContactList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...ContactParts
+        }
+      }
+    }
+  }
+}
+    ${ContactPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -1060,6 +1221,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     getConcertsList(variables?: GetConcertsListQueryVariables, options?: C): Promise<{data: GetConcertsListQuery, variables: GetConcertsListQueryVariables, query: string}> {
         return requester<{data: GetConcertsListQuery, variables: GetConcertsListQueryVariables, query: string}, GetConcertsListQueryVariables>(GetConcertsListDocument, variables, options);
+      },
+    getContactDocument(variables: GetContactDocumentQueryVariables, options?: C): Promise<{data: GetContactDocumentQuery, variables: GetContactDocumentQueryVariables, query: string}> {
+        return requester<{data: GetContactDocumentQuery, variables: GetContactDocumentQueryVariables, query: string}, GetContactDocumentQueryVariables>(GetContactDocumentDocument, variables, options);
+      },
+    getContactList(variables?: GetContactListQueryVariables, options?: C): Promise<{data: GetContactListQuery, variables: GetContactListQueryVariables, query: string}> {
+        return requester<{data: GetContactListQuery, variables: GetContactListQueryVariables, query: string}, GetContactListQueryVariables>(GetContactListDocument, variables, options);
       }
     };
   }

@@ -1,5 +1,6 @@
 import Layout from '../../components/layout'
 import Header from '../../components/header'
+import SectionTitle from '../../components/section-title'
 import Head from 'next/head'
 import { staticRequest } from 'tinacms'
 import { useTina } from 'tinacms/dist/edit-state'
@@ -21,6 +22,7 @@ export default function Concerts({data: initialData, query}) {
           <title>Symfonicky orchestr Prahy 8</title>
         </Head>
         <Header />
+        <SectionTitle>Koncerty</SectionTitle>
         <div>
           {concerts.map((concert) => {
             return (

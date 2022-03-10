@@ -11,7 +11,7 @@ export default function Structure({data: initialData, query}) {
     data: initialData,
   })
 
-  const {first_violins} = data.getStructureDocument.data
+  const {first_violins, second_violins, viols} = data.getStructureDocument.data
   return (
     <>
       <Layout>
@@ -22,6 +22,12 @@ export default function Structure({data: initialData, query}) {
         <div>
           {first_violins.map(({player}) => <div key={player}>{player}</div>)}
         </div>
+        {/* <div>
+          {second_violins.map(({player}) => <div key={player}>{player}</div>)}
+        </div>
+        <div>
+          {viols.map(({player}) => <div key={player}>{player}</div>)}
+        </div> */}
       </Layout>
     </>
   )

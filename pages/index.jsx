@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { staticRequest } from 'tinacms'
 import { useTina } from 'tinacms/dist/edit-state'
-import {StyledIntro, StyledConcertsSection} from '../pages-styles/index.styles'
+import {StyledIntro, StyledConcertsSection, StyledIntroText} from '../pages-styles/index.styles'
 import ConcertCard from '../components/concert-card'
 import SectionTitle from '../components/section-title'
 
@@ -27,17 +27,13 @@ export default function Index({data: initialData, query}) {
         </Head>
         <StyledIntro>
           <Image priority src='/assets/images/intro.jpg' layout='fill' objectFit='cover' />
-          <h2>{title}</h2>
+          <StyledIntroText>{title}</StyledIntroText>
         </StyledIntro>
         <StyledConcertsSection>
           <SectionTitle>
-            Nejbližší koncerty
+            Příští koncert
           </SectionTitle>
-          {concerts.map((props) => {
-            return (
-              <ConcertCard key={props.name} {...props} />
-            )
-          })}
+          <ConcertCard {...concerts[0]} />
         </StyledConcertsSection>
       </Layout>
     </>
