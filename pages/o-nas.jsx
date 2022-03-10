@@ -1,7 +1,10 @@
 import Layout from '../components/layout'
 import Header from '../components/header'
+import SectionTitle from '../components/section-title'
+import {StyledWrapper} from '../pages-styles/o-nas.styles'
 import Head from 'next/head'
 import { staticRequest } from 'tinacms'
+import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { useTina } from 'tinacms/dist/edit-state'
 
 export default function About({data: initialData, query}) {
@@ -11,26 +14,19 @@ export default function About({data: initialData, query}) {
     data: initialData,
   })
 
-  const {description} = data.getAboutDocument.data
-  console.log('dsfkljdsf', description)
   return (
     <>
       <Layout>
         <Head>
-          <title>Symfonicky orchestr Prahy 8 - O nas</title>
+          <title>Symfonicky orchestr Prahy 8 - O nás</title>
         </Head>
         <Header />
-        <div>
-            {/* {description} */}
-          {/* {conductors.map((conductor) => {
-            return (
-              <div key={conductor.name}>
-                <h3>{conductor.name}</h3>
-                <p>{conductor.text}</p>
-              </div>
-            )
-          })} */}
-        </div>
+        <SectionTitle>O nás</SectionTitle>
+        <StyledWrapper>
+          <TinaMarkdown
+            content={data.getAboutDocument.data.description}
+          />
+        </StyledWrapper>
       </Layout>
     </>
   )
@@ -42,7 +38,7 @@ export const getStaticProps = async () => {
     query AboutQuery($relativePath: String!) {
       getAboutDocument(relativePath: $relativePath) {
         data {
-            description
+          description
         }
       }
     }
