@@ -3,7 +3,6 @@ import { isAuthorized } from '@tinacms/auth'
   
 export const config = mediaHandlerConfig
 
-console.log('hmmmmmmmm')
 export default createMediaHandler({
     cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
     api_key: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,

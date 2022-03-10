@@ -64,7 +64,6 @@ const ActiveLink = ({ children, ...props }) => {
 
       if (linkPathname === activePathname) {
         setActive(true)
-        console.log('yeeee')
       }
 
       // const newClassName =
