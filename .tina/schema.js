@@ -361,9 +361,7 @@ export default defineSchema({
 })
 
 const branch = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF
-const apiURL = process.env.VERCEL_ENV === 'development'
-  ? 'http://localhost:4001/graphql'
-  : `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`
+const apiURL = `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`
 
 export const tinaConfig = defineConfig({
   apiURL,

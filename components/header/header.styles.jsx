@@ -65,15 +65,6 @@ const ActiveLink = ({ children, ...props }) => {
       if (linkPathname === activePathname) {
         setActive(true)
       }
-
-      // const newClassName =
-      //   linkPathname === activePathname
-      //     ? `${childClassName} ${activeClassName}`.trim()
-      //     : childClassName
-
-      // if (newClassName !== className) {
-      //   setClassName(newClassName)
-      // }
     }
   }, [
     asPath,
