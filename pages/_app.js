@@ -1,4 +1,4 @@
-import TinaProvider from '../.tina/components/TinaDynamicProvider.js'
+import TinaProvider from '../.tina/components/TinaDynamicProvider'
 import '../styles/index.css'
 
 const App = ({ Component, pageProps }) => {
