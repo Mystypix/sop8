@@ -5,6 +5,13 @@ export const StyledWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 60px;
     margin-bottom: 60px;
+
+    @media screen and (max-width: 1140px) {
+        grid-template-columns: 1fr;
+        grid-row-gap: 60px;
+        grid-template-rows: auto auto;
+        text-align: center;
+    }
 `
 
 export const StyledMapWrapper = styled.div`

@@ -31,6 +31,7 @@ export default function Meta() {
       <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     </Head>
   )
 }

@@ -16,6 +16,11 @@ export const StyledIntroText = styled.h2`
     line-height: 45px;
     text-shadow: 0px 0px 30px #fff;
     font-family: 'Fondamento', cursive;
+
+    @media screen and (max-width: 1140px) {
+        font-size: 20px;
+        line-height: 30px;
+    }
 `
 
 export const StyledConcertsSection = styled.section`

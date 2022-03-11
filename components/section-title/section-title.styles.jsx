@@ -7,4 +7,9 @@ export const StyledSectionTitle = styled.h2`
     font-weight: 300;
     line-height: 40px;
     color: var(--color-primary);
+
+    @media screen and (max-width: 1140px) {
+        font-size: 20px;
+        line-height: 30px;
+    }
 `

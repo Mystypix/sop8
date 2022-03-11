@@ -5,6 +5,12 @@ export const StyledWrapper = styled.div`
     margin: 0 auto 120px;
     max-width: 800px;
     cursor: pointer;
+
+    @media screen and (max-width: 1140px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 `
 
 export const StyledAvatar = styled.div`
@@ -14,6 +20,14 @@ export const StyledAvatar = styled.div`
     overflow: hidden;
     width: 200px;
     height: 200px;
+
+    @media screen and (max-width: 1140px) {
+        flex: 0 0 150px;
+        margin-right: unset;
+        margin-bottom: 30px;
+        width: 150px;
+        height: 150px;
+    }
 `
 
 export const StyledName = styled.div`
