@@ -19,10 +19,30 @@ export const StyledDate = styled.div`
     flex: 0 0 100px;
     display: flex;
     align-items: center;
+    border-right: 2px dashed var(--color-primary);
     padding: 15px 20px;
     text-align: center;
+    line-height: 30px;
+    font-weight: 700;
+    color: var(--color-primary);
 `
 
 export const StyledConcertInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 15px 20px; 
+`
+
+export const StyledDetails = styled.div`
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 15px;
+`
+
+export const StyledDetail = styled.div`
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 5px;
+    align-items: center;
 `

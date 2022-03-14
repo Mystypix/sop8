@@ -8,6 +8,10 @@
     "tina-start": "yarn tinacms server:start -c \"next start\""
   },
   "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.5.0",
+    "@mui/material": "^5.5.0",
     "@tinacms/auth": "^0.50.2",
     "@tinacms/cli": "^0.60.5",
     "classnames": "2.3.1",

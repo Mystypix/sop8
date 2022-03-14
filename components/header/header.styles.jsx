@@ -110,6 +110,7 @@ const ActiveLink = ({ children, ...props }) => {
 
 export const StyledMenuBtn = styled.div`
   position: relative;
+  display: none;
   border-radius: 10px;
   width: 30px;
   height: 3px;
@@ -137,5 +138,9 @@ export const StyledMenuBtn = styled.div`
   &::after {
     bottom: -9px;
     transform: translate(${props => props.open ? '0, -9px' : '0, 0'}) rotate(${props => props.open ? '-90deg' : '0deg'});
+  }
+
+  @media screen and (max-width: 1140px) {
+    display: block;
   }
 `
