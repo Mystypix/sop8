@@ -55,6 +55,9 @@
           "name": "first_violins",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -77,6 +80,9 @@
           "name": "second_violins",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -99,6 +105,9 @@
           "name": "viols",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -121,6 +130,9 @@
           "name": "violoncellos",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -143,6 +155,9 @@
           "name": "basses",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -165,6 +180,9 @@
           "name": "flutes",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -187,6 +205,9 @@
           "name": "oboes",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -209,6 +230,9 @@
           "name": "clarinets",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -231,6 +255,9 @@
           "name": "bassoons",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -253,6 +280,9 @@
           "name": "french_horns",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -275,6 +305,9 @@
           "name": "trumpets",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -297,6 +330,9 @@
           "name": "trombones",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -319,6 +355,9 @@
           "name": "tube",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -341,6 +380,9 @@
           "name": "drums",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Jmeno hrace",
@@ -373,6 +415,9 @@
           "name": "conductors",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Fotka",
@@ -428,6 +473,9 @@
           "name": "concerts",
           "type": "object",
           "list": true,
+          "ui": {
+            "component": "group-list"
+          },
           "fields": [
             {
               "label": "Nazev",

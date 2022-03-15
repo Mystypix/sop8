@@ -36,6 +36,9 @@ export default defineSchema({
           name: 'first_violins',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -49,6 +52,9 @@ export default defineSchema({
           name: 'second_violins',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -62,6 +68,9 @@ export default defineSchema({
           name: 'viols',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -75,6 +84,9 @@ export default defineSchema({
           name: 'violoncellos',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -88,6 +100,9 @@ export default defineSchema({
           name: 'basses',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -101,6 +116,9 @@ export default defineSchema({
           name: 'flutes',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -114,6 +132,9 @@ export default defineSchema({
           name: 'oboes',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -127,6 +148,9 @@ export default defineSchema({
           name: 'clarinets',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -140,6 +164,9 @@ export default defineSchema({
           name: 'bassoons',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -153,6 +180,9 @@ export default defineSchema({
           name: 'french_horns',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -166,6 +196,9 @@ export default defineSchema({
           name: 'trumpets',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -179,6 +212,9 @@ export default defineSchema({
           name: 'trombones',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -192,6 +228,9 @@ export default defineSchema({
           name: 'tube',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -205,6 +244,9 @@ export default defineSchema({
           name: 'drums',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Jmeno hrace',
@@ -225,6 +267,9 @@ export default defineSchema({
           name: 'conductors',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Fotka',
@@ -258,6 +303,9 @@ export default defineSchema({
           name: 'concerts',
           type: 'object',
           list: true,
+          ui: {
+            component: 'group-list',
+          },
           fields: [
             {
               label: 'Nazev',
@@ -373,6 +421,9 @@ export const tinaConfig = defineConfig({
   },
   cmsCallback: (cms) => {
     cms.flags.set('tina-admin', true)
+    import('./plugins.jsx').then(({ customListItem }) => {
+      cms.plugins.add(customListItem)
+    })
     return cms
   }
 })

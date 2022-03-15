@@ -29,17 +29,17 @@ export default function Contact({data: initialData, query}) {
         <StyledWrapper>
           <div>
             <div>
-              <strong>Orchestralni Email: </strong>
+              <strong>Orchestrální Email: </strong>
               <a href={`mailto:${email}`}>{email}</a>
             </div>
             <div>
-              <div><strong>Vedouci orchestru: </strong>{leadership.name}</div>
-              <div>Email: <a href={`mailto:${leadership.email}`}>{leadership.email}</a></div>
-              <div>Telefon: <a href={`tel:${leadership.phone}`}>{leadership.phone}</a></div>
+              <div><strong>Vedoucí orchestru: </strong>{leadership.name}</div>
+              <div><strong>Email:</strong> <a href={`mailto:${leadership.email}`}>{leadership.email}</a></div>
+              <div><strong>Telefon:</strong> <a href={`tel:${leadership.phone}`}>{leadership.phone}</a></div>
             </div>
           </div>
           <div>
-            <div>Kde hrajeme</div>
+            <div><strong>Kde hrajeme</strong></div>
             <div>{practice.text}</div>
             <div>{practice.address}</div>
             <StyledMapWrapper>
