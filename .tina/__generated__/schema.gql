@@ -56,8 +56,8 @@ type Query {
   getStructureList(before: String, after: String, first: Float, last: Float): StructureConnection!
   getConductorsDocument(relativePath: String): ConductorsDocument!
   getConductorsList(before: String, after: String, first: Float, last: Float): ConductorsConnection!
-  getConcertsDocument(relativePath: String): ConcertsDocument!
-  getConcertsList(before: String, after: String, first: Float, last: Float): ConcertsConnection!
+  getConcertDocument(relativePath: String): ConcertDocument!
+  getConcertList(before: String, after: String, first: Float, last: Float): ConcertConnection!
   getContactDocument(relativePath: String): ContactDocument!
   getContactList(before: String, after: String, first: Float, last: Float): ContactConnection!
 }
@@ -85,7 +85,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float): DocumentConnection!
 }
 
-union DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertsDocument | ContactDocument
+union DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertDocument | ContactDocument
 
 type Home {
   title: String
@@ -258,7 +258,7 @@ type ConductorsConnection implements Connection {
   edges: [ConductorsConnectionEdges]
 }
 
-type ConcertsConcerts {
+type Concert {
   name: String
   date: String
   time: String
@@ -269,28 +269,24 @@ type ConcertsConcerts {
   description: JSON
 }
 
-type Concerts {
-  concerts: [ConcertsConcerts]
-}
-
-type ConcertsDocument implements Node & Document {
+type ConcertDocument implements Node & Document {
   id: ID!
   sys: SystemInfo!
-  data: Concerts!
+  data: Concert!
   form: JSON!
   values: JSON!
   dataJSON: JSON!
 }
 
-type ConcertsConnectionEdges {
+type ConcertConnectionEdges {
   cursor: String
-  node: ConcertsDocument
+  node: ConcertDocument
 }
 
-type ConcertsConnection implements Connection {
+type ConcertConnection implements Connection {
   pageInfo: PageInfo
   totalCount: Float!
-  edges: [ConcertsConnectionEdges]
+  edges: [ConcertConnectionEdges]
 }
 
 type ContactLeadership {
@@ -342,8 +338,8 @@ type Mutation {
   createStructureDocument(relativePath: String!, params: StructureMutation!): StructureDocument!
   updateConductorsDocument(relativePath: String!, params: ConductorsMutation!): ConductorsDocument!
   createConductorsDocument(relativePath: String!, params: ConductorsMutation!): ConductorsDocument!
-  updateConcertsDocument(relativePath: String!, params: ConcertsMutation!): ConcertsDocument!
-  createConcertsDocument(relativePath: String!, params: ConcertsMutation!): ConcertsDocument!
+  updateConcertDocument(relativePath: String!, params: ConcertMutation!): ConcertDocument!
+  createConcertDocument(relativePath: String!, params: ConcertMutation!): ConcertDocument!
   updateContactDocument(relativePath: String!, params: ContactMutation!): ContactDocument!
   createContactDocument(relativePath: String!, params: ContactMutation!): ContactDocument!
 }
@@ -353,7 +349,7 @@ input DocumentMutation {
   about: AboutMutation
   structure: StructureMutation
   conductors: ConductorsMutation
-  concerts: ConcertsMutation
+  concert: ConcertMutation
   contact: ContactMutation
 }
 
@@ -448,7 +444,7 @@ input ConductorsMutation {
   conductors: [ConductorsConductorsMutation]
 }
 
-input ConcertsConcertsMutation {
+input ConcertMutation {
   name: String
   date: String
   time: String
@@ -457,10 +453,6 @@ input ConcertsConcertsMutation {
   solists: String
   price: String
   description: JSON
-}
-
-input ConcertsMutation {
-  concerts: [ConcertsConcertsMutation]
 }
 
 input ContactLeadershipMutation {

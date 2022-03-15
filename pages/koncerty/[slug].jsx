@@ -1,19 +1,32 @@
 import Layout from '../../components/layout'
 import Header from '../../components/header'
-import Conductor from '../../components/conductor'
 import SectionTitle from '../../components/section-title'
 import Head from 'next/head'
 import { staticRequest } from 'tinacms'
 import { useTina } from 'tinacms/dist/edit-state'
 
-export default function ConcertDetail({data: initialData, query}) {
+const query = `
+  query ConcertDetailQuery($relativePath: String!) {
+    getConcertDocument(relativePath: $relativePath) {
+      data {
+        concerts {
+          name
+        }
+      }
+    }
+  }
+`
+
+export default function ConcertDetail(props) {
+
   const { data } = useTina({
     query,
-    variables: { relativePath: '/concerts.md' },
-    data: initialData,
+    variables: props.variables,
+    data: props.data,
   })
 
-//   const {concerts} = data.getConcertsDocument.data
+  const {concerts} = data.getConcertDocument.data
+  console.log('zebyyby', concerts)
   return (
     <>
       <Layout>
@@ -28,37 +41,51 @@ export default function ConcertDetail({data: initialData, query}) {
               <Conductor key={props.name} {...props} />
             )
           })} */}
+          jdkfjdkfgjkd
         </div>
       </Layout>
     </>
   )
 }
 
-// export const getStaticProps = async () => {
-//   const variables = { relativePath: '/conductors.md' }
-//   const query = `
-//     query ConductorQuery($relativePath: String!) {
-//       getConductorsDocument(relativePath: $relativePath) {
-//         data {
-//           conductors {
-//             photo
-//             name
-//             text
-//           }
-//         }
-//       }
-//     }
-//   `
-//   const data = await staticRequest({
-//     query: query,
-//     variables: variables,
-//   })
+export const getStaticPaths = async () => {
+  const concertListData = await staticRequest({
+    query: `
+      query GetPostList {
+        getConcertList {
+          edges {
+            node {
+              sys {
+                filename
+              }
+            }
+          }
+        }
+      }
+    `,
+  })
 
-//   return {
-//     props: {
-//       query,
-//       variables,
-//       data,
-//     },
-//   }
-// }
+  return {
+    paths: concertListData.getConcertList.edges.map(concerts => ({
+      params: { slug: concerts.node.sys.filename },
+    })),
+    fallback: 'blocking',
+  }
+}
+
+export const getStaticProps = async ({params}) => {
+  const variables = { relativePath: params.slug + '.md'}
+  console.log('variables', variables)
+  const data = await staticRequest({
+    query,
+    variables,
+  })
+
+  return {
+    props: {
+      query,
+      variables,
+      data,
+    },
+  }
+}

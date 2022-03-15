@@ -7,7 +7,7 @@
       "about",
       "structure",
       "conductors",
-      "concerts",
+      "concert",
       "contact"
     ]
   },
@@ -69,17 +69,17 @@
     "resolveType": "collectionDocumentList",
     "collection": "conductors"
   },
-  "ConcertsDocument": {
-    "type": "ConcertsDocument",
+  "ConcertDocument": {
+    "type": "ConcertDocument",
     "resolveType": "collectionDocument",
-    "collection": "concerts",
-    "createConcertsDocument": "create",
-    "updateConcertsDocument": "update"
+    "collection": "concert",
+    "createConcertDocument": "create",
+    "updateConcertDocument": "update"
   },
-  "ConcertsConnection": {
-    "type": "ConcertsConnection",
+  "ConcertConnection": {
+    "type": "ConcertConnection",
     "resolveType": "collectionDocumentList",
-    "collection": "concerts"
+    "collection": "concert"
   },
   "ContactDocument": {
     "type": "ContactDocument",

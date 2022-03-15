@@ -154,8 +154,8 @@ query getConductorsList {
   }
 }
 
-query getConcertsDocument($relativePath: String!) {
-  getConcertsDocument(relativePath: $relativePath) {
+query getConcertDocument($relativePath: String!) {
+  getConcertDocument(relativePath: $relativePath) {
     sys {
       filename
       basename
@@ -166,13 +166,13 @@ query getConcertsDocument($relativePath: String!) {
     }
     id
     data {
-      ...ConcertsParts
+      ...ConcertParts
     }
   }
 }
 
-query getConcertsList {
-  getConcertsList {
+query getConcertList {
+  getConcertList {
     totalCount
     edges {
       node {
@@ -186,7 +186,7 @@ query getConcertsList {
           extension
         }
         data {
-          ...ConcertsParts
+          ...ConcertParts
         }
       }
     }

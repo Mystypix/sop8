@@ -75,8 +75,8 @@ export type Query = {
   getStructureList: StructureConnection;
   getConductorsDocument: ConductorsDocument;
   getConductorsList: ConductorsConnection;
-  getConcertsDocument: ConcertsDocument;
-  getConcertsList: ConcertsConnection;
+  getConcertDocument: ConcertDocument;
+  getConcertList: ConcertConnection;
   getContactDocument: ContactDocument;
   getContactList: ContactConnection;
 };
@@ -158,12 +158,12 @@ export type QueryGetConductorsListArgs = {
 };
 
 
-export type QueryGetConcertsDocumentArgs = {
+export type QueryGetConcertDocumentArgs = {
   relativePath?: InputMaybe<Scalars['String']>;
 };
 
 
-export type QueryGetConcertsListArgs = {
+export type QueryGetConcertListArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
@@ -217,7 +217,7 @@ export type CollectionDocumentsArgs = {
   last?: InputMaybe<Scalars['Float']>;
 };
 
-export type DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertsDocument | ContactDocument;
+export type DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertDocument | ContactDocument;
 
 export type Home = {
   __typename?: 'Home';
@@ -421,8 +421,8 @@ export type ConductorsConnection = Connection & {
   edges?: Maybe<Array<Maybe<ConductorsConnectionEdges>>>;
 };
 
-export type ConcertsConcerts = {
-  __typename?: 'ConcertsConcerts';
+export type Concert = {
+  __typename?: 'Concert';
   name?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['String']>;
   time?: Maybe<Scalars['String']>;
@@ -433,32 +433,27 @@ export type ConcertsConcerts = {
   description?: Maybe<Scalars['JSON']>;
 };
 
-export type Concerts = {
-  __typename?: 'Concerts';
-  concerts?: Maybe<Array<Maybe<ConcertsConcerts>>>;
-};
-
-export type ConcertsDocument = Node & Document & {
-  __typename?: 'ConcertsDocument';
+export type ConcertDocument = Node & Document & {
+  __typename?: 'ConcertDocument';
   id: Scalars['ID'];
   sys: SystemInfo;
-  data: Concerts;
+  data: Concert;
   form: Scalars['JSON'];
   values: Scalars['JSON'];
   dataJSON: Scalars['JSON'];
 };
 
-export type ConcertsConnectionEdges = {
-  __typename?: 'ConcertsConnectionEdges';
+export type ConcertConnectionEdges = {
+  __typename?: 'ConcertConnectionEdges';
   cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<ConcertsDocument>;
+  node?: Maybe<ConcertDocument>;
 };
 
-export type ConcertsConnection = Connection & {
-  __typename?: 'ConcertsConnection';
+export type ConcertConnection = Connection & {
+  __typename?: 'ConcertConnection';
   pageInfo?: Maybe<PageInfo>;
   totalCount: Scalars['Float'];
-  edges?: Maybe<Array<Maybe<ConcertsConnectionEdges>>>;
+  edges?: Maybe<Array<Maybe<ConcertConnectionEdges>>>;
 };
 
 export type ContactLeadership = {
@@ -517,8 +512,8 @@ export type Mutation = {
   createStructureDocument: StructureDocument;
   updateConductorsDocument: ConductorsDocument;
   createConductorsDocument: ConductorsDocument;
-  updateConcertsDocument: ConcertsDocument;
-  createConcertsDocument: ConcertsDocument;
+  updateConcertDocument: ConcertDocument;
+  createConcertDocument: ConcertDocument;
   updateContactDocument: ContactDocument;
   createContactDocument: ContactDocument;
 };
@@ -593,15 +588,15 @@ export type MutationCreateConductorsDocumentArgs = {
 };
 
 
-export type MutationUpdateConcertsDocumentArgs = {
+export type MutationUpdateConcertDocumentArgs = {
   relativePath: Scalars['String'];
-  params: ConcertsMutation;
+  params: ConcertMutation;
 };
 
 
-export type MutationCreateConcertsDocumentArgs = {
+export type MutationCreateConcertDocumentArgs = {
   relativePath: Scalars['String'];
-  params: ConcertsMutation;
+  params: ConcertMutation;
 };
 
 
@@ -621,7 +616,7 @@ export type DocumentMutation = {
   about?: InputMaybe<AboutMutation>;
   structure?: InputMaybe<StructureMutation>;
   conductors?: InputMaybe<ConductorsMutation>;
-  concerts?: InputMaybe<ConcertsMutation>;
+  concert?: InputMaybe<ConcertMutation>;
   contact?: InputMaybe<ContactMutation>;
 };
 
@@ -716,7 +711,7 @@ export type ConductorsMutation = {
   conductors?: InputMaybe<Array<InputMaybe<ConductorsConductorsMutation>>>;
 };
 
-export type ConcertsConcertsMutation = {
+export type ConcertMutation = {
   name?: InputMaybe<Scalars['String']>;
   date?: InputMaybe<Scalars['String']>;
   time?: InputMaybe<Scalars['String']>;
@@ -725,10 +720,6 @@ export type ConcertsConcertsMutation = {
   solists?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['JSON']>;
-};
-
-export type ConcertsMutation = {
-  concerts?: InputMaybe<Array<InputMaybe<ConcertsConcertsMutation>>>;
 };
 
 export type ContactLeadershipMutation = {
@@ -756,7 +747,7 @@ export type StructurePartsFragment = { __typename?: 'Structure', first_violins?:
 
 export type ConductorsPartsFragment = { __typename?: 'Conductors', conductors?: Array<{ __typename: 'ConductorsConductors', photo?: string | null, name?: string | null, text?: string | null } | null> | null };
 
-export type ConcertsPartsFragment = { __typename?: 'Concerts', concerts?: Array<{ __typename: 'ConcertsConcerts', name?: string | null, date?: string | null, time?: string | null, address?: string | null, conductor?: string | null, solists?: string | null, price?: string | null, description?: any | null } | null> | null };
+export type ConcertPartsFragment = { __typename?: 'Concert', name?: string | null, date?: string | null, time?: string | null, address?: string | null, conductor?: string | null, solists?: string | null, price?: string | null, description?: any | null };
 
 export type ContactPartsFragment = { __typename?: 'Contact', email?: string | null, leadership?: { __typename: 'ContactLeadership', name?: string | null, phone?: string | null, email?: string | null } | null, practice?: { __typename: 'ContactPractice', text?: string | null, address?: string | null } | null };
 
@@ -808,17 +799,17 @@ export type GetConductorsListQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetConductorsListQuery = { __typename?: 'Query', getConductorsList: { __typename?: 'ConductorsConnection', totalCount: number, edges?: Array<{ __typename?: 'ConductorsConnectionEdges', node?: { __typename?: 'ConductorsDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Conductors', conductors?: Array<{ __typename: 'ConductorsConductors', photo?: string | null, name?: string | null, text?: string | null } | null> | null } } | null } | null> | null } };
 
-export type GetConcertsDocumentQueryVariables = Exact<{
+export type GetConcertDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type GetConcertsDocumentQuery = { __typename?: 'Query', getConcertsDocument: { __typename?: 'ConcertsDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Concerts', concerts?: Array<{ __typename: 'ConcertsConcerts', name?: string | null, date?: string | null, time?: string | null, address?: string | null, conductor?: string | null, solists?: string | null, price?: string | null, description?: any | null } | null> | null } } };
+export type GetConcertDocumentQuery = { __typename?: 'Query', getConcertDocument: { __typename?: 'ConcertDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Concert', name?: string | null, date?: string | null, time?: string | null, address?: string | null, conductor?: string | null, solists?: string | null, price?: string | null, description?: any | null } } };
 
-export type GetConcertsListQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetConcertListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetConcertsListQuery = { __typename?: 'Query', getConcertsList: { __typename?: 'ConcertsConnection', totalCount: number, edges?: Array<{ __typename?: 'ConcertsConnectionEdges', node?: { __typename?: 'ConcertsDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Concerts', concerts?: Array<{ __typename: 'ConcertsConcerts', name?: string | null, date?: string | null, time?: string | null, address?: string | null, conductor?: string | null, solists?: string | null, price?: string | null, description?: any | null } | null> | null } } | null } | null> | null } };
+export type GetConcertListQuery = { __typename?: 'Query', getConcertList: { __typename?: 'ConcertConnection', totalCount: number, edges?: Array<{ __typename?: 'ConcertConnectionEdges', node?: { __typename?: 'ConcertDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Concert', name?: string | null, date?: string | null, time?: string | null, address?: string | null, conductor?: string | null, solists?: string | null, price?: string | null, description?: any | null } } | null } | null> | null } };
 
 export type GetContactDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -912,19 +903,16 @@ export const ConductorsPartsFragmentDoc = gql`
   }
 }
     `;
-export const ConcertsPartsFragmentDoc = gql`
-    fragment ConcertsParts on Concerts {
-  concerts {
-    __typename
-    name
-    date
-    time
-    address
-    conductor
-    solists
-    price
-    description
-  }
+export const ConcertPartsFragmentDoc = gql`
+    fragment ConcertParts on Concert {
+  name
+  date
+  time
+  address
+  conductor
+  solists
+  price
+  description
 }
     `;
 export const ContactPartsFragmentDoc = gql`
@@ -1107,9 +1095,9 @@ export const GetConductorsListDocument = gql`
   }
 }
     ${ConductorsPartsFragmentDoc}`;
-export const GetConcertsDocumentDocument = gql`
-    query getConcertsDocument($relativePath: String!) {
-  getConcertsDocument(relativePath: $relativePath) {
+export const GetConcertDocumentDocument = gql`
+    query getConcertDocument($relativePath: String!) {
+  getConcertDocument(relativePath: $relativePath) {
     sys {
       filename
       basename
@@ -1120,14 +1108,14 @@ export const GetConcertsDocumentDocument = gql`
     }
     id
     data {
-      ...ConcertsParts
+      ...ConcertParts
     }
   }
 }
-    ${ConcertsPartsFragmentDoc}`;
-export const GetConcertsListDocument = gql`
-    query getConcertsList {
-  getConcertsList {
+    ${ConcertPartsFragmentDoc}`;
+export const GetConcertListDocument = gql`
+    query getConcertList {
+  getConcertList {
     totalCount
     edges {
       node {
@@ -1141,13 +1129,13 @@ export const GetConcertsListDocument = gql`
           extension
         }
         data {
-          ...ConcertsParts
+          ...ConcertParts
         }
       }
     }
   }
 }
-    ${ConcertsPartsFragmentDoc}`;
+    ${ConcertPartsFragmentDoc}`;
 export const GetContactDocumentDocument = gql`
     query getContactDocument($relativePath: String!) {
   getContactDocument(relativePath: $relativePath) {
@@ -1216,11 +1204,11 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
     getConductorsList(variables?: GetConductorsListQueryVariables, options?: C): Promise<{data: GetConductorsListQuery, variables: GetConductorsListQueryVariables, query: string}> {
         return requester<{data: GetConductorsListQuery, variables: GetConductorsListQueryVariables, query: string}, GetConductorsListQueryVariables>(GetConductorsListDocument, variables, options);
       },
-    getConcertsDocument(variables: GetConcertsDocumentQueryVariables, options?: C): Promise<{data: GetConcertsDocumentQuery, variables: GetConcertsDocumentQueryVariables, query: string}> {
-        return requester<{data: GetConcertsDocumentQuery, variables: GetConcertsDocumentQueryVariables, query: string}, GetConcertsDocumentQueryVariables>(GetConcertsDocumentDocument, variables, options);
+    getConcertDocument(variables: GetConcertDocumentQueryVariables, options?: C): Promise<{data: GetConcertDocumentQuery, variables: GetConcertDocumentQueryVariables, query: string}> {
+        return requester<{data: GetConcertDocumentQuery, variables: GetConcertDocumentQueryVariables, query: string}, GetConcertDocumentQueryVariables>(GetConcertDocumentDocument, variables, options);
       },
-    getConcertsList(variables?: GetConcertsListQueryVariables, options?: C): Promise<{data: GetConcertsListQuery, variables: GetConcertsListQueryVariables, query: string}> {
-        return requester<{data: GetConcertsListQuery, variables: GetConcertsListQueryVariables, query: string}, GetConcertsListQueryVariables>(GetConcertsListDocument, variables, options);
+    getConcertList(variables?: GetConcertListQueryVariables, options?: C): Promise<{data: GetConcertListQuery, variables: GetConcertListQueryVariables, query: string}> {
+        return requester<{data: GetConcertListQuery, variables: GetConcertListQueryVariables, query: string}, GetConcertListQueryVariables>(GetConcertListDocument, variables, options);
       },
     getContactDocument(variables: GetContactDocumentQueryVariables, options?: C): Promise<{data: GetContactDocumentQuery, variables: GetContactDocumentQueryVariables, query: string}> {
         return requester<{data: GetContactDocumentQuery, variables: GetContactDocumentQueryVariables, query: string}, GetContactDocumentQueryVariables>(GetContactDocumentDocument, variables, options);

@@ -295,62 +295,51 @@ export default defineSchema({
     },
     {
       label: 'Concerts',
-      name: 'concerts',
-      path: '_pages/concerts',
+      name: 'concert',
+      path: 'content/concert',
       fields: [
         {
-          label: 'Seznam koncertu',
-          name: 'concerts',
-          type: 'object',
-          list: true,
+          label: 'Nazev',
+          name: 'name',
+          type: 'string',
+        },
+        {
+          label: 'Datum',
+          name: 'date',
+          type: 'datetime',
           ui: {
-            component: 'group-list',
-          },
-          fields: [
-            {
-              label: 'Nazev',
-              name: 'name',
-              type: 'string',
-            },
-            {
-              label: 'Datum',
-              name: 'date',
-              type: 'datetime',
-              ui: {
-                dateFormat: 'DD.MM.YYYY'
-              }
-            },
-            {
-              label: 'Cas',
-              name: 'time',
-              type: 'string',
-            },
-            {
-              label: 'Adresa',
-              name: 'address',
-              type: 'string',
-            },
-            {
-              label: 'Dirigent', // TODO list dirigentu? nebo muzou byt i hosti?
-              name: 'conductor',
-              type: 'string',
-            },
-            {
-              label: 'Soliste',
-              name: 'solists',
-              type: 'string',
-            },
-            {
-              label: 'Cena',
-              name: 'price',
-              type: 'string',
-            },
-            {
-              label: 'Popis',
-              name: 'description',
-              type: 'rich-text',
-            }
-          ]
+            dateFormat: 'DD.MM.YYYY'
+          }
+        },
+        {
+          label: 'Cas',
+          name: 'time',
+          type: 'string',
+        },
+        {
+          label: 'Adresa',
+          name: 'address',
+          type: 'string',
+        },
+        {
+          label: 'Dirigent', // TODO list dirigentu? nebo muzou byt i hosti?
+          name: 'conductor',
+          type: 'string',
+        },
+        {
+          label: 'Soliste',
+          name: 'solists',
+          type: 'string',
+        },
+        {
+          label: 'Cena',
+          name: 'price',
+          type: 'string',
+        },
+        {
+          label: 'Popis',
+          name: 'description',
+          type: 'rich-text',
         }
       ]
     },

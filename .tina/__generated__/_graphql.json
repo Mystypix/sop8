@@ -1109,7 +1109,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "getConcertsDocument"
+            "value": "getConcertDocument"
           },
           "arguments": [
             {
@@ -1133,7 +1133,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "ConcertsDocument"
+                "value": "ConcertDocument"
               }
             }
           }
@@ -1142,7 +1142,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "getConcertsList"
+            "value": "getConcertList"
           },
           "arguments": [
             {
@@ -1208,7 +1208,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "ConcertsConnection"
+                "value": "ConcertConnection"
               }
             }
           }
@@ -1695,7 +1695,7 @@
           "kind": "NamedType",
           "name": {
             "kind": "Name",
-            "value": "ConcertsDocument"
+            "value": "ConcertDocument"
           }
         },
         {
@@ -3457,7 +3457,7 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "ConcertsConcerts"
+        "value": "Concert"
       },
       "fields": [
         {
@@ -3584,35 +3584,6 @@
     },
     {
       "kind": "ObjectTypeDefinition",
-      "interfaces": [],
-      "directives": [],
-      "name": {
-        "kind": "Name",
-        "value": "Concerts"
-      },
-      "fields": [
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "concerts"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "ListType",
-            "type": {
-              "kind": "NamedType",
-              "name": {
-                "kind": "Name",
-                "value": "ConcertsConcerts"
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "kind": "ObjectTypeDefinition",
       "interfaces": [
         {
           "kind": "NamedType",
@@ -3632,7 +3603,7 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "ConcertsDocument"
+        "value": "ConcertDocument"
       },
       "fields": [
         {
@@ -3684,7 +3655,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "Concerts"
+                "value": "Concert"
               }
             }
           }
@@ -3751,7 +3722,7 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "ConcertsConnectionEdges"
+        "value": "ConcertConnectionEdges"
       },
       "fields": [
         {
@@ -3780,7 +3751,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "ConcertsDocument"
+              "value": "ConcertDocument"
             }
           }
         }
@@ -3800,7 +3771,7 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "ConcertsConnection"
+        "value": "ConcertConnection"
       },
       "fields": [
         {
@@ -3849,7 +3820,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "ConcertsConnectionEdges"
+                "value": "ConcertConnectionEdges"
               }
             }
           }
@@ -4892,7 +4863,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "updateConcertsDocument"
+            "value": "updateConcertDocument"
           },
           "arguments": [
             {
@@ -4924,7 +4895,7 @@
                   "kind": "NamedType",
                   "name": {
                     "kind": "Name",
-                    "value": "ConcertsMutation"
+                    "value": "ConcertMutation"
                   }
                 }
               }
@@ -4936,7 +4907,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "ConcertsDocument"
+                "value": "ConcertDocument"
               }
             }
           }
@@ -4945,7 +4916,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "createConcertsDocument"
+            "value": "createConcertDocument"
           },
           "arguments": [
             {
@@ -4977,7 +4948,7 @@
                   "kind": "NamedType",
                   "name": {
                     "kind": "Name",
-                    "value": "ConcertsMutation"
+                    "value": "ConcertMutation"
                   }
                 }
               }
@@ -4989,7 +4960,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "ConcertsDocument"
+                "value": "ConcertDocument"
               }
             }
           }
@@ -5169,13 +5140,13 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "concerts"
+            "value": "concert"
           },
           "type": {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "ConcertsMutation"
+              "value": "ConcertMutation"
             }
           }
         },
@@ -5891,7 +5862,7 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "ConcertsConcertsMutation"
+        "value": "ConcertMutation"
       },
       "fields": [
         {
@@ -6003,32 +5974,6 @@
             "name": {
               "kind": "Name",
               "value": "JSON"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "kind": "InputObjectTypeDefinition",
-      "name": {
-        "kind": "Name",
-        "value": "ConcertsMutation"
-      },
-      "fields": [
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "concerts"
-          },
-          "type": {
-            "kind": "ListType",
-            "type": {
-              "kind": "NamedType",
-              "name": {
-                "kind": "Name",
-                "value": "ConcertsConcertsMutation"
-              }
             }
           }
         }

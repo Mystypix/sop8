@@ -74,18 +74,15 @@ fragment ConductorsParts on Conductors {
   }
 }
 
-fragment ConcertsParts on Concerts {
-  concerts {
-    __typename
-    name
-    date
-    time
-    address
-    conductor
-    solists
-    price
-    description
-  }
+fragment ConcertParts on Concert {
+  name
+  date
+  time
+  address
+  conductor
+  solists
+  price
+  description
 }
 
 fragment ContactParts on Contact {

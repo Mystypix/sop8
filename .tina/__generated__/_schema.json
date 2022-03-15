@@ -465,110 +465,87 @@
     },
     {
       "label": "Concerts",
-      "name": "concerts",
-      "path": "_pages/concerts",
+      "name": "concert",
+      "path": "content/concert",
       "fields": [
         {
-          "label": "Seznam koncertu",
-          "name": "concerts",
-          "type": "object",
-          "list": true,
-          "ui": {
-            "component": "group-list"
-          },
-          "fields": [
-            {
-              "label": "Nazev",
-              "name": "name",
-              "type": "string",
-              "namespace": [
-                "concerts",
-                "concerts",
-                "name"
-              ]
-            },
-            {
-              "label": "Datum",
-              "name": "date",
-              "type": "datetime",
-              "ui": {
-                "dateFormat": "DD.MM.YYYY"
-              },
-              "namespace": [
-                "concerts",
-                "concerts",
-                "date"
-              ]
-            },
-            {
-              "label": "Cas",
-              "name": "time",
-              "type": "string",
-              "namespace": [
-                "concerts",
-                "concerts",
-                "time"
-              ]
-            },
-            {
-              "label": "Adresa",
-              "name": "address",
-              "type": "string",
-              "namespace": [
-                "concerts",
-                "concerts",
-                "address"
-              ]
-            },
-            {
-              "label": "Dirigent",
-              "name": "conductor",
-              "type": "string",
-              "namespace": [
-                "concerts",
-                "concerts",
-                "conductor"
-              ]
-            },
-            {
-              "label": "Soliste",
-              "name": "solists",
-              "type": "string",
-              "namespace": [
-                "concerts",
-                "concerts",
-                "solists"
-              ]
-            },
-            {
-              "label": "Cena",
-              "name": "price",
-              "type": "string",
-              "namespace": [
-                "concerts",
-                "concerts",
-                "price"
-              ]
-            },
-            {
-              "label": "Popis",
-              "name": "description",
-              "type": "rich-text",
-              "namespace": [
-                "concerts",
-                "concerts",
-                "description"
-              ]
-            }
-          ],
+          "label": "Nazev",
+          "name": "name",
+          "type": "string",
           "namespace": [
-            "concerts",
-            "concerts"
+            "concert",
+            "name"
+          ]
+        },
+        {
+          "label": "Datum",
+          "name": "date",
+          "type": "datetime",
+          "ui": {
+            "dateFormat": "DD.MM.YYYY"
+          },
+          "namespace": [
+            "concert",
+            "date"
+          ]
+        },
+        {
+          "label": "Cas",
+          "name": "time",
+          "type": "string",
+          "namespace": [
+            "concert",
+            "time"
+          ]
+        },
+        {
+          "label": "Adresa",
+          "name": "address",
+          "type": "string",
+          "namespace": [
+            "concert",
+            "address"
+          ]
+        },
+        {
+          "label": "Dirigent",
+          "name": "conductor",
+          "type": "string",
+          "namespace": [
+            "concert",
+            "conductor"
+          ]
+        },
+        {
+          "label": "Soliste",
+          "name": "solists",
+          "type": "string",
+          "namespace": [
+            "concert",
+            "solists"
+          ]
+        },
+        {
+          "label": "Cena",
+          "name": "price",
+          "type": "string",
+          "namespace": [
+            "concert",
+            "price"
+          ]
+        },
+        {
+          "label": "Popis",
+          "name": "description",
+          "type": "rich-text",
+          "namespace": [
+            "concert",
+            "description"
           ]
         }
       ],
       "namespace": [
-        "concerts"
+        "concert"
       ]
     },
     {
