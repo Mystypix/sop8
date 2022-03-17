@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Layout from '../../components/layout'
 import Header from '../../components/header'
 import SectionTitle from '../../components/section-title'
@@ -5,16 +6,33 @@ import Head from 'next/head'
 import { staticRequest } from 'tinacms'
 import { useTina } from 'tinacms/dist/edit-state'
 
-export default function Concerts() {
-  // const { data } = useTina({
-  //   query,
-  //   variables: { relativePath: '/concerts.md' },
-  //   data: initialData,
-  // })
+const query = `
+  query {
+    getConcertList {
+      edges {
+        node {
+          values
+          sys {
+            filename
+          }
+        }
+      }
+    }
+  }
+`
 
-  // console.log('cococo', data)
+export default function Concerts({data: initialData}) {
+  const { data: rawData } = useTina({
+    query,
+    data: initialData,
+  })
 
-  // const {concerts} = data.getConcertDocument.data
+  const concerts = rawData.getConcertList.edges.reduce((acc, concert) => {
+    acc.push({...concert.node.values, slug: concert.node.sys.filename})
+    return acc
+  }, [])
+    .sort((a, b) => new Date(a.date) + new Date(b.date))
+
   return (
     <>
       <Layout>
@@ -24,52 +42,33 @@ export default function Concerts() {
         <Header />
         <SectionTitle>Koncerty</SectionTitle>
         <div>
-          {/* {concerts.map((concert) => {
+          {concerts.map(({name, time, price, address, conductor, solist, date, slug}) => {
             return (
-              <div key={concert.name}>
-                <div>{concert.name}</div>
-                <div>{concert.time}</div>
-                <div>{concert.price}</div>
-                <div>{concert.address}</div>
-                <div>{concert.conductor}</div>
-                <div>{concert.solists}</div>
-              </div>
+              <Link href={`/koncerty/${slug}`} key={slug}>
+                <div>
+                  {name && <div>{name}</div>}
+                  {time && <div>{time}</div>}
+                  {price && (new Date(date) >= new Date()) && <div>{price}</div>}
+                  {address && <div>{address}</div>}
+                  {conductor && <div>{conductor}</div>}
+                  {solist && <div>{solist}</div>}
+                </div>
+              </Link>
             )
-          })} */}
+          })}
         </div>
       </Layout>
     </>
   )
 }
 
-// export const getStaticProps = async () => {
-//   const variables = { relativePath: '/concerts.md' }
-//   const query = `
-//     query ConcertsQuery($relativePath: String!) {
-//       getConcertDocument(relativePath: $relativePath) {
-//         data {
-//           name
-//           date
-//           time
-//           address
-//           conductor
-//           solists
-//           price
-//           description
-//         }
-//       }
-//     }
-//   `
-//   const data = await staticRequest({
-//     query: query,
-//     variables: variables,
-//   })
+export const getStaticProps = async () => {
+  const data = await staticRequest({query})
 
-//   return {
-//     props: {
-//       query,
-//       variables,
-//       data,
-//     },
-//   }
-// }
+  return {
+    props: {
+      query,
+      data,
+    },
+  }
+}

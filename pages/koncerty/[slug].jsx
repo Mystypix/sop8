@@ -9,7 +9,14 @@ const query = `
   query ConcertDetailQuery($relativePath: String!) {
     getConcertDocument(relativePath: $relativePath) {
       data {
-        name
+        name,
+        date,
+        time,
+        address,
+        conductor,
+        solists,
+        price,
+        description
       }
     }
   }
