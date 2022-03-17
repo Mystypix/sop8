@@ -5,14 +5,14 @@ import Head from 'next/head'
 import { staticRequest } from 'tinacms'
 import { useTina } from 'tinacms/dist/edit-state'
 
-export default function Concerts({data: initialData, query}) {
-  const { data } = useTina({
-    query,
-    variables: { relativePath: '/concerts.md' },
-    data: initialData,
-  })
+export default function Concerts() {
+  // const { data } = useTina({
+  //   query,
+  //   variables: { relativePath: '/concerts.md' },
+  //   data: initialData,
+  // })
 
-  console.log('cococo', data)
+  // console.log('cococo', data)
 
   // const {concerts} = data.getConcertDocument.data
   return (
@@ -42,34 +42,34 @@ export default function Concerts({data: initialData, query}) {
   )
 }
 
-export const getStaticProps = async () => {
-  // const variables = { relativePath: '/concerts.md' }
-  const query = `
-    query ConcertsQuery($relativePath: String!) {
-      getConcertDocument(relativePath: $relativePath) {
-        data {
-          name
-          date
-          time
-          address
-          conductor
-          solists
-          price
-          description
-        }
-      }
-    }
-  `
-  const data = await staticRequest({
-    query: query,
-    variables: variables,
-  })
+// export const getStaticProps = async () => {
+//   const variables = { relativePath: '/concerts.md' }
+//   const query = `
+//     query ConcertsQuery($relativePath: String!) {
+//       getConcertDocument(relativePath: $relativePath) {
+//         data {
+//           name
+//           date
+//           time
+//           address
+//           conductor
+//           solists
+//           price
+//           description
+//         }
+//       }
+//     }
+//   `
+//   const data = await staticRequest({
+//     query: query,
+//     variables: variables,
+//   })
 
-  return {
-    props: {
-      query,
-      variables,
-      data,
-    },
-  }
-}
+//   return {
+//     props: {
+//       query,
+//       variables,
+//       data,
+//     },
+//   }
+// }
