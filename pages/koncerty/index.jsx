@@ -14,7 +14,7 @@ export default function Concerts({data: initialData, query}) {
 
   console.log('cococo', data)
 
-  const {concerts} = data.getConcertsDocument.data
+  // const {concerts} = data.getConcertDocument.data
   return (
     <>
       <Layout>
@@ -24,7 +24,7 @@ export default function Concerts({data: initialData, query}) {
         <Header />
         <SectionTitle>Koncerty</SectionTitle>
         <div>
-          {concerts.map((concert) => {
+          {/* {concerts.map((concert) => {
             return (
               <div key={concert.name}>
                 <div>{concert.name}</div>
@@ -35,7 +35,7 @@ export default function Concerts({data: initialData, query}) {
                 <div>{concert.solists}</div>
               </div>
             )
-          })}
+          })} */}
         </div>
       </Layout>
     </>
@@ -43,21 +43,19 @@ export default function Concerts({data: initialData, query}) {
 }
 
 export const getStaticProps = async () => {
-  const variables = { relativePath: '/concerts.md' }
+  // const variables = { relativePath: '/concerts.md' }
   const query = `
     query ConcertsQuery($relativePath: String!) {
-      getConcertsDocument(relativePath: $relativePath) {
+      getConcertDocument(relativePath: $relativePath) {
         data {
-          concerts {
-            name
-            date
-            time
-            address
-            conductor
-            solists
-            price
-            description
-          }
+          name
+          date
+          time
+          address
+          conductor
+          solists
+          price
+          description
         }
       }
     }

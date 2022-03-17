@@ -12,12 +12,12 @@ export default function Index({data: initialData, query}) {
     query,
     variables: { 
       homeRelativePath: '/home.md',
-      concertsRelativePath: '/concerts.md',
+      // concertsRelativePath: '/concerts.md',
      },
     data: initialData,
   })
   const {title} = data.getHomeDocument.data
-  const {concerts} = data.getConcertsDocument.data
+  // const {concerts} = data.getConcertDocument.data
 
   return (
     <>
@@ -33,7 +33,7 @@ export default function Index({data: initialData, query}) {
           <SectionTitle>
             Příští koncert
           </SectionTitle>
-          <ConcertCard {...concerts[0]} />
+          {/* <ConcertCard {...concerts[0]} /> */}
         </StyledConcertsSection>
       </Layout>
     </>
@@ -43,23 +43,13 @@ export default function Index({data: initialData, query}) {
 export const getStaticProps = async () => {
   const variables = { 
     homeRelativePath: '/home.md',
-    concertsRelativePath: '/concerts.md',
+    // concertsRelativePath: '/concerts.md',
   }
   const query = `
-    query HomeQuery($homeRelativePath: String!, $concertsRelativePath: String!) {
+    query HomeQuery($homeRelativePath: String!) {
       getHomeDocument(relativePath: $homeRelativePath) {
         data {
           title
-        }
-      }
-      getConcertsDocument(relativePath: $concertsRelativePath) {
-        data {
-          concerts {
-            name
-            date
-            time
-            address
-          }
         }
       }
     }
@@ -77,3 +67,14 @@ export const getStaticProps = async () => {
     },
   }
 }
+
+// getConcertsDocument(relativePath: $concertsRelativePath) {
+//   data {
+//     concerts {
+//       name
+//       date
+//       time
+//       address
+//     }
+//   }
+// }

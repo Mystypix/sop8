@@ -9,9 +9,7 @@ const query = `
   query ConcertDetailQuery($relativePath: String!) {
     getConcertDocument(relativePath: $relativePath) {
       data {
-        concerts {
-          name
-        }
+        name
       }
     }
   }
@@ -25,8 +23,8 @@ export default function ConcertDetail(props) {
     data: props.data,
   })
 
-  const {concerts} = data.getConcertDocument.data
-  console.log('zebyyby', concerts)
+  const prdel = data.getConcertDocument.data
+  console.log('zebyyby', prdel)
   return (
     <>
       <Layout>
@@ -66,8 +64,8 @@ export const getStaticPaths = async () => {
   })
 
   return {
-    paths: concertListData.getConcertList.edges.map(concerts => ({
-      params: { slug: concerts.node.sys.filename },
+    paths: concertListData.getConcertList.edges.map(concert => ({
+      params: { slug: concert.node.sys.filename },
     })),
     fallback: 'blocking',
   }
