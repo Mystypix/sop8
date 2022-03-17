@@ -32,6 +32,7 @@ export default function Meta() {
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta name="viewport" content="initial-scale=1" />
+      <meta name="description" content="SOP8 je symfonický orchestr, který vznikl v roce 2004. Složení členů orchestru je tvořeno většinou studenty, ať středních či vysokých škol, nebo mladými pracujícími."/>
     </Head>
   )
 }
