@@ -26,7 +26,7 @@ export default function Index({data: initialData, query}) {
           <title>Symfonicky orchestr Prahy 8</title>
         </Head>
         <StyledIntro>
-          <Image priority src='/assets/images/intro.jpg' layout='fill' objectFit='cover' />
+          <Image priority src='/assets/images/intro.jpg' layout='fill' objectFit='cover' alt='Uvodni pozadi' />
           <StyledIntroText>{title}</StyledIntroText>
         </StyledIntro>
         <StyledConcertsSection>
