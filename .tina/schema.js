@@ -344,6 +344,37 @@ export default defineSchema({
       ]
     },
     {
+      label: 'Galerie',
+      name: 'gallery',
+      path: '_pages/gallery',
+      fields: [
+        {
+          label: 'Sekce',
+          name: 'sections',
+          type: 'object',
+          fields: [
+            {
+              label: 'Nazev',
+              name: 'name',
+              type: 'string',
+            },
+            {
+              label: 'Fotky',
+              name: 'items',
+              type: 'object',
+              fields: [
+                {
+                  label: 'Fotka',
+                  name: 'url',
+                  type: 'image',
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       label: 'Contact',
       name: 'contact',
       path: '_pages/contact',

@@ -85,6 +85,17 @@ fragment ConcertParts on Concert {
   description
 }
 
+fragment GalleryParts on Gallery {
+  sections {
+    __typename
+    name
+    items {
+      __typename
+      url
+    }
+  }
+}
+
 fragment ContactParts on Contact {
   email
   leadership {

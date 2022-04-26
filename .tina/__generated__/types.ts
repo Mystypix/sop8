@@ -61,6 +61,7 @@ export type Connection = {
 
 export type Query = {
   __typename?: 'Query';
+  getOptimizedQuery?: Maybe<Scalars['String']>;
   getCollection: Collection;
   getCollections: Array<Collection>;
   node: Node;
@@ -77,8 +78,15 @@ export type Query = {
   getConductorsList: ConductorsConnection;
   getConcertDocument: ConcertDocument;
   getConcertList: ConcertConnection;
+  getGalleryDocument: GalleryDocument;
+  getGalleryList: GalleryConnection;
   getContactDocument: ContactDocument;
   getContactList: ContactConnection;
+};
+
+
+export type QueryGetOptimizedQueryArgs = {
+  queryString: Scalars['String'];
 };
 
 
@@ -103,6 +111,7 @@ export type QueryGetDocumentListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -116,6 +125,7 @@ export type QueryGetHomeListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -129,6 +139,7 @@ export type QueryGetAboutListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -142,6 +153,7 @@ export type QueryGetStructureListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -155,6 +167,7 @@ export type QueryGetConductorsListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -168,6 +181,21 @@ export type QueryGetConcertListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetGalleryDocumentArgs = {
+  relativePath?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetGalleryListArgs = {
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -181,6 +209,7 @@ export type QueryGetContactListArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
 export type DocumentConnectionEdges = {
@@ -215,9 +244,10 @@ export type CollectionDocumentsArgs = {
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
 };
 
-export type DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertDocument | ContactDocument;
+export type DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertDocument | GalleryDocument | ContactDocument;
 
 export type Home = {
   __typename?: 'Home';
@@ -456,6 +486,45 @@ export type ConcertConnection = Connection & {
   edges?: Maybe<Array<Maybe<ConcertConnectionEdges>>>;
 };
 
+export type GallerySectionsItems = {
+  __typename?: 'GallerySectionsItems';
+  url?: Maybe<Scalars['String']>;
+};
+
+export type GallerySections = {
+  __typename?: 'GallerySections';
+  name?: Maybe<Scalars['String']>;
+  items?: Maybe<GallerySectionsItems>;
+};
+
+export type Gallery = {
+  __typename?: 'Gallery';
+  sections?: Maybe<GallerySections>;
+};
+
+export type GalleryDocument = Node & Document & {
+  __typename?: 'GalleryDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: Gallery;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type GalleryConnectionEdges = {
+  __typename?: 'GalleryConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<GalleryDocument>;
+};
+
+export type GalleryConnection = Connection & {
+  __typename?: 'GalleryConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Float'];
+  edges?: Maybe<Array<Maybe<GalleryConnectionEdges>>>;
+};
+
 export type ContactLeadership = {
   __typename?: 'ContactLeadership';
   name?: Maybe<Scalars['String']>;
@@ -503,6 +572,7 @@ export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
   updateDocument: DocumentNode;
+  deleteDocument: DocumentNode;
   createDocument: DocumentNode;
   updateHomeDocument: HomeDocument;
   createHomeDocument: HomeDocument;
@@ -514,6 +584,8 @@ export type Mutation = {
   createConductorsDocument: ConductorsDocument;
   updateConcertDocument: ConcertDocument;
   createConcertDocument: ConcertDocument;
+  updateGalleryDocument: GalleryDocument;
+  createGalleryDocument: GalleryDocument;
   updateContactDocument: ContactDocument;
   createContactDocument: ContactDocument;
 };
@@ -530,6 +602,12 @@ export type MutationUpdateDocumentArgs = {
   collection?: InputMaybe<Scalars['String']>;
   relativePath: Scalars['String'];
   params: DocumentMutation;
+};
+
+
+export type MutationDeleteDocumentArgs = {
+  collection?: InputMaybe<Scalars['String']>;
+  relativePath: Scalars['String'];
 };
 
 
@@ -600,6 +678,18 @@ export type MutationCreateConcertDocumentArgs = {
 };
 
 
+export type MutationUpdateGalleryDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: GalleryMutation;
+};
+
+
+export type MutationCreateGalleryDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: GalleryMutation;
+};
+
+
 export type MutationUpdateContactDocumentArgs = {
   relativePath: Scalars['String'];
   params: ContactMutation;
@@ -617,6 +707,7 @@ export type DocumentMutation = {
   structure?: InputMaybe<StructureMutation>;
   conductors?: InputMaybe<ConductorsMutation>;
   concert?: InputMaybe<ConcertMutation>;
+  gallery?: InputMaybe<GalleryMutation>;
   contact?: InputMaybe<ContactMutation>;
 };
 
@@ -722,6 +813,19 @@ export type ConcertMutation = {
   description?: InputMaybe<Scalars['JSON']>;
 };
 
+export type GallerySectionsItemsMutation = {
+  url?: InputMaybe<Scalars['String']>;
+};
+
+export type GallerySectionsMutation = {
+  name?: InputMaybe<Scalars['String']>;
+  items?: InputMaybe<GallerySectionsItemsMutation>;
+};
+
+export type GalleryMutation = {
+  sections?: InputMaybe<GallerySectionsMutation>;
+};
+
 export type ContactLeadershipMutation = {
   name?: InputMaybe<Scalars['String']>;
   phone?: InputMaybe<Scalars['String']>;
@@ -748,6 +852,8 @@ export type StructurePartsFragment = { __typename?: 'Structure', first_violins?:
 export type ConductorsPartsFragment = { __typename?: 'Conductors', conductors?: Array<{ __typename: 'ConductorsConductors', photo?: string | null, name?: string | null, text?: string | null } | null> | null };
 
 export type ConcertPartsFragment = { __typename?: 'Concert', name?: string | null, date?: string | null, time?: string | null, address?: string | null, conductor?: string | null, solists?: string | null, price?: string | null, description?: any | null };
+
+export type GalleryPartsFragment = { __typename?: 'Gallery', sections?: { __typename: 'GallerySections', name?: string | null, items?: { __typename: 'GallerySectionsItems', url?: string | null } | null } | null };
 
 export type ContactPartsFragment = { __typename?: 'Contact', email?: string | null, leadership?: { __typename: 'ContactLeadership', name?: string | null, phone?: string | null, email?: string | null } | null, practice?: { __typename: 'ContactPractice', text?: string | null, address?: string | null } | null };
 
@@ -810,6 +916,18 @@ export type GetConcertListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetConcertListQuery = { __typename?: 'Query', getConcertList: { __typename?: 'ConcertConnection', totalCount: number, edges?: Array<{ __typename?: 'ConcertConnectionEdges', node?: { __typename?: 'ConcertDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Concert', name?: string | null, date?: string | null, time?: string | null, address?: string | null, conductor?: string | null, solists?: string | null, price?: string | null, description?: any | null } } | null } | null> | null } };
+
+export type GetGalleryDocumentQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type GetGalleryDocumentQuery = { __typename?: 'Query', getGalleryDocument: { __typename?: 'GalleryDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Gallery', sections?: { __typename: 'GallerySections', name?: string | null, items?: { __typename: 'GallerySectionsItems', url?: string | null } | null } | null } } };
+
+export type GetGalleryListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetGalleryListQuery = { __typename?: 'Query', getGalleryList: { __typename?: 'GalleryConnection', totalCount: number, edges?: Array<{ __typename?: 'GalleryConnectionEdges', node?: { __typename?: 'GalleryDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Gallery', sections?: { __typename: 'GallerySections', name?: string | null, items?: { __typename: 'GallerySectionsItems', url?: string | null } | null } | null } } | null } | null> | null } };
 
 export type GetContactDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -913,6 +1031,18 @@ export const ConcertPartsFragmentDoc = gql`
   solists
   price
   description
+}
+    `;
+export const GalleryPartsFragmentDoc = gql`
+    fragment GalleryParts on Gallery {
+  sections {
+    __typename
+    name
+    items {
+      __typename
+      url
+    }
+  }
 }
     `;
 export const ContactPartsFragmentDoc = gql`
@@ -1136,6 +1266,47 @@ export const GetConcertListDocument = gql`
   }
 }
     ${ConcertPartsFragmentDoc}`;
+export const GetGalleryDocumentDocument = gql`
+    query getGalleryDocument($relativePath: String!) {
+  getGalleryDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...GalleryParts
+    }
+  }
+}
+    ${GalleryPartsFragmentDoc}`;
+export const GetGalleryListDocument = gql`
+    query getGalleryList {
+  getGalleryList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...GalleryParts
+        }
+      }
+    }
+  }
+}
+    ${GalleryPartsFragmentDoc}`;
 export const GetContactDocumentDocument = gql`
     query getContactDocument($relativePath: String!) {
   getContactDocument(relativePath: $relativePath) {
@@ -1209,6 +1380,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     getConcertList(variables?: GetConcertListQueryVariables, options?: C): Promise<{data: GetConcertListQuery, variables: GetConcertListQueryVariables, query: string}> {
         return requester<{data: GetConcertListQuery, variables: GetConcertListQueryVariables, query: string}, GetConcertListQueryVariables>(GetConcertListDocument, variables, options);
+      },
+    getGalleryDocument(variables: GetGalleryDocumentQueryVariables, options?: C): Promise<{data: GetGalleryDocumentQuery, variables: GetGalleryDocumentQueryVariables, query: string}> {
+        return requester<{data: GetGalleryDocumentQuery, variables: GetGalleryDocumentQueryVariables, query: string}, GetGalleryDocumentQueryVariables>(GetGalleryDocumentDocument, variables, options);
+      },
+    getGalleryList(variables?: GetGalleryListQueryVariables, options?: C): Promise<{data: GetGalleryListQuery, variables: GetGalleryListQueryVariables, query: string}> {
+        return requester<{data: GetGalleryListQuery, variables: GetGalleryListQueryVariables, query: string}, GetGalleryListQueryVariables>(GetGalleryListDocument, variables, options);
       },
     getContactDocument(variables: GetContactDocumentQueryVariables, options?: C): Promise<{data: GetContactDocumentQuery, variables: GetContactDocumentQueryVariables, query: string}> {
         return requester<{data: GetContactDocumentQuery, variables: GetContactDocumentQueryVariables, query: string}, GetContactDocumentQueryVariables>(GetContactDocumentDocument, variables, options);

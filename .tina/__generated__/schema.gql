@@ -42,24 +42,27 @@ interface Connection {
 }
 
 type Query {
+  getOptimizedQuery(queryString: String!): String
   getCollection(collection: String): Collection!
   getCollections: [Collection!]!
   node(id: String): Node!
   getDocument(collection: String, relativePath: String): DocumentNode!
-  getDocumentList(before: String, after: String, first: Float, last: Float): DocumentConnection!
+  getDocumentList(before: String, after: String, first: Float, last: Float, sort: String): DocumentConnection!
   getDocumentFields: JSON!
   getHomeDocument(relativePath: String): HomeDocument!
-  getHomeList(before: String, after: String, first: Float, last: Float): HomeConnection!
+  getHomeList(before: String, after: String, first: Float, last: Float, sort: String): HomeConnection!
   getAboutDocument(relativePath: String): AboutDocument!
-  getAboutList(before: String, after: String, first: Float, last: Float): AboutConnection!
+  getAboutList(before: String, after: String, first: Float, last: Float, sort: String): AboutConnection!
   getStructureDocument(relativePath: String): StructureDocument!
-  getStructureList(before: String, after: String, first: Float, last: Float): StructureConnection!
+  getStructureList(before: String, after: String, first: Float, last: Float, sort: String): StructureConnection!
   getConductorsDocument(relativePath: String): ConductorsDocument!
-  getConductorsList(before: String, after: String, first: Float, last: Float): ConductorsConnection!
+  getConductorsList(before: String, after: String, first: Float, last: Float, sort: String): ConductorsConnection!
   getConcertDocument(relativePath: String): ConcertDocument!
-  getConcertList(before: String, after: String, first: Float, last: Float): ConcertConnection!
+  getConcertList(before: String, after: String, first: Float, last: Float, sort: String): ConcertConnection!
+  getGalleryDocument(relativePath: String): GalleryDocument!
+  getGalleryList(before: String, after: String, first: Float, last: Float, sort: String): GalleryConnection!
   getContactDocument(relativePath: String): ContactDocument!
-  getContactList(before: String, after: String, first: Float, last: Float): ContactConnection!
+  getContactList(before: String, after: String, first: Float, last: Float, sort: String): ContactConnection!
 }
 
 type DocumentConnectionEdges {
@@ -82,10 +85,10 @@ type Collection {
   matches: String
   templates: [JSON]
   fields: [JSON]
-  documents(before: String, after: String, first: Float, last: Float): DocumentConnection!
+  documents(before: String, after: String, first: Float, last: Float, sort: String): DocumentConnection!
 }
 
-union DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertDocument | ContactDocument
+union DocumentNode = HomeDocument | AboutDocument | StructureDocument | ConductorsDocument | ConcertDocument | GalleryDocument | ContactDocument
 
 type Home {
   title: String
@@ -289,6 +292,39 @@ type ConcertConnection implements Connection {
   edges: [ConcertConnectionEdges]
 }
 
+type GallerySectionsItems {
+  url: String
+}
+
+type GallerySections {
+  name: String
+  items: GallerySectionsItems
+}
+
+type Gallery {
+  sections: GallerySections
+}
+
+type GalleryDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: Gallery!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type GalleryConnectionEdges {
+  cursor: String
+  node: GalleryDocument
+}
+
+type GalleryConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Float!
+  edges: [GalleryConnectionEdges]
+}
+
 type ContactLeadership {
   name: String
   phone: String
@@ -329,6 +365,7 @@ type ContactConnection implements Connection {
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
+  deleteDocument(collection: String, relativePath: String!): DocumentNode!
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updateHomeDocument(relativePath: String!, params: HomeMutation!): HomeDocument!
   createHomeDocument(relativePath: String!, params: HomeMutation!): HomeDocument!
@@ -340,6 +377,8 @@ type Mutation {
   createConductorsDocument(relativePath: String!, params: ConductorsMutation!): ConductorsDocument!
   updateConcertDocument(relativePath: String!, params: ConcertMutation!): ConcertDocument!
   createConcertDocument(relativePath: String!, params: ConcertMutation!): ConcertDocument!
+  updateGalleryDocument(relativePath: String!, params: GalleryMutation!): GalleryDocument!
+  createGalleryDocument(relativePath: String!, params: GalleryMutation!): GalleryDocument!
   updateContactDocument(relativePath: String!, params: ContactMutation!): ContactDocument!
   createContactDocument(relativePath: String!, params: ContactMutation!): ContactDocument!
 }
@@ -350,6 +389,7 @@ input DocumentMutation {
   structure: StructureMutation
   conductors: ConductorsMutation
   concert: ConcertMutation
+  gallery: GalleryMutation
   contact: ContactMutation
 }
 
@@ -453,6 +493,19 @@ input ConcertMutation {
   solists: String
   price: String
   description: JSON
+}
+
+input GallerySectionsItemsMutation {
+  url: String
+}
+
+input GallerySectionsMutation {
+  name: String
+  items: GallerySectionsItemsMutation
+}
+
+input GalleryMutation {
+  sections: GallerySectionsMutation
 }
 
 input ContactLeadershipMutation {

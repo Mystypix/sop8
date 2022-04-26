@@ -193,6 +193,45 @@ query getConcertList {
   }
 }
 
+query getGalleryDocument($relativePath: String!) {
+  getGalleryDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...GalleryParts
+    }
+  }
+}
+
+query getGalleryList {
+  getGalleryList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...GalleryParts
+        }
+      }
+    }
+  }
+}
+
 query getContactDocument($relativePath: String!) {
   getContactDocument(relativePath: $relativePath) {
     sys {
