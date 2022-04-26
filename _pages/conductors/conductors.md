@@ -2,7 +2,7 @@
 conductors:
   - photo: >-
       https://res.cloudinary.com/dnmblyni7/image/upload/v1646815469/jachym_svoboda_nzcgxj.jpg
-    name: Jáchym Svoboda
+    name: 'Jáchym Svoboda '
     text: >-
       Narodil se v Praze. Vystudoval osmileté gymnázium a ZUŠ v Říčanech - obor
       lesní roh. V současnosti studuje dirigování na Pražské konzervatoři pod
