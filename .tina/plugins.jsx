@@ -7,7 +7,7 @@ export const customListItem = {
         const field = {
           ...props.field,
           itemProps: (item) => {
-            return { label: item.name, key: item.name }
+            return { label: item.name || item.url, key: item.name || item.url }
           },
         }
         return <GroupListFieldPlugin.Component {...props} field={field} />
