@@ -27,5 +27,14 @@ second_violins:
   - name: Lada Grigarová
   - name: Veronika Dětinská
   - name: Katerina Dalecká
+viols:
+  - name: Kristýna Mezerová
+  - name: Natálie Smaginová
+  - name: ' Veronika Šírová'
+  - name: Jana Reháková
+  - name: Jan Provazník
+  - name: Radka Maršnerová
+  - name: Bogdan Guchunov
+  - name: Marie Brajerová
 ---
 
