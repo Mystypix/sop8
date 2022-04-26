@@ -302,7 +302,7 @@ type GallerySections {
 }
 
 type Gallery {
-  sections: GallerySections
+  sections: [GallerySections]
 }
 
 type GalleryDocument implements Node & Document {
@@ -505,7 +505,7 @@ input GallerySectionsMutation {
 }
 
 input GalleryMutation {
-  sections: GallerySectionsMutation
+  sections: [GallerySectionsMutation]
 }
 
 input ContactLeadershipMutation {

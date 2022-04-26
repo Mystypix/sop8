@@ -12,7 +12,8 @@ export default function Gallery({data: initialData, query}) {
     data: initialData,
   })
 
-    // const {sections} = data.getGalleryDocument.data
+    const {sections} = data.getGalleryDocument.data
+    console.log('seeee', sections)
   return (
     <>
       <Layout>
@@ -21,13 +22,14 @@ export default function Gallery({data: initialData, query}) {
         </Head>
         <Header />
         <SectionTitle>Galerie</SectionTitle>
-        {/* <div>
-          {sections.map((props) => {
-            return (
-                <div>{props.url}</div>
-            )
+        {sections && <div>
+          {sections.map(section => {
+              if (section.items) {
+                  return section.items.map(item => <Image src={item.url} width='200px' height='200px' objectFit='cover' alt='Fotografie v galerii' />)
+              }
+            return section.items
           })}
-        </div> */}
+        </div>}
       </Layout>
     </>
   )
@@ -40,7 +42,10 @@ export const getStaticProps = async () => {
         getGalleryDocument(relativePath: $relativePath) {
             data {
                 sections {
-                    name
+                    name,
+                    items {
+                        url
+                    }
                 }
             }
         }

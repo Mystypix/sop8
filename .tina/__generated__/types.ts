@@ -499,7 +499,7 @@ export type GallerySections = {
 
 export type Gallery = {
   __typename?: 'Gallery';
-  sections?: Maybe<GallerySections>;
+  sections?: Maybe<Array<Maybe<GallerySections>>>;
 };
 
 export type GalleryDocument = Node & Document & {
@@ -823,7 +823,7 @@ export type GallerySectionsMutation = {
 };
 
 export type GalleryMutation = {
-  sections?: InputMaybe<GallerySectionsMutation>;
+  sections?: InputMaybe<Array<InputMaybe<GallerySectionsMutation>>>;
 };
 
 export type ContactLeadershipMutation = {
@@ -853,7 +853,7 @@ export type ConductorsPartsFragment = { __typename?: 'Conductors', conductors?: 
 
 export type ConcertPartsFragment = { __typename?: 'Concert', name?: string | null, date?: string | null, time?: string | null, address?: string | null, conductor?: string | null, solists?: string | null, price?: string | null, description?: any | null };
 
-export type GalleryPartsFragment = { __typename?: 'Gallery', sections?: { __typename: 'GallerySections', name?: string | null, items?: Array<{ __typename: 'GallerySectionsItems', url?: string | null } | null> | null } | null };
+export type GalleryPartsFragment = { __typename?: 'Gallery', sections?: Array<{ __typename: 'GallerySections', name?: string | null, items?: Array<{ __typename: 'GallerySectionsItems', url?: string | null } | null> | null } | null> | null };
 
 export type ContactPartsFragment = { __typename?: 'Contact', email?: string | null, leadership?: { __typename: 'ContactLeadership', name?: string | null, phone?: string | null, email?: string | null } | null, practice?: { __typename: 'ContactPractice', text?: string | null, address?: string | null } | null };
 
@@ -922,12 +922,12 @@ export type GetGalleryDocumentQueryVariables = Exact<{
 }>;
 
 
-export type GetGalleryDocumentQuery = { __typename?: 'Query', getGalleryDocument: { __typename?: 'GalleryDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Gallery', sections?: { __typename: 'GallerySections', name?: string | null, items?: Array<{ __typename: 'GallerySectionsItems', url?: string | null } | null> | null } | null } } };
+export type GetGalleryDocumentQuery = { __typename?: 'Query', getGalleryDocument: { __typename?: 'GalleryDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Gallery', sections?: Array<{ __typename: 'GallerySections', name?: string | null, items?: Array<{ __typename: 'GallerySectionsItems', url?: string | null } | null> | null } | null> | null } } };
 
 export type GetGalleryListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetGalleryListQuery = { __typename?: 'Query', getGalleryList: { __typename?: 'GalleryConnection', totalCount: number, edges?: Array<{ __typename?: 'GalleryConnectionEdges', node?: { __typename?: 'GalleryDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Gallery', sections?: { __typename: 'GallerySections', name?: string | null, items?: Array<{ __typename: 'GallerySectionsItems', url?: string | null } | null> | null } | null } } | null } | null> | null } };
+export type GetGalleryListQuery = { __typename?: 'Query', getGalleryList: { __typename?: 'GalleryConnection', totalCount: number, edges?: Array<{ __typename?: 'GalleryConnectionEdges', node?: { __typename?: 'GalleryDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Gallery', sections?: Array<{ __typename: 'GallerySections', name?: string | null, items?: Array<{ __typename: 'GallerySectionsItems', url?: string | null } | null> | null } | null> | null } } | null } | null> | null } };
 
 export type GetContactDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];

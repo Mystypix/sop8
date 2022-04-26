@@ -352,6 +352,7 @@ export default defineSchema({
           label: 'Sekce',
           name: 'sections',
           type: 'object',
+          list: true,
           fields: [
             {
               label: 'Nazev',
