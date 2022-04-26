@@ -49,5 +49,16 @@ violoncellos:
   - name: Václav Huml
   - name: Marie Bláhová
   - name: Jirí Benda
+basses:
+  - name: Ondřej Švehelka
+  - name: Dušan Hanzlík
+flutes:
+  - name: Jana Sládečková
+  - name: Marie Pradáčová
+  - name: Pavlína Kolářová
+oboes:
+  - name: Stanislav Povýšil
+  - name: Tereza Poláková
+  - name: Jan Řezníček
 ---
 
