@@ -60,5 +60,24 @@ oboes:
   - name: Stanislav Povýšil
   - name: Tereza Poláková
   - name: Jan Řezníček
+clarinets:
+  - name: Alois Maršner
+  - name: Marek Štika
+bassoons:
+  - name: Pavel Rensa
+  - name: Hynek Řezníček
+french_horns:
+  - name: Veronika Gloserová
+  - name: Lenka Libenská
+  - name: Michaela Pekárková
+  - name: Lucie Sadílková
+trumpets:
+  - name: Jan Polanský
+  - name: Vít Sládecek
+trombones:
+  - name: Jakub Adamec
+  - name: Josef Dvořák
+drums:
+  - name: Hana Dittrichová
 ---
 
