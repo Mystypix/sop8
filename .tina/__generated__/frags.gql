@@ -9,59 +9,59 @@ fragment AboutParts on About {
 fragment StructureParts on Structure {
   first_violins {
     __typename
-    player
+    name
   }
   second_violins {
     __typename
-    player
+    name
   }
   viols {
     __typename
-    player
+    name
   }
   violoncellos {
     __typename
-    player
+    name
   }
   basses {
     __typename
-    player
+    name
   }
   flutes {
     __typename
-    player
+    name
   }
   oboes {
     __typename
-    player
+    name
   }
   clarinets {
     __typename
-    player
+    name
   }
   bassoons {
     __typename
-    player
+    name
   }
   french_horns {
     __typename
-    player
+    name
   }
   trumpets {
     __typename
-    player
+    name
   }
   trombones {
     __typename
-    player
+    name
   }
   tube {
     __typename
-    player
+    name
   }
   drums {
     __typename
-    player
+    name
   }
 }
 

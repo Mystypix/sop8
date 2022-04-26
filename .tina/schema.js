@@ -42,7 +42,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]
@@ -58,7 +58,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]
@@ -74,7 +74,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]
@@ -90,7 +90,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]
@@ -106,7 +106,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]
@@ -122,7 +122,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]
@@ -138,7 +138,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]
@@ -154,7 +154,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]
@@ -170,7 +170,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]
@@ -186,7 +186,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]
@@ -202,7 +202,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]
@@ -218,7 +218,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]
@@ -234,7 +234,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]
@@ -250,7 +250,7 @@ export default defineSchema({
           fields: [
             {
               label: 'Jmeno hrace',
-              name: 'player',
+              name: 'name',
               type: 'string',
             }
           ]

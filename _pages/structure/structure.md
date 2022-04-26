@@ -1,6 +1,6 @@
 ---
 first_violins:
-  - player: Natalie Smaginova
-  - player: Kristyna
+  - name: Natalie Smaginova
+  - name: Kristyna
 ---
 

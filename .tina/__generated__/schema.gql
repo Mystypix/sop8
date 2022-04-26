@@ -139,59 +139,59 @@ type AboutConnection implements Connection {
 }
 
 type StructureFirst_violins {
-  player: String
+  name: String
 }
 
 type StructureSecond_violins {
-  player: String
+  name: String
 }
 
 type StructureViols {
-  player: String
+  name: String
 }
 
 type StructureVioloncellos {
-  player: String
+  name: String
 }
 
 type StructureBasses {
-  player: String
+  name: String
 }
 
 type StructureFlutes {
-  player: String
+  name: String
 }
 
 type StructureOboes {
-  player: String
+  name: String
 }
 
 type StructureClarinets {
-  player: String
+  name: String
 }
 
 type StructureBassoons {
-  player: String
+  name: String
 }
 
 type StructureFrench_horns {
-  player: String
+  name: String
 }
 
 type StructureTrumpets {
-  player: String
+  name: String
 }
 
 type StructureTrombones {
-  player: String
+  name: String
 }
 
 type StructureTube {
-  player: String
+  name: String
 }
 
 type StructureDrums {
-  player: String
+  name: String
 }
 
 type Structure {
@@ -402,59 +402,59 @@ input AboutMutation {
 }
 
 input StructureFirst_violinsMutation {
-  player: String
+  name: String
 }
 
 input StructureSecond_violinsMutation {
-  player: String
+  name: String
 }
 
 input StructureViolsMutation {
-  player: String
+  name: String
 }
 
 input StructureVioloncellosMutation {
-  player: String
+  name: String
 }
 
 input StructureBassesMutation {
-  player: String
+  name: String
 }
 
 input StructureFlutesMutation {
-  player: String
+  name: String
 }
 
 input StructureOboesMutation {
-  player: String
+  name: String
 }
 
 input StructureClarinetsMutation {
-  player: String
+  name: String
 }
 
 input StructureBassoonsMutation {
-  player: String
+  name: String
 }
 
 input StructureFrench_hornsMutation {
-  player: String
+  name: String
 }
 
 input StructureTrumpetsMutation {
-  player: String
+  name: String
 }
 
 input StructureTrombonesMutation {
-  player: String
+  name: String
 }
 
 input StructureTubeMutation {
-  player: String
+  name: String
 }
 
 input StructureDrumsMutation {
-  player: String
+  name: String
 }
 
 input StructureMutation {

@@ -20,7 +20,7 @@ export default function Structure({data: initialData, query}) {
         </Head>
         <Header />
         <div>
-          {first_violins.map(({player}) => <div key={player}>{player}</div>)}
+          {first_violins.map(({name}) => <div key={name}>{name}</div>)}
         </div>
         {/* <div>
           {second_violins.map(({player}) => <div key={player}>{player}</div>)}
