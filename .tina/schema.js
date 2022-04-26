@@ -362,6 +362,10 @@ export default defineSchema({
               label: 'Fotky',
               name: 'items',
               type: 'object',
+              list: true,
+              ui: {
+                component: 'group-list',
+              },
               fields: [
                 {
                   label: 'Fotka',
