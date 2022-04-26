@@ -11,5 +11,21 @@ first_violins:
   - name: Magdalena Čapková
   - name: Eliška Cibulková
   - name: Lenka Boudová
+second_violins:
+  - name: Jan Weinert
+  - name: Martin Toniolo
+  - name: Karolína Škodová
+  - name: Zuzana Skácelová
+  - name: Anežka Náhlíková
+  - name: Pavel Lejdar
+  - name: Jana Kučerová
+  - name: Martin Kolda
+  - name: Anna Kašparová
+  - name: Marie Hofmanová
+  - name: Zuzana Halamícková
+  - name: Pavla Gründlerová - koncertní
+  - name: Lada Grigarová
+  - name: Veronika Dětinská
+  - name: Katerina Dalecká
 ---
 
