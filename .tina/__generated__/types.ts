@@ -314,66 +314,79 @@ export type StructureFirst_Violins = {
 export type StructureSecond_Violins = {
   __typename?: 'StructureSecond_violins';
   name?: Maybe<Scalars['String']>;
+  concert?: Maybe<Scalars['Boolean']>;
 };
 
 export type StructureViols = {
   __typename?: 'StructureViols';
   name?: Maybe<Scalars['String']>;
+  concert?: Maybe<Scalars['Boolean']>;
 };
 
 export type StructureVioloncellos = {
   __typename?: 'StructureVioloncellos';
   name?: Maybe<Scalars['String']>;
+  concert?: Maybe<Scalars['Boolean']>;
 };
 
 export type StructureBasses = {
   __typename?: 'StructureBasses';
   name?: Maybe<Scalars['String']>;
+  concert?: Maybe<Scalars['Boolean']>;
 };
 
 export type StructureFlutes = {
   __typename?: 'StructureFlutes';
   name?: Maybe<Scalars['String']>;
+  concert?: Maybe<Scalars['Boolean']>;
 };
 
 export type StructureOboes = {
   __typename?: 'StructureOboes';
   name?: Maybe<Scalars['String']>;
+  concert?: Maybe<Scalars['Boolean']>;
 };
 
 export type StructureClarinets = {
   __typename?: 'StructureClarinets';
   name?: Maybe<Scalars['String']>;
+  concert?: Maybe<Scalars['Boolean']>;
 };
 
 export type StructureBassoons = {
   __typename?: 'StructureBassoons';
   name?: Maybe<Scalars['String']>;
+  concert?: Maybe<Scalars['Boolean']>;
 };
 
 export type StructureFrench_Horns = {
   __typename?: 'StructureFrench_horns';
   name?: Maybe<Scalars['String']>;
+  concert?: Maybe<Scalars['Boolean']>;
 };
 
 export type StructureTrumpets = {
   __typename?: 'StructureTrumpets';
   name?: Maybe<Scalars['String']>;
+  concert?: Maybe<Scalars['Boolean']>;
 };
 
 export type StructureTrombones = {
   __typename?: 'StructureTrombones';
   name?: Maybe<Scalars['String']>;
+  concert?: Maybe<Scalars['Boolean']>;
 };
 
 export type StructureTube = {
   __typename?: 'StructureTube';
   name?: Maybe<Scalars['String']>;
+  concert?: Maybe<Scalars['Boolean']>;
 };
 
 export type StructureDrums = {
   __typename?: 'StructureDrums';
   name?: Maybe<Scalars['String']>;
+  concert?: Maybe<Scalars['Boolean']>;
 };
 
 export type Structure = {
@@ -727,54 +740,67 @@ export type StructureFirst_ViolinsMutation = {
 
 export type StructureSecond_ViolinsMutation = {
   name?: InputMaybe<Scalars['String']>;
+  concert?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type StructureViolsMutation = {
   name?: InputMaybe<Scalars['String']>;
+  concert?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type StructureVioloncellosMutation = {
   name?: InputMaybe<Scalars['String']>;
+  concert?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type StructureBassesMutation = {
   name?: InputMaybe<Scalars['String']>;
+  concert?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type StructureFlutesMutation = {
   name?: InputMaybe<Scalars['String']>;
+  concert?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type StructureOboesMutation = {
   name?: InputMaybe<Scalars['String']>;
+  concert?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type StructureClarinetsMutation = {
   name?: InputMaybe<Scalars['String']>;
+  concert?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type StructureBassoonsMutation = {
   name?: InputMaybe<Scalars['String']>;
+  concert?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type StructureFrench_HornsMutation = {
   name?: InputMaybe<Scalars['String']>;
+  concert?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type StructureTrumpetsMutation = {
   name?: InputMaybe<Scalars['String']>;
+  concert?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type StructureTrombonesMutation = {
   name?: InputMaybe<Scalars['String']>;
+  concert?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type StructureTubeMutation = {
   name?: InputMaybe<Scalars['String']>;
+  concert?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type StructureDrumsMutation = {
   name?: InputMaybe<Scalars['String']>;
+  concert?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type StructureMutation = {
@@ -849,7 +875,7 @@ export type HomePartsFragment = { __typename?: 'Home', title?: string | null };
 
 export type AboutPartsFragment = { __typename?: 'About', description?: any | null };
 
-export type StructurePartsFragment = { __typename?: 'Structure', first_violins?: Array<{ __typename: 'StructureFirst_violins', name?: string | null, concert?: boolean | null } | null> | null, second_violins?: Array<{ __typename: 'StructureSecond_violins', name?: string | null } | null> | null, viols?: Array<{ __typename: 'StructureViols', name?: string | null } | null> | null, violoncellos?: Array<{ __typename: 'StructureVioloncellos', name?: string | null } | null> | null, basses?: Array<{ __typename: 'StructureBasses', name?: string | null } | null> | null, flutes?: Array<{ __typename: 'StructureFlutes', name?: string | null } | null> | null, oboes?: Array<{ __typename: 'StructureOboes', name?: string | null } | null> | null, clarinets?: Array<{ __typename: 'StructureClarinets', name?: string | null } | null> | null, bassoons?: Array<{ __typename: 'StructureBassoons', name?: string | null } | null> | null, french_horns?: Array<{ __typename: 'StructureFrench_horns', name?: string | null } | null> | null, trumpets?: Array<{ __typename: 'StructureTrumpets', name?: string | null } | null> | null, trombones?: Array<{ __typename: 'StructureTrombones', name?: string | null } | null> | null, tube?: Array<{ __typename: 'StructureTube', name?: string | null } | null> | null, drums?: Array<{ __typename: 'StructureDrums', name?: string | null } | null> | null };
+export type StructurePartsFragment = { __typename?: 'Structure', first_violins?: Array<{ __typename: 'StructureFirst_violins', name?: string | null, concert?: boolean | null } | null> | null, second_violins?: Array<{ __typename: 'StructureSecond_violins', name?: string | null, concert?: boolean | null } | null> | null, viols?: Array<{ __typename: 'StructureViols', name?: string | null, concert?: boolean | null } | null> | null, violoncellos?: Array<{ __typename: 'StructureVioloncellos', name?: string | null, concert?: boolean | null } | null> | null, basses?: Array<{ __typename: 'StructureBasses', name?: string | null, concert?: boolean | null } | null> | null, flutes?: Array<{ __typename: 'StructureFlutes', name?: string | null, concert?: boolean | null } | null> | null, oboes?: Array<{ __typename: 'StructureOboes', name?: string | null, concert?: boolean | null } | null> | null, clarinets?: Array<{ __typename: 'StructureClarinets', name?: string | null, concert?: boolean | null } | null> | null, bassoons?: Array<{ __typename: 'StructureBassoons', name?: string | null, concert?: boolean | null } | null> | null, french_horns?: Array<{ __typename: 'StructureFrench_horns', name?: string | null, concert?: boolean | null } | null> | null, trumpets?: Array<{ __typename: 'StructureTrumpets', name?: string | null, concert?: boolean | null } | null> | null, trombones?: Array<{ __typename: 'StructureTrombones', name?: string | null, concert?: boolean | null } | null> | null, tube?: Array<{ __typename: 'StructureTube', name?: string | null, concert?: boolean | null } | null> | null, drums?: Array<{ __typename: 'StructureDrums', name?: string | null, concert?: boolean | null } | null> | null };
 
 export type ConductorsPartsFragment = { __typename?: 'Conductors', conductors?: Array<{ __typename: 'ConductorsConductors', photo?: string | null, name?: string | null, text?: string | null } | null> | null };
 
@@ -888,12 +914,12 @@ export type GetStructureDocumentQueryVariables = Exact<{
 }>;
 
 
-export type GetStructureDocumentQuery = { __typename?: 'Query', getStructureDocument: { __typename?: 'StructureDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Structure', first_violins?: Array<{ __typename: 'StructureFirst_violins', name?: string | null, concert?: boolean | null } | null> | null, second_violins?: Array<{ __typename: 'StructureSecond_violins', name?: string | null } | null> | null, viols?: Array<{ __typename: 'StructureViols', name?: string | null } | null> | null, violoncellos?: Array<{ __typename: 'StructureVioloncellos', name?: string | null } | null> | null, basses?: Array<{ __typename: 'StructureBasses', name?: string | null } | null> | null, flutes?: Array<{ __typename: 'StructureFlutes', name?: string | null } | null> | null, oboes?: Array<{ __typename: 'StructureOboes', name?: string | null } | null> | null, clarinets?: Array<{ __typename: 'StructureClarinets', name?: string | null } | null> | null, bassoons?: Array<{ __typename: 'StructureBassoons', name?: string | null } | null> | null, french_horns?: Array<{ __typename: 'StructureFrench_horns', name?: string | null } | null> | null, trumpets?: Array<{ __typename: 'StructureTrumpets', name?: string | null } | null> | null, trombones?: Array<{ __typename: 'StructureTrombones', name?: string | null } | null> | null, tube?: Array<{ __typename: 'StructureTube', name?: string | null } | null> | null, drums?: Array<{ __typename: 'StructureDrums', name?: string | null } | null> | null } } };
+export type GetStructureDocumentQuery = { __typename?: 'Query', getStructureDocument: { __typename?: 'StructureDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Structure', first_violins?: Array<{ __typename: 'StructureFirst_violins', name?: string | null, concert?: boolean | null } | null> | null, second_violins?: Array<{ __typename: 'StructureSecond_violins', name?: string | null, concert?: boolean | null } | null> | null, viols?: Array<{ __typename: 'StructureViols', name?: string | null, concert?: boolean | null } | null> | null, violoncellos?: Array<{ __typename: 'StructureVioloncellos', name?: string | null, concert?: boolean | null } | null> | null, basses?: Array<{ __typename: 'StructureBasses', name?: string | null, concert?: boolean | null } | null> | null, flutes?: Array<{ __typename: 'StructureFlutes', name?: string | null, concert?: boolean | null } | null> | null, oboes?: Array<{ __typename: 'StructureOboes', name?: string | null, concert?: boolean | null } | null> | null, clarinets?: Array<{ __typename: 'StructureClarinets', name?: string | null, concert?: boolean | null } | null> | null, bassoons?: Array<{ __typename: 'StructureBassoons', name?: string | null, concert?: boolean | null } | null> | null, french_horns?: Array<{ __typename: 'StructureFrench_horns', name?: string | null, concert?: boolean | null } | null> | null, trumpets?: Array<{ __typename: 'StructureTrumpets', name?: string | null, concert?: boolean | null } | null> | null, trombones?: Array<{ __typename: 'StructureTrombones', name?: string | null, concert?: boolean | null } | null> | null, tube?: Array<{ __typename: 'StructureTube', name?: string | null, concert?: boolean | null } | null> | null, drums?: Array<{ __typename: 'StructureDrums', name?: string | null, concert?: boolean | null } | null> | null } } };
 
 export type GetStructureListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetStructureListQuery = { __typename?: 'Query', getStructureList: { __typename?: 'StructureConnection', totalCount: number, edges?: Array<{ __typename?: 'StructureConnectionEdges', node?: { __typename?: 'StructureDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Structure', first_violins?: Array<{ __typename: 'StructureFirst_violins', name?: string | null, concert?: boolean | null } | null> | null, second_violins?: Array<{ __typename: 'StructureSecond_violins', name?: string | null } | null> | null, viols?: Array<{ __typename: 'StructureViols', name?: string | null } | null> | null, violoncellos?: Array<{ __typename: 'StructureVioloncellos', name?: string | null } | null> | null, basses?: Array<{ __typename: 'StructureBasses', name?: string | null } | null> | null, flutes?: Array<{ __typename: 'StructureFlutes', name?: string | null } | null> | null, oboes?: Array<{ __typename: 'StructureOboes', name?: string | null } | null> | null, clarinets?: Array<{ __typename: 'StructureClarinets', name?: string | null } | null> | null, bassoons?: Array<{ __typename: 'StructureBassoons', name?: string | null } | null> | null, french_horns?: Array<{ __typename: 'StructureFrench_horns', name?: string | null } | null> | null, trumpets?: Array<{ __typename: 'StructureTrumpets', name?: string | null } | null> | null, trombones?: Array<{ __typename: 'StructureTrombones', name?: string | null } | null> | null, tube?: Array<{ __typename: 'StructureTube', name?: string | null } | null> | null, drums?: Array<{ __typename: 'StructureDrums', name?: string | null } | null> | null } } | null } | null> | null } };
+export type GetStructureListQuery = { __typename?: 'Query', getStructureList: { __typename?: 'StructureConnection', totalCount: number, edges?: Array<{ __typename?: 'StructureConnectionEdges', node?: { __typename?: 'StructureDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Structure', first_violins?: Array<{ __typename: 'StructureFirst_violins', name?: string | null, concert?: boolean | null } | null> | null, second_violins?: Array<{ __typename: 'StructureSecond_violins', name?: string | null, concert?: boolean | null } | null> | null, viols?: Array<{ __typename: 'StructureViols', name?: string | null, concert?: boolean | null } | null> | null, violoncellos?: Array<{ __typename: 'StructureVioloncellos', name?: string | null, concert?: boolean | null } | null> | null, basses?: Array<{ __typename: 'StructureBasses', name?: string | null, concert?: boolean | null } | null> | null, flutes?: Array<{ __typename: 'StructureFlutes', name?: string | null, concert?: boolean | null } | null> | null, oboes?: Array<{ __typename: 'StructureOboes', name?: string | null, concert?: boolean | null } | null> | null, clarinets?: Array<{ __typename: 'StructureClarinets', name?: string | null, concert?: boolean | null } | null> | null, bassoons?: Array<{ __typename: 'StructureBassoons', name?: string | null, concert?: boolean | null } | null> | null, french_horns?: Array<{ __typename: 'StructureFrench_horns', name?: string | null, concert?: boolean | null } | null> | null, trumpets?: Array<{ __typename: 'StructureTrumpets', name?: string | null, concert?: boolean | null } | null> | null, trombones?: Array<{ __typename: 'StructureTrombones', name?: string | null, concert?: boolean | null } | null> | null, tube?: Array<{ __typename: 'StructureTube', name?: string | null, concert?: boolean | null } | null> | null, drums?: Array<{ __typename: 'StructureDrums', name?: string | null, concert?: boolean | null } | null> | null } } | null } | null> | null } };
 
 export type GetConductorsDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -963,54 +989,67 @@ export const StructurePartsFragmentDoc = gql`
   second_violins {
     __typename
     name
+    concert
   }
   viols {
     __typename
     name
+    concert
   }
   violoncellos {
     __typename
     name
+    concert
   }
   basses {
     __typename
     name
+    concert
   }
   flutes {
     __typename
     name
+    concert
   }
   oboes {
     __typename
     name
+    concert
   }
   clarinets {
     __typename
     name
+    concert
   }
   bassoons {
     __typename
     name
+    concert
   }
   french_horns {
     __typename
     name
+    concert
   }
   trumpets {
     __typename
     name
+    concert
   }
   trombones {
     __typename
     name
+    concert
   }
   tube {
     __typename
     name
+    concert
   }
   drums {
     __typename
     name
+    concert
   }
 }
     `;

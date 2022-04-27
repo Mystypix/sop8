@@ -65,6 +65,11 @@ export default defineSchema({
               label: 'Jmeno hrace',
               name: 'name',
               type: 'string',
+            },
+            {
+              label: 'Koncertni?',
+              name: 'concert',
+              type: 'boolean',
             }
           ]
         },
@@ -81,6 +86,11 @@ export default defineSchema({
               label: 'Jmeno hrace',
               name: 'name',
               type: 'string',
+            },
+            {
+              label: 'Koncertni?',
+              name: 'concert',
+              type: 'boolean',
             }
           ]
         },
@@ -97,6 +107,11 @@ export default defineSchema({
               label: 'Jmeno hrace',
               name: 'name',
               type: 'string',
+            },
+            {
+              label: 'Koncertni?',
+              name: 'concert',
+              type: 'boolean',
             }
           ]
         },
@@ -113,6 +128,11 @@ export default defineSchema({
               label: 'Jmeno hrace',
               name: 'name',
               type: 'string',
+            },
+            {
+              label: 'Koncertni?',
+              name: 'concert',
+              type: 'boolean',
             }
           ]
         },
@@ -129,6 +149,11 @@ export default defineSchema({
               label: 'Jmeno hrace',
               name: 'name',
               type: 'string',
+            },
+            {
+              label: 'Koncertni?',
+              name: 'concert',
+              type: 'boolean',
             }
           ]
         },
@@ -145,6 +170,11 @@ export default defineSchema({
               label: 'Jmeno hrace',
               name: 'name',
               type: 'string',
+            },
+            {
+              label: 'Koncertni?',
+              name: 'concert',
+              type: 'boolean',
             }
           ]
         },
@@ -161,6 +191,11 @@ export default defineSchema({
               label: 'Jmeno hrace',
               name: 'name',
               type: 'string',
+            },
+            {
+              label: 'Koncertni?',
+              name: 'concert',
+              type: 'boolean',
             }
           ]
         },
@@ -177,6 +212,11 @@ export default defineSchema({
               label: 'Jmeno hrace',
               name: 'name',
               type: 'string',
+            },
+            {
+              label: 'Koncertni?',
+              name: 'concert',
+              type: 'boolean',
             }
           ]
         },
@@ -193,6 +233,11 @@ export default defineSchema({
               label: 'Jmeno hrace',
               name: 'name',
               type: 'string',
+            },
+            {
+              label: 'Koncertni?',
+              name: 'concert',
+              type: 'boolean',
             }
           ]
         },
@@ -209,6 +254,11 @@ export default defineSchema({
               label: 'Jmeno hrace',
               name: 'name',
               type: 'string',
+            },
+            {
+              label: 'Koncertni?',
+              name: 'concert',
+              type: 'boolean',
             }
           ]
         },
@@ -225,6 +275,11 @@ export default defineSchema({
               label: 'Jmeno hrace',
               name: 'name',
               type: 'string',
+            },
+            {
+              label: 'Koncertni?',
+              name: 'concert',
+              type: 'boolean',
             }
           ]
         },
@@ -241,6 +296,11 @@ export default defineSchema({
               label: 'Jmeno hrace',
               name: 'name',
               type: 'string',
+            },
+            {
+              label: 'Koncertni?',
+              name: 'concert',
+              type: 'boolean',
             }
           ]
         },
@@ -257,6 +317,11 @@ export default defineSchema({
               label: 'Jmeno hrace',
               name: 'name',
               type: 'string',
+            },
+            {
+              label: 'Koncertni?',
+              name: 'concert',
+              type: 'boolean',
             }
           ]
         }

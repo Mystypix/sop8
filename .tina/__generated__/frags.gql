@@ -15,54 +15,67 @@ fragment StructureParts on Structure {
   second_violins {
     __typename
     name
+    concert
   }
   viols {
     __typename
     name
+    concert
   }
   violoncellos {
     __typename
     name
+    concert
   }
   basses {
     __typename
     name
+    concert
   }
   flutes {
     __typename
     name
+    concert
   }
   oboes {
     __typename
     name
+    concert
   }
   clarinets {
     __typename
     name
+    concert
   }
   bassoons {
     __typename
     name
+    concert
   }
   french_horns {
     __typename
     name
+    concert
   }
   trumpets {
     __typename
     name
+    concert
   }
   trombones {
     __typename
     name
+    concert
   }
   tube {
     __typename
     name
+    concert
   }
   drums {
     __typename
     name
+    concert
   }
 }
 

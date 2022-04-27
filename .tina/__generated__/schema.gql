@@ -145,54 +145,67 @@ type StructureFirst_violins {
 
 type StructureSecond_violins {
   name: String
+  concert: Boolean
 }
 
 type StructureViols {
   name: String
+  concert: Boolean
 }
 
 type StructureVioloncellos {
   name: String
+  concert: Boolean
 }
 
 type StructureBasses {
   name: String
+  concert: Boolean
 }
 
 type StructureFlutes {
   name: String
+  concert: Boolean
 }
 
 type StructureOboes {
   name: String
+  concert: Boolean
 }
 
 type StructureClarinets {
   name: String
+  concert: Boolean
 }
 
 type StructureBassoons {
   name: String
+  concert: Boolean
 }
 
 type StructureFrench_horns {
   name: String
+  concert: Boolean
 }
 
 type StructureTrumpets {
   name: String
+  concert: Boolean
 }
 
 type StructureTrombones {
   name: String
+  concert: Boolean
 }
 
 type StructureTube {
   name: String
+  concert: Boolean
 }
 
 type StructureDrums {
   name: String
+  concert: Boolean
 }
 
 type Structure {
@@ -409,54 +422,67 @@ input StructureFirst_violinsMutation {
 
 input StructureSecond_violinsMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureViolsMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureVioloncellosMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureBassesMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureFlutesMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureOboesMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureClarinetsMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureBassoonsMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureFrench_hornsMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureTrumpetsMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureTrombonesMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureTubeMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureDrumsMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureMutation {
