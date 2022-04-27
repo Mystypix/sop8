@@ -10,6 +10,7 @@ fragment StructureParts on Structure {
   first_violins {
     __typename
     name
+    concert
   }
   second_violins {
     __typename

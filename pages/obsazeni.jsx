@@ -3,7 +3,7 @@ import Header from '../components/header'
 import Head from 'next/head'
 import { staticRequest } from 'tinacms'
 import { useTina } from 'tinacms/dist/edit-state'
-import {StyledGroup} from '../pages-styles/obsazeni.styles'
+import {StyledGroup, StyledItem, StyledTitle, StyledWrapper} from '../pages-styles/obsazeni.styles'
 
 export default function Structure({data: initialData, query}) {
   const { data } = useTina({
@@ -35,90 +35,92 @@ export default function Structure({data: initialData, query}) {
           <title>Symfonicky orchestr Prahy 8</title>
         </Head>
         <Header />
-        {first_violins && (
-          <StyledGroup>
-            <div>I. housle</div>
-            {first_violins.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
-        {second_violins && (
-          <StyledGroup>
-            <div>II. housle</div>
-            {second_violins.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
-        {viols && (
-          <StyledGroup>
-            <div>Violy</div>
-            {viols.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
-        {violoncellos && (
-          <StyledGroup>
-            <div>Violoncella</div>
-            {violoncellos.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
-        {basses && (
-          <StyledGroup>
-            <div>Kontrabasy</div>
-            {basses.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
-        {flutes && (
-          <StyledGroup>
-            <div>Flétny</div>
-            {flutes.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
-        {oboes && (
-          <StyledGroup>
-            <div>Hoboje</div>
-            {oboes.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
-        {clarinets && (
-          <StyledGroup>
-            <div>Klarinety</div>
-            {clarinets.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
-        {bassoons && (
-          <StyledGroup>
-            <div>Fagoty</div>
-            {bassoons.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
-        {french_horns && (
-          <StyledGroup>
-            <div>Lesní rohy</div>
-            {french_horns.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
-        {trumpets && (
-          <StyledGroup>
-            <div>Trubky</div>
-            {trumpets.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
-        {trombones && (
-          <StyledGroup>
-            <div>Trombóny</div>
-            {trombones.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
-        {tube && (
-          <StyledGroup>
-            <div>Tuba</div>
-            {tube.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
-        {drums && (
-          <StyledGroup>
-            <div>Bicí/tympán</div>
-            {drums.map(({name}) => <div key={name}>{name}</div>)}
-          </StyledGroup>
-        )}
+        <StyledWrapper>
+          {first_violins && (
+            <StyledGroup>
+              <StyledTitle>I. housle</StyledTitle>
+              {first_violins.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+          {second_violins && (
+            <StyledGroup>
+              <StyledTitle>II. housle</StyledTitle>
+              {second_violins.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+          {viols && (
+            <StyledGroup>
+              <StyledTitle>Violy</StyledTitle>
+              {viols.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+          {violoncellos && (
+            <StyledGroup>
+              <StyledTitle>Violoncella</StyledTitle>
+              {violoncellos.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+          {basses && (
+            <StyledGroup>
+              <StyledTitle>Kontrabasy</StyledTitle>
+              {basses.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+          {flutes && (
+            <StyledGroup>
+              <StyledTitle>Flétny</StyledTitle>
+              {flutes.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+          {oboes && (
+            <StyledGroup>
+              <StyledTitle>Hoboje</StyledTitle>
+              {oboes.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+          {clarinets && (
+            <StyledGroup>
+              <StyledTitle>Klarinety</StyledTitle>
+              {clarinets.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+          {bassoons && (
+            <StyledGroup>
+              <StyledTitle>Fagoty</StyledTitle>
+              {bassoons.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+          {french_horns && (
+            <StyledGroup>
+              <StyledTitle>Lesní rohy</StyledTitle>
+              {french_horns.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+          {trumpets && (
+            <StyledGroup>
+              <StyledTitle>Trubky</StyledTitle>
+              {trumpets.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+          {trombones && (
+            <StyledGroup>
+              <StyledTitle>Trombóny</StyledTitle>
+              {trombones.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+          {tube && (
+            <StyledGroup>
+              <StyledTitle>Tuba</StyledTitle>
+              {tube.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+          {drums && (
+            <StyledGroup>
+              <StyledTitle>Bicí/tympán</StyledTitle>
+              {drums.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
+            </StyledGroup>
+          )}
+        </StyledWrapper>
       </Layout>
     </>
   )
@@ -131,46 +133,60 @@ export const getStaticProps = async () => {
       getStructureDocument(relativePath: $relativePath) {
         data {
           first_violins {
-            name
+            name,
+            concert
           }
           second_violins {
-            name
+            name,
+            concert
           }
           viols {
-            name
+            name,
+            concert
           }
           violoncellos {
-            name
+            name,
+            concert
           }
           basses {
-            name
+            name,
+            concert
           }
           flutes {
-            name
+            name,
+            concert
           }
           oboes {
-            name
+            name,
+            concert
           }
           clarinets {
-            name
+            name,
+            concert
           }
           bassoons {
-            name
+            name,
+            concert
           }
           french_horns {
-            name
+            name,
+            concert
           }
           trumpets {
-            name
+            name,
+            concert
           }
           trombones {
-            name
+            name,
+            concert
           }
           tube {
-            name
+            name,
+            concert
           }
           drums {
-            name
+            name,
+            concert
           }
         }
       }

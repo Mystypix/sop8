@@ -140,6 +140,7 @@ type AboutConnection implements Connection {
 
 type StructureFirst_violins {
   name: String
+  concert: Boolean
 }
 
 type StructureSecond_violins {
@@ -403,6 +404,7 @@ input AboutMutation {
 
 input StructureFirst_violinsMutation {
   name: String
+  concert: Boolean
 }
 
 input StructureSecond_violinsMutation {
