@@ -2,7 +2,7 @@ import Layout from '../components/layout'
 import Header from '../components/header'
 import SectionTitle from '../components/section-title'
 import Map from '../components/map'
-import {StyledWrapper, StyledMapWrapper} from '../pages-styles/kontakt.styles'
+import {StyledWrapper, StyledMapWrapper, StyledItem} from '../pages-styles/kontakt.styles'
 import Head from 'next/head'
 import { staticRequest } from 'tinacms'
 import { useTina } from 'tinacms/dist/edit-state'
@@ -28,18 +28,18 @@ export default function Contact({data: initialData, query}) {
         <SectionTitle>Kontakt</SectionTitle>
         <StyledWrapper>
           <div>
-            <div>
+            <StyledItem>
               <strong>Orchestrální Email: </strong>
               <a href={`mailto:${email}`}>{email}</a>
-            </div>
+            </StyledItem>
             <div>
-              <div><strong>Vedoucí orchestru: </strong>{leadership.name}</div>
-              <div><strong>Email:</strong> <a href={`mailto:${leadership.email}`}>{leadership.email}</a></div>
-              <div><strong>Telefon:</strong> <a href={`tel:${leadership.phone}`}>{leadership.phone}</a></div>
+              <StyledItem><strong>Vedoucí orchestru: </strong>{leadership.name}</StyledItem>
+              <StyledItem><strong>Email:</strong> <a href={`mailto:${leadership.email}`}>{leadership.email}</a></StyledItem>
+              <StyledItem><strong>Telefon:</strong> <a href={`tel:${leadership.phone}`}>{leadership.phone}</a></StyledItem>
             </div>
           </div>
           <div>
-            <div><strong>Kde hrajeme</strong></div>
+            <StyledItem><strong>Kde hrajeme</strong></StyledItem>
             <div>{practice.text}</div>
             <div>{practice.address}</div>
             <StyledMapWrapper>

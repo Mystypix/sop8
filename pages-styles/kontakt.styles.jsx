@@ -18,3 +18,7 @@ export const StyledMapWrapper = styled.div`
     margin-top: 30px;
     height: 300px;
 `
+
+export const StyledItem = styled.div`
+    margin-bottom: 10px;
+`
