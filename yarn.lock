@@ -7834,6 +7834,11 @@ react-redux@^7.2.0:
     prop-types "^15.7.2"
     react-is "^17.0.2"
 
+react-responsive-masonry@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/react-responsive-masonry/-/react-responsive-masonry-2.1.6.tgz#84b3a9e9ba50553b8df8818c79ea2203945d8d63"
+  integrity sha512-yERdzOPvdr+eJdqPlRpkTnvCmURYDdwGxaLBjA/noZlrxL3TlxaP98wN0RjYDAG6g6B2f4hhoBZz4Yqi3YbrLg==
+
 react-router-dom@6:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.3.0.tgz#a0216da813454e521905b5fa55e0e5176123f43d"

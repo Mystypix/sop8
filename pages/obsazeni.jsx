@@ -3,7 +3,8 @@ import Header from '../components/header'
 import Head from 'next/head'
 import { staticRequest } from 'tinacms'
 import { useTina } from 'tinacms/dist/edit-state'
-import {StyledGroup, StyledItem, StyledTitle, StyledWrapper} from '../pages-styles/obsazeni.styles'
+import {StyledGroup, StyledItem, StyledTitle} from '../pages-styles/obsazeni.styles'
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 
 export default function Structure({data: initialData, query}) {
   const { data } = useTina({
@@ -35,7 +36,7 @@ export default function Structure({data: initialData, query}) {
           <title>Symfonicky orchestr Prahy 8</title>
         </Head>
         <Header />
-        <StyledWrapper>
+        <Masonry gutter='30px'>
           {first_violins && (
             <StyledGroup>
               <StyledTitle>I. housle</StyledTitle>
@@ -120,7 +121,7 @@ export default function Structure({data: initialData, query}) {
               {drums.map(({name}) => <StyledItem key={name}>{name}</StyledItem>)}
             </StyledGroup>
           )}
-        </StyledWrapper>
+        </Masonry>
       </Layout>
     </>
   )

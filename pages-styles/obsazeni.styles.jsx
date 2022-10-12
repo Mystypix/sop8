@@ -6,12 +6,11 @@ export const StyledWrapper = styled.div`
 `
 
 export const StyledGroup = styled.div`
-    margin-bottom: 30px;
+    border-left: 2px solid var(--color-primary);
+    padding: 20px;
     max-width: 600px;
-
-    &:nth-child(2n) {
-
-    }
+    background: #fff;
+    text-align: center;
 `
 
 export const StyledTitle = styled.div`
