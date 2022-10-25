@@ -5,6 +5,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { staticRequest } from 'tinacms'
 import { useTina } from 'tinacms/dist/edit-state'
+import { GroupTitle, GroupWrapper } from '../pages-styles/galerie.styles'
 
 export default function Gallery({data: initialData, query}) {
   const { data } = useTina({
@@ -26,10 +27,10 @@ export default function Gallery({data: initialData, query}) {
           {sections.map(section => {
             if (section.items) {
                 return (
-                    <div key={section.name}>
-                        <div>{section.name}</div>
+                    <GroupWrapper key={section.name}>
+                        <GroupTitle>{section.name}</GroupTitle>
                         {section.items.map(item => <Image src={item.url} width='200px' height='200px' objectFit='cover' alt='Fotografie v galerii' />)}
-                    </div>
+                    </GroupWrapper>
                 ) 
             }
             return null
