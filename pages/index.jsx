@@ -6,13 +6,14 @@ import { useTina } from 'tinacms/dist/edit-state'
 import {StyledIntro, StyledConcertsSection, StyledIntroText} from '../pages-styles/index.styles'
 import ConcertCard from '../components/concert-card'
 import SectionTitle from '../components/section-title'
+import { concertListQuery } from '../components/constants/queries'
 
 export default function Index({data: initialData, query}) {
   const { data } = useTina({
     query,
     variables: { 
       homeRelativePath: '/home.md',
-      // concertsRelativePath: '/concerts.md',
+      // concertsRelativePath: '/content/concert',
      },
     data: initialData,
   })
@@ -31,9 +32,9 @@ export default function Index({data: initialData, query}) {
         </StyledIntro>
         <StyledConcertsSection>
           <SectionTitle>
-            Příští koncert
+            Nejbližší koncert
           </SectionTitle>
-          {/* <ConcertCard {...concerts[0]} /> */}
+          <ConcertCard date={new Date()} name='Koncert pro princeznu' time='20:00' address='U strouhy 36, Praha 2' conductor='Jáchym Svoboda' solist='Lenka Boudová' />
         </StyledConcertsSection>
       </Layout>
     </>
@@ -43,7 +44,7 @@ export default function Index({data: initialData, query}) {
 export const getStaticProps = async () => {
   const variables = { 
     homeRelativePath: '/home.md',
-    // concertsRelativePath: '/concerts.md',
+    // concertsRelativePath: '/content/concert',
   }
   const query = `
     query HomeQuery($homeRelativePath: String!) {

@@ -5,25 +5,12 @@ import SectionTitle from '../../components/section-title'
 import Head from 'next/head'
 import { staticRequest } from 'tinacms'
 import { useTina } from 'tinacms/dist/edit-state'
-
-const query = `
-  query {
-    getConcertList {
-      edges {
-        node {
-          values
-          sys {
-            filename
-          }
-        }
-      }
-    }
-  }
-`
+import ConcertCard from '../../components/concert-card/concers-card'
+import { concertListQuery } from '../../components/constants/queries'
 
 export default function Concerts({data: initialData}) {
   const { data: rawData } = useTina({
-    query,
+    query: concertListQuery,
     data: initialData,
   })
 
@@ -42,20 +29,7 @@ export default function Concerts({data: initialData}) {
         <Header />
         <SectionTitle>Koncerty</SectionTitle>
         <div>
-          {concerts.map(({name, time, price, address, conductor, solist, date, slug}) => {
-            return (
-              <Link href={`/koncerty/${slug}`} key={slug}>
-                <div>
-                  {name && <div>{name}</div>}
-                  {time && <div>{time}</div>}
-                  {price && (new Date(date) >= new Date()) && <div>{price}</div>}
-                  {address && <div>{address}</div>}
-                  {conductor && <div>{conductor}</div>}
-                  {solist && <div>{solist}</div>}
-                </div>
-              </Link>
-            )
-          })}
+          {concerts.map(({slug, ...other}) => <Link href={`/koncerty/${slug}`} key={slug}><ConcertCard {...other} /></Link>)}
         </div>
       </Layout>
     </>
@@ -63,11 +37,11 @@ export default function Concerts({data: initialData}) {
 }
 
 export const getStaticProps = async () => {
-  const data = await staticRequest({query})
+  const data = await staticRequest({query: concertListQuery})
 
   return {
     props: {
-      query,
+      query: concertListQuery,
       data,
     },
   }
