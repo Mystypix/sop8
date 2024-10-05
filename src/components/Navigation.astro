@@ -1,0 +1,244 @@
+---
+    const pathname = new URL(Astro.request.url).pathname;
+    const currentPath = pathname.slice(1);
+---
+<nav class="nav">
+    <a class="logo" href="./">Symfonický ochestr Prahy 8</a>
+    <div class="toggleMenu">
+        <input type="checkbox" />
+        <div class="hamburger"></div>
+        <div class="navLinks">
+            <a class={currentPath === "o-nas/" ? "active navLink" : "navLink"} href="/o-nas">O nás</a>
+            <a class={currentPath === "obsazeni/" ? "active navLink" : "navLink"} href="/obsazeni">Obsazení</a>
+            <a class={currentPath === "dirigenti/" ? "active navLink" : "navLink"} href="/dirigenti">Dirigenti</a>
+            <a class={currentPath === "koncerty/" ? "active navLink" : "navLink"} href="/koncerty">Koncerty</a>
+            <a class={currentPath === "galerie/" ? "active navLink" : "navLink"} href="/galerie">Galerie</a>
+            <a class={currentPath === "kontakty/" ? "active navLink" : "navLink"} href="/kontakty">Kontakty</a>
+        </div>
+    </div>
+</nav>
+<style>
+    .navLinks {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 30px;
+        background-color: rgba(255, 255, 255, 0.6);
+        transition: background-color .3s, box-shadow .3s;
+
+        &.scrolled {
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    }   
+    .navLink {
+        position: relative;
+        margin: 0 8px;
+        padding: 0 5px;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 40px;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: color .3s;
+        overflow: hidden;
+
+        &.active,
+        &:hover {
+            color: var(--main-color);
+
+            &::before {
+                transform: translateX(0);
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--main-color);
+            transform: translateX(-100%);
+            transition: transform .3s;
+        }
+    }
+
+    .toggleMenu input {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 3;
+        -webkit-touch-callout: none;
+        pointer-events: none;
+    }
+
+    @media screen and (max-width: 980px) {
+        .nav {
+            padding: 10px 20px;
+        }
+
+        .logo {
+            font-size: 26px;
+        }
+
+        .toggleMenu {
+            display: block;
+            position: relative;
+            z-index: 3;
+            width: 33px;
+            height: 21px;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .toggleMenu input {
+            pointer-events: all;
+        }
+
+        .hamburger {
+            position: absolute;
+            top: auto;
+            bottom: 0;
+            width: 33px;
+            height: 3px;
+            transition-delay: .13s;
+            transition-timing-function: cubic-bezier(.55, .055, .675, .19);
+            transition-duration: .13s;
+            background: var(--text-color);
+            border-radius: 4px;
+            z-index: 2;
+
+            &::before {
+                content: '';
+                top: -9px;
+                transition: top .12s cubic-bezier(.33333, .66667, .66667, 1) .2s, transform .13s cubic-bezier(.55, .055, .675, .19);
+            }
+
+            &::after {
+                content: '';
+                top: -18px;
+                transition: top .2s cubic-bezier(.33333, .66667, .66667, 1) .2s, opacity .1s linear;
+            }
+
+            &::before,
+            &::after {
+                background: var(--text-color);
+                position: absolute;
+                width: 33px;
+                height: 3px;
+                transition-timing-function: ease;
+                transition-duration: .15s;
+                transition-property: transform background;
+                border-radius: 3px;
+            }
+        }
+
+        .toggleMenu input:checked ~ .hamburger {
+            transition-delay: .22s;
+            transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+            transform: translate3d(0, -10px, 0) rotate(-45deg);
+        }
+
+        .toggleMenu input:checked ~ .hamburger::before {
+            top: 0;
+            transition: top .1s cubic-bezier(.33333, 0, .66667, .33333) .16s, transform .13s cubic-bezier(.215, .61, .355, 1) .25s;
+            transform: rotate(-90deg);
+        }
+
+        .toggleMenu input:checked ~ .hamburger::after {
+            top: 0;
+            transition: top .2s cubic-bezier(.33333, 0, .66667, .33333), opacity .1s linear .22s;
+            opacity: 0;
+        }
+
+        .navLinks {
+            position: fixed;
+            top: 0;
+            right: 0;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            height: 100vh;
+            width: 300px;
+            margin: 0;
+            padding: 70px 30px 30px;
+            background: #ededed;
+            list-style-type: none;
+            -webkit-font-smoothing: antialiased;
+            transform-origin: 0 0;
+            transform: translate(100%, 0);
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        }
+
+        .toggleMenu input:checked ~ .navLinks {
+            transform: none;
+        }
+
+        .navLink {
+            margin: 0 0 10px;
+            padding: 0;
+            font-size: 18px;
+            line-height: 40px;
+        }
+    }
+</style>
+<script>
+    function addClassOnScroll() {
+        const nav = document.querySelector('nav');
+        const scrollThreshold = 10;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > scrollThreshold) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    }
+
+    addClassOnScroll();
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const navItems = document.querySelectorAll('.navLink'); // Adjust the selector as needed
+        const sections = document.querySelectorAll('section'); // Adjust the selector as needed
+
+        function onScroll() {
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').substring(1) === currentSection) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', onScroll);
+    });
+</script>

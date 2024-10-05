@@ -1,0 +1,30 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+const { className, title } = Astro.props;
+---
+<section class={`section ${className ? className : ''}`}>
+    <div class="content">
+        {title && <SectionTitle>{title}</SectionTitle>}
+        <slot />
+    </div>
+</section>
+<style>
+    .section {
+        display: flex;
+        justify-content: center;
+        padding: 120px 20px 60px;
+        min-height: 100vh;
+        background: #f2f2f2;
+    }
+    .content {
+        width: 100%;
+        max-width: 1200px;
+    }
+    .section--intro {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('/intro-bg.jpg') no-repeat center center;
+        background-size: cover;
+    }
+</style>

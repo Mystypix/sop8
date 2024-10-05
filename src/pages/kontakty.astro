@@ -1,0 +1,40 @@
+---
+import { client } from '../../tina/__generated__/client'
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+const data = await client.queries.contact({ relativePath: 'contact.md' })
+---
+<Layout title="SOP8 - Kontakty">
+    <Section title="Kontakty">
+        <div class="wrapper">
+            <div>
+                <div>
+                    <strong>Orchestrální email: </strong>{data.data.contact.email}
+                </div>
+                <div>
+                    <strong>Vedoucí orchestru: </strong>{data.data.contact.leadership.name}
+                </div>
+                <div>
+                    <strong>Email: </strong><a href=`mailto:${data.data.contact.leadership.email}`>{data.data.contact.leadership.email}</a>
+                </div>
+                <div>
+                    <strong>Telefon: </strong><a href=`tel:${data.data.contact.leadership.phone}`>{data.data.contact.leadership.phone}</a>
+                </div>
+            </div>
+            <div>
+                <strong>Kde hrajeme</strong>
+                <div>
+                    {data.data.contact.practice.text}
+                    {data.data.contact.practice.address}
+                </div>
+            </div>
+        </div>
+    </Section>
+</Layout>
+<style>
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+</style>

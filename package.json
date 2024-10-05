@@ -1,38 +1,29 @@
 {
-  "private": true,
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "build": "next build",
-    "start": "next start",
-    "dev": "yarn tinacms server:start -c \"next dev\"",
-    "tina-build": "yarn tinacms server:start -c \"next build\"",
-    "tina-start": "yarn tinacms server:start -c \"next start\""
+    "dev": "tinacms dev -c \"astro dev\"",
+    "start": "astro dev",
+    "build": "tinacms build && astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@emotion/react": "^11.8.2",
-    "@emotion/styled": "^11.8.1",
-    "@mui/icons-material": "^5.5.0",
-    "@mui/material": "^5.5.0",
-    "@tinacms/auth": "^0.50.2",
-    "@tinacms/cli": "^0.60.5",
-    "classnames": "2.3.1",
-    "date-fns": "2.28.0",
-    "gray-matter": "4.0.3",
-    "luxon": "^2.3.1",
-    "mapbox-gl": "^2.7.0",
-    "next": "^12.1.5",
-    "next-tinacms-cloudinary": "^3.5.9",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-mapbox-gl": "^5.1.1",
-    "react-photo-gallery": "^8.0.0",
-    "react-responsive-masonry": "^2.1.6",
-    "remark": "14.0.2",
-    "remark-html": "15.0.1",
-    "styled-components": "^5.3.3",
-    "tinacms": "^0.66.4"
+    "@astrojs/check": "^0.9.2",
+    "@astrojs/react": "^3.6.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.13.3",
+    "macy": "^2.5.1",
+    "masonry-layout": "^4.2.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tinacms": "^2.1.0",
+    "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.4"
+    "@tinacms/cli": "^1.5.52",
+    "@types/node": "^22.2.0"
   }
 }

@@ -1,0 +1,111 @@
+---
+import Macy from 'macy'
+import { client } from '../../tina/__generated__/client'
+import Layout from "../layouts/Layout.astro"
+import Section from "../components/Section.astro";
+const data = await client.queries.structure({ relativePath: 'structure.md' })
+const {
+    basses,
+    bassoons,
+    clarinets,
+    drums,
+    first_violins,
+    flutes,
+    french_horns,
+    oboes,
+    second_violins,
+    trombones,
+    trumpets,
+    violoncellos,
+    viols,
+} = data.data.structure
+---
+<Layout title="SOP8 - Obsazení">
+    <Section title="Obsazení">
+        <div class="grid">
+            <div class="grid-item">
+                <strong>I. housle</strong>
+                {first_violins.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+            <div class="grid-item">
+                <strong>II. housle</strong>
+                {second_violins.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+            <div class="grid-item">
+                <strong>Violy</strong>
+                {viols.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+            <div class="grid-item">
+                <strong>Violoncella</strong>
+                {violoncellos.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+            <div class="grid-item">
+                <strong>Kontrabasy</strong>
+                {basses.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+            <div class="grid-item">
+                <strong>Violoncella</strong>
+                {violoncellos.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+            <div class="grid-item">
+                <strong>Flétny</strong>
+                {flutes.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+            <div class="grid-item">
+                <strong>Fagoty</strong>
+                {bassoons.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+            <div class="grid-item">
+                <strong>Klarinety</strong>
+                {clarinets.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+            <div class="grid-item">
+                <strong>Trombóny</strong>
+                {trombones.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+            <div class="grid-item">
+                <strong>Trubky</strong>
+                {trumpets.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+            <div class="grid-item">
+                <strong>Hoboje</strong>
+                {oboes.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+            <div class="grid-item">
+                <strong>Lesní rohy</strong>
+                {french_horns.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+            <div class="grid-item">
+                <strong>Bicí/tympán</strong>
+                {drums.map(({name}) => <div class="person">{name}</div>)}
+            </div>
+        </div>
+    </Section>
+</Layout>
+<style>
+    .grid-item {
+        border-left: 2px solid var(--main-color);
+        padding: 30px;
+        background: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+        strong {
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+</style>
+<script is:inline src="https://cdn.jsdelivr.net/npm/macy@2"></script>
+<script is:inline>
+    const macy = Macy({
+        container: '.grid',
+        trueOrder: false,
+        waitForImages: false,
+        margin: 20,
+        columns: 3,
+        breakAt: {
+            1200: 2,
+            940: 1,
+        }
+    });
+</script>

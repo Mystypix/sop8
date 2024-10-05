@@ -1,0 +1,54 @@
+---
+    const {concert, isFuture} = Astro.props
+    const {address, agenda, conductor, date, description, invitation, price, solists, time} = concert
+---
+<div class=`concert  ${isFuture ? 'future' : ''}`>
+    {agenda.map(({ composition, composer }) => {
+        return (
+                <div class="agendaItem">
+                    <div class="composer">{composer}</div>
+                    <div class="composition">{composition}</div>
+                </div>
+        )
+    })}
+    <div class="date"><strong>Datum: </strong>{date}</div>
+    <div class="time"><strong>Čas: </strong>{time}</div>
+    <div class="place"><strong>Adresa: </strong>{address}</div>
+    <div><strong>Dirigent: </strong>{conductor}</div>
+    <div><strong>Sólisté: </strong>{solists}</div>
+    {isFuture && <div><strong>Cena: </strong>{price} Kč</div>}
+    <div class="program">{description}</div>
+    <div>{invitation}</div>
+</div>
+<style>
+    .concert {
+        margin: 0 auto;
+        max-width: 800px;
+        border-left: 2px solid var(--main-color);
+        padding: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        background: #f2f2f2;
+
+        + .concert {
+            margin-top: 20px;
+        }
+
+        &.future {
+            background: #fff;
+        }
+    }
+
+    .agendaItem {
+        margin-bottom: 20px;
+    }
+
+    .composer {
+        font-size: 26px;
+        font-weight: 600;
+    }
+
+    .composition {
+        font-size: 22px;
+        font-weight: 600;
+    }
+</style>

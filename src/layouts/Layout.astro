@@ -1,0 +1,93 @@
+---
+import Navigation from "../components/Navigation.astro";
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <Navigation />
+        <slot />
+        <footer>
+            <p>SOP8 &copy; 2024</p>
+        </footer>
+    </body>
+</html>
+<style is:global>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    :root {
+        --text-color: #03010c;
+        --main-color: #a86535;
+        --secondary-color: #33f1cb;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    p + p {
+        margin-top: 10px;
+    }
+
+    a {
+        color: var(--main-color);
+    }
+
+    .logo {
+        color: #010101;
+        font-size: 30px;
+        text-decoration: none;
+        font-weight: 400;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        background: var(--main-color);
+        color: #fff;
+    }
+
+    @media screen and (max-width: 980px) {
+        .section {
+            grid-template-columns: 100%;
+            min-height: unset;
+        }
+
+        .title {
+            font-size: 30px;
+            text-align: center;
+        }
+        
+    }
+</style>

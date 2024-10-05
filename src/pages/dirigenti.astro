@@ -1,0 +1,43 @@
+---
+import { client } from '../../tina/__generated__/client'
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+const data = await client.queries.conductors({ relativePath: 'conductors.md' })
+---
+<Layout title="SOP8 - Dirigenti">
+    <Section title="Dirigenti">
+        {data.data.conductors.conductors.map((conductor) => (
+            <div class="conductor">
+                <img class="photo" src={conductor.photo} alt={conductor.name} />
+                <div>
+                    <h2 class="name">{conductor.name}</h2>
+                    <p>{conductor.text}</p>
+                </div>
+            </div>
+        ))}
+    </Section>
+</Layout>
+<style>
+    .conductor {
+        display: flex;
+        gap: 30px;
+        margin: 0 auto;
+        max-width: 900px;
+
+        + .conductor {
+            margin-top: 40px;
+        }
+    }
+    .photo {
+        display: block;
+        max-width: 200px;
+        max-height: 200px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .name {
+        margin-bottom: 20px;
+    }
+</style>

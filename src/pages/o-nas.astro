@@ -1,0 +1,21 @@
+---
+import {TinaMarkdown} from "tinacms/dist/rich-text";
+import { client } from '../../tina/__generated__/client'
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+
+const data = await client.queries.aboutUs({ relativePath: 'about-us.md' })
+---
+<Layout title="SOP8 - O nás">
+    <Section title="O nás">
+        <div class="content">
+            <TinaMarkdown content={data.data.aboutUs.aboutUsText} />
+        </div>
+    </Section>
+</Layout>
+<style>
+    .content {
+        margin: 0 auto;
+        max-width: 700px;
+    }
+</style>
