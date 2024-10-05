@@ -40,4 +40,13 @@ const data = await client.queries.conductors({ relativePath: 'conductors.md' })
     .name {
         margin-bottom: 20px;
     }
+
+    @media (max-width: 768px) {
+        .conductor {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+    }
 </style>
