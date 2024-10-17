@@ -3,16 +3,26 @@ import { client } from '../../tina/__generated__/client'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import Layout from "../layouts/Layout.astro"
 import Section from "../components/Section.astro";
-
-const data = await client.queries.homepage({ relativePath: 'homepage.md' })
+import Concert from "../components/Concert.astro";
+const homepageData = await client.queries.homepage({ relativePath: 'homepage.md' })
+const concertData = await client.queries.concerts({ relativePath: 'concerts.md' })
+const futureConcerts = concertData.data.concerts.concerts.filter(({date}) => new Date(date) > new Date());
 ---
 
 <Layout title="SOP8">
 	<Section className="section--intro">
 		<div class="introText">
-			<TinaMarkdown content={data.data.homepage.introText} />
+			<TinaMarkdown content={homepageData.data.homepage.introText} />
 		</div>
 	</Section>
+		{futureConcerts.length ? (
+			<Section>
+				<div class="concertSection">
+					<h2 class="title">Nadcházející koncerty</h2>
+					{futureConcerts.map((concert) => <Concert isFuture concert={concert} />)}
+				</div>
+			</Section>
+		) : null}
 </Layout>
 <style>
 	.introText {

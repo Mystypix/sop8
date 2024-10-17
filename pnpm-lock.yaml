@@ -23,6 +23,9 @@ importers:
       astro:
         specifier: ^4.13.3
         version: 4.13.3(@types/node@22.2.0)(typescript@5.5.4)
+      dayjs:
+        specifier: ^1.11.13
+        version: 1.11.13
       macy:
         specifier: ^2.5.1
         version: 2.5.1
@@ -2607,6 +2610,9 @@ packages:
   date-format@4.0.14:
     resolution: {integrity: sha512-39BOQLs9ZjKh0/patS9nrT8wc3ioX3/eA/zgbKNopnF2wCqJEoxywwwElATYvRsXdnOxA/OQeQoFZ3rFjVajhg==}
     engines: {node: '>=4.0'}
+
+  dayjs@1.11.13:
+    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
 
   debounce-promise@3.1.2:
     resolution: {integrity: sha512-rZHcgBkbYavBeD9ej6sP56XfG53d51CD4dnaw989YX/nZ/ZJfgRx/9ePKmTNiUiyQvh4mtrMoS3OAWW+yoYtpg==}
@@ -9284,6 +9290,8 @@ snapshots:
       '@babel/runtime': 7.25.0
 
   date-format@4.0.14: {}
+
+  dayjs@1.11.13: {}
 
   debounce-promise@3.1.2: {}
 

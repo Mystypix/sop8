@@ -29,6 +29,7 @@ const data = await client.queries.contact({ relativePath: 'contact.md' })
                 </div>
             </div>
         </div>
+        <iframe class="map" src="https://en.frame.mapy.cz/s/defapavako" frameborder="0"></iframe>
     </Section>
 </Layout>
 <style>
@@ -36,6 +37,12 @@ const data = await client.queries.contact({ relativePath: 'contact.md' })
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
+    }
+
+    .map {
+        margin-top: 30px;
+        width: 100%;
+        min-height: 400px;
     }
 
     @media (max-width: 768px) {

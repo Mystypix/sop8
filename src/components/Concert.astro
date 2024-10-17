@@ -1,4 +1,5 @@
 ---
+    import dayjs from 'dayjs';
     const {concert, isFuture} = Astro.props
     const {address, agenda, conductor, date, description, invitation, price, solists, time} = concert
 ---
@@ -11,7 +12,7 @@
                 </div>
         )
     })}
-    <div class="date"><strong>Datum: </strong>{date}</div>
+    <div class="date"><strong>Datum: </strong>{dayjs(date).format('D.M.YYYY')}</div>
     <div class="time"><strong>Čas: </strong>{time}</div>
     <div class="place"><strong>Adresa: </strong>{address}</div>
     <div><strong>Dirigent: </strong>{conductor}</div>
@@ -36,9 +37,23 @@
         &.future {
             background: #fff;
         }
+
+        > div {
+            margin-top: 5px;
+        }
+    }
+
+    .date,
+    .time {
+        display: inline-block;
+    }
+
+    .time {
+        margin-left: 10px
     }
 
     .agendaItem {
+        margin-top: 0 !important;
         margin-bottom: 20px;
     }
 

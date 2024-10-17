@@ -1,12 +1,11 @@
 ---
-import { client } from '../../tina/__generated__/client'
-import Layout from "../layouts/Layout.astro";
-import Section from "../components/Section.astro";
-import Concert from "../components/Concert.astro";
-const data = await client.queries.concerts({ relativePath: 'concerts.md' })
-
-const futureConcerts = data.data.concerts.concerts.filter(({date}) => new Date(date) > new Date());
-const pastConcerts = data.data.concerts.concerts.filter(({date}) => new Date(date) < new Date());
+    import { client } from '../../tina/__generated__/client'
+    import Layout from "../layouts/Layout.astro";
+    import Section from "../components/Section.astro";
+    import Concert from "../components/Concert.astro";
+    const data = await client.queries.concerts({ relativePath: 'concerts.md' })
+    const futureConcerts = data.data.concerts.concerts.filter(({date}) => new Date(date) > new Date());
+    const pastConcerts = data.data.concerts.concerts.filter(({date}) => new Date(date) < new Date());
 ---
 <Layout title="SOP8 - Koncerty">
     <Section title="Koncerty">
@@ -17,7 +16,7 @@ const pastConcerts = data.data.concerts.concerts.filter(({date}) => new Date(dat
             </div>
         ) : null}
         <div class="concertSection">
-            <h2 class="title">Minulé koncerty</h2>
+            <h2 class="title">Uplynulé koncerty</h2>
             {pastConcerts.map((concert) => <Concert concert={concert} />)}
         </div>
     </Section>
