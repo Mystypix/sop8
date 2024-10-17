@@ -21,5 +21,6 @@ concerts:
     description: >-
       Symfonický orchestr Prahy 8 společně s Břevnovským chrámovým sborem Praha
       a Emauzským sborem ESO Praha
+    invitation: /Pozvanka_Puccini_Olomouc.jpg
 ---
 
