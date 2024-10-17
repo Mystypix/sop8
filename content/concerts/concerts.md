@@ -10,8 +10,8 @@ description: |
   Blabla
 concerts:
   - agenda:
-      - composer: lkjlkj
-        composition: kljlknsdf
+      - composer: Puccini
+        composition: Messa di Gloria
     date: 2024-10-15T22:00:00.000Z
     time: '17:00'
     address: adfkjs
