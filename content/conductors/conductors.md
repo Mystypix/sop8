@@ -1,5 +1,7 @@
 ---
 conductors:
+  - name: Jan Mára
+    text: "Jan Mára vystudoval obory klavír a dirigování na Konzervatoři Jaroslava Ježka. V současnosti studuje dirigování na HAMU v\_Praze.\n\nSOP8 dirigoval v\_roce 2022."
   - name: František Loder
     text: "První hudební vzdělání získal u skladatele a violoncellisty Romana Haase. Jeho prvním hudebním nástrojem byla klasická kytara, kterou studoval v letech 2011 až 2019 u Taťány Klánské. Dirigování začal studovat na letních kurzech komorní hudby v\_Soběslavi u Jana Steyera v roce 2013. Tento obor studoval na Konzervatoři J. Ježka i na Pražské konzervatoři.\n\nSOP8 dirigoval v\_roce 2022."
   - name: Adolf Melichar
