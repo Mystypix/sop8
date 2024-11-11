@@ -1,6 +1,7 @@
 ---
 conductors:
-  - {}
+  - name: Markus Flodin
+    text: "Studoval hru na bicí nástroje a dirigování na Konzervatoři Teplice. Dirigování se dále věnuje na Pražské konzervatoři ve třídách Miriam Němcové a Jakuba Zichy.\n\nSOP8 dirigoval v\_roce 2024."
   - photo: /jachym_svoboda_nzcgxj.webp
     name: Jáchym Svoboda
     text: "Vystudoval osmileté gymnázium a ZUŠ v Říčanech - obor lesní roh a následně dirigování na Pražské konzervatoři pod vedením Miriam Němcové a Jakuba Zichy. Ve studiu dirigování pokračuje na brněnské JAMU.\n\nSOP8 dirigoval v\_letech 2020-2023."
