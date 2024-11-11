@@ -1,4 +1,49 @@
 ---
-aboutUsText: "Symfonický orchestr Prahy 8 vznikl v roce 2004. Jeho členové jsou většinou studenti různých vysokých škol nebo pracující. Orchestr má plné smyčcové a dechové obsazení a celkový počet hráčů je 58. Od založení orchestru do roku 2008 stál v\_jeho čele\_Jiří Hájek, v roce 2009 Milan Boušek. V současné době je vedoucím dirigentem orchestru\_Adolf Melichar. Zároveň spolupracujeme s mladými dirigenty Václavem Dlaskem a Marií Erlebachovou.\n\nRepertoár\_je tvořen symfoniemi, předehrami a sólovými koncerty s\_doprovodem orchestru. Během sezóny se studované skladby obměňují, a repertoár se tak neustále rozšiřuje. Naším cílem je přinášet posluchačům nejen známá klasická díla, ale seznamovat je i s\_moderní tvorbou autorů dvacátého století. Kromě děl Beethovena či Mozarta lze proto v\_repertoáru orchestru nalézt i skladby Šostakoviče, Martinů nebo filmovou hudbu.\n\nSnažíme se rovněž umožnit všem, kteří hrají na nějaký hudební nástroj, aby se aktivně zapojili do provozování vážné hudby a měli tak příležitost zahrát si díla klasiků 18., 19. a 20.století i moderní tvorbu žijících autorů.\n\nSymfonický orchestr Prahy\_8 uskutečňuje za rok nejméně tři série\_koncertů\_- v\_prosinci, březnu a červnu, přičemž repertoár se v\_jednotlivých obdobích liší. Většina koncertů se koná v\_Praze, některé i v\_mimopražských sálech a kostelech.\n\nV roce 2011 byl realizován ve spolupráci s AMU projekt VIVA ČESKÁ OPERA. V rámci tohoto projektu byla kromě českých operních árií provedena i opera V. Blodka - V studni. Celý program byl proveden v divadle Hybernia, Strašnickém divadle a divadle F.X.Šaldy v Liberci.\_oficiální stránky projektu\n\nV roce 2011 byla také navázána spolupráce s\_L’Ensemble vocal universitaire de Strasbourg\_, která v roce 2011 vyvrcholila provedením Německého requiem Johannese Brahmse na úspěšných koncertech ve Francii i v České republice. Stejnou skladbu si orchestr zopakoval v roce 2014 na koncertě v Obecním domě v Praze s\_Lübecker Bach-Chor.\n\nV roce 2014 byly realizovány dva společné koncerty s kanadským orchestrem Joliette Youth Symphony.\n\nV roce 2016 jsme pokračovali v úspěšné spolupráci s\_L’Ensemble vocal universitaire de Strasbourg\_. S velkým úspěchem bylo provedeno ve Štrasburku i v Praze Requiem G. Verdiho.\n\nMáte-li zájem si s námi zahrát, neváhejte a kontaktujte\_nás\n"
+aboutUsText: >
+  Symfonický orchestr Prahy 8 byl založen v roce 2004 jako sdružení amatérských
+  mladých hudebníků,
+
+  které po celou dobu existence orchestru spojuje láska k hudbě a radost z její
+  interpretace. Hrajeme
+
+  srdcem, s nadšením a snahou potěšit naše posluchače.
+
+
+  Máme plné smyčcové a dechové obsazení a celkově čítáme téměř 70 hráčů, což nám
+  umožňuje
+
+  pouštět se i do velkých symfonických děl a netradičních projektů. Své
+  uplatnění u nás proto najdou
+
+  nejen amatérští hudebníci, ale také začínající profesionálové.
+
+
+  Orchestr nemá stálého dirigenta, příležitost u nás v posledních letech
+  dostávají zejména mladí
+
+  začínající dirigenti. Spolupráce s různými dirigenty je pro hráče sice
+  náročnější, ale zároveň je velmi
+
+  obohacující. Odlišné interpretační přístupy dirigentů pak otevírají jak
+  hráčům, tak našim posluchačům
+
+  nové zážitky z hudby.
+
+
+  Naše dramaturgie je pestrá, hráčsky i posluchačsky zábavná, ale také náročná.
+  V našem repertoáru
+
+  naleznete hudbu vážnou, a to symfonickou i komorní, hudbu operetní, operní,
+  ale i filmovou. Ke
+
+  spolupráci si často zveme také pěvecké sbory, sólisty, tanečníky či herce.
+
+  Obvykle realizujeme tři samostatné koncerty ročně, vždy s odlišným repertoárem
+  - přehled
+
+  odehraných koncertů najdete [zde](https://sop8.cz/koncerty).
+
+
+  Máte-li chuť se k nám připojit, neváhejte nás kontaktovat.
 ---
 
