@@ -1,5 +1,7 @@
 ---
 conductors:
+  - name: František Loder
+    text: "První hudební vzdělání získal u skladatele a violoncellisty Romana Haase. Jeho prvním hudebním nástrojem byla klasická kytara, kterou studoval v letech 2011 až 2019 u Taťány Klánské. Dirigování začal studovat na letních kurzech komorní hudby v\_Soběslavi u Jana Steyera v roce 2013. Tento obor studoval na Konzervatoři J. Ježka i na Pražské konzervatoři.\n\nSOP8 dirigoval v\_roce 2022."
   - name: Adolf Melichar
     text: "Vystudoval gymnázium a hudební konzervatoř v\_Praze obor varhany a dirigování a následně Akademii múzických umění v Praze obor dirigování. Po ukončení studia působil jako korepetitor Hudebního Divadla Karlín, korepetitor Státní opery Praha a sbormistr Státní Opery. V\_současnosti pracuje jako sbormistr a\_asistent dirigenta ve Státní Opeře Praha.\n\nSOP8 dirigoval v\_letech 2009-2020."
   - name: Roman Maďar
