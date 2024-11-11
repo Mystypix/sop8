@@ -1,5 +1,7 @@
 ---
 conductors:
+  - name: Jiří Hájek
+    text: "Vystudoval na Akademii múzických umění v Praze obor skladba u prof. Ivana Kurze. Při studiu skladby\nna vysoké škole pokračoval ve studiu dirigování. Jiří Hájek je autorem mnoha skladeb komorního a\nsymfonického rázu a dále také scénických a filmových hudeb.\n\nSOP8 dirigoval v\_letech 2004 – 2008."
   - photo: /jachym_svoboda_nzcgxj.webp
     name: Jáchym Svoboda
     text: >-
