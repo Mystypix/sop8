@@ -12,7 +12,7 @@ concerts:
   - agenda:
       - composer: A. Dvořák
         composition: Koncert pro violoncello a orchestr h moll
-    date: 2024-12-07T23:00:00.000Z
+    date: 2024-12-08
     time: '19:30'
     address: 'Pražská křižovatka - kostel sv. Anny, Zlatá 211/1, Praha 1 – Staré Město'
     conductor: Zdeněk Červinka
@@ -25,7 +25,7 @@ concerts:
         composition: Symfonie č.4
       - composer: A. Dvořák
         composition: Koncert pro violoncello a orchestr h moll
-    date: 2024-12-05T23:00:00.000Z
+    date: 2024-12-06
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Zdeněk Červinka
