@@ -61,10 +61,9 @@ bassoons:
   - name: Pavel Rensa
   - name: Hynek Řezníček
 french_horns:
+  - name: Štěpánka Černá
   - name: Veronika Gloserová
   - name: Lenka Libenská
-  - name: Michaela Pekárková
-  - name: Zuzana Prachařová
   - name: Lucie Sadlíková
 trumpets:
   - name: Barbora Irová
