@@ -10,6 +10,15 @@ description: |
   Blabla
 concerts:
   - agenda:
+      - composer: Schumann
+        composition: Symfonie č.4
+    date: 2024-12-05T23:00:00.000Z
+    time: '19:30'
+    address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1 – Staré Město'
+    conductor: Zdeněk Červinka
+    solists: Jan Nečaský
+    price: 300 Kč
+  - agenda:
       - composer: Puccini
         composition: Messa di Gloria
     date: 2024-06-21T22:00:00.000Z
