@@ -18,7 +18,7 @@ const futureConcerts = concertData.data.concerts.concerts.filter(({date}) => new
 		{futureConcerts.length ? (
 			<Section>
 				<div class="concertSection">
-					<h2 class="title">Nadcházející koncerty</h2>
+					<h2 class="introConcertTitle">Nadcházející koncerty</h2>
 					{futureConcerts.map((concert) => <Concert isFuture concert={concert} />)}
 				</div>
 			</Section>
@@ -37,6 +37,11 @@ const futureConcerts = concertData.data.concerts.concerts.filter(({date}) => new
 			font-weight: 900;
 			line-height: 45px;
 		}
+	}
+
+	.introConcertTitle {
+		margin-bottom: 40px;
+		text-align: center;
 	}
 
 	@media (max-width: 768px) {
