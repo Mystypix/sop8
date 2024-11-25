@@ -24,7 +24,6 @@ second_violins:
   - name: Pavel Lejdar
   - name: Anežka Náhlíková
   - name: Anna Peterková
-  - name: Zuzana Řezníčková
   - name: Hynek Sůra
   - name: Dana Trojanová
   - name: Jan Weinert
@@ -53,7 +52,7 @@ flutes:
 oboes:
   - name: Tereza Poláková
   - name: Jan Řezníček
-  - name: Julie Frýbertová
+  - name: Julie Kojdovská
 clarinets:
   - name: Alois Maršner
   - name: Marek Štika
