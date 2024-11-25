@@ -10,6 +10,9 @@ description: |
   Blabla
 concerts:
   - agenda:
+      - composer: A. Dvořák
+        composition: Koncert pro violoncello a orchestr h moll
+  - agenda:
       - composer: R. Schumann
         composition: Symfonie č.4
       - composer: A. Dvořák
