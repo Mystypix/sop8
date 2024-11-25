@@ -12,6 +12,14 @@ concerts:
   - agenda:
       - composer: A. Dvořák
         composition: Koncert pro violoncello a orchestr h moll
+    date: 2024-12-07T23:00:00.000Z
+    time: '19:30'
+    address: 'Pražská křižovatka - kostel sv. Anny, Zlatá 211/1, Praha 1 – Staré Město'
+    conductor: Zdeněk Červinka
+    solists: Tomáš Jamník
+    price: '450'
+    description: Adventní koncert Symfonického orchestru Prahy 8
+    invitation: /Pozvánka SOP8 Schumann.jpg
   - agenda:
       - composer: R. Schumann
         composition: Symfonie č.4
