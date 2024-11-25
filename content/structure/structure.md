@@ -28,6 +28,7 @@ second_violins:
   - name: Dana Trojanová
   - name: Jan Weinert
 viols:
+  - name: Denisa Kocvárová
   - name: Radka Maršnerová
   - name: Kristýna Mezerová
   - name: Natalie Smaginová
