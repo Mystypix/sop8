@@ -20,6 +20,8 @@ concerts:
     conductor: Zdeněk Červinka
     solists: Jan Nečaský
     price: 300 Kč
+    description: Adventní koncert Symfonického orchestru Prahy 8
+    invitation: /Pozvánka SOP8 Schumann.jpg
   - agenda:
       - composer: Puccini
         composition: Messa di Gloria
