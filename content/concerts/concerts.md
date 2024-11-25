@@ -10,6 +10,8 @@ description: |
   Blabla
 concerts:
   - agenda:
+      - composer: A. Dvořák
+        composition: Koncert pro violoncello a orchestr h moll
       - composer: Schumann
         composition: Symfonie č.4
     date: 2024-12-05T23:00:00.000Z
