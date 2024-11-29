@@ -27,7 +27,7 @@ concerts:
         composition: Symfonie č.4
       - composer: A. Dvořák
         composition: Koncert pro violoncello a orchestr h moll
-    date: 2024-12-05T23:00:00.000Z
+    date: 2024-12-06
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Zdeněk Červinka
@@ -38,7 +38,7 @@ concerts:
   - agenda:
       - composer: Puccini
         composition: Messa di Gloria
-    date: 2024-06-21T22:00:00.000Z
+    date: 2024-06-22
     time: '18:00'
     address: 'Kostel sv. Mořice, 8. května 517/15, Olomouc 9'
     conductor: Markus Flodin
