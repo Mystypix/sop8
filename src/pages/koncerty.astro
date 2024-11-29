@@ -4,7 +4,9 @@
     import Section from "../components/Section.astro";
     import Concert from "../components/Concert.astro";
     const data = await client.queries.concerts({ relativePath: 'concerts.md' })
-    const futureConcerts = data.data.concerts.concerts.filter(({date}) => new Date(date) > new Date());
+    const futureConcerts = data.data.concerts.concerts
+        .filter(({date}) => new Date(date) > new Date())
+        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
     const pastConcerts = data.data.concerts.concerts.filter(({date}) => new Date(date) < new Date());
 ---
 <Layout title="SOP8 - Koncerty">
