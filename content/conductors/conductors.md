@@ -17,7 +17,7 @@ conductors:
     text: "Byl posluchačem dirigování na Hudební a taneční fakultě Akademie múzických umění v\_Praze pod vedením Doc. Tomáše Koutníka, Mgr. Norberta Baxy a Mgr. Prof. Ivana Paříka.\n\nSOP8 dirigoval v\_roce 2019."
   - name: Václav Dlask
     text: "Je dirigent a zpěvák. Vystudoval Pražskou konzervatoř – obor dirigování (prof. M. Němcová, prof. H.Farkač) a obor klasický zpěv (prof. J.Kubík). Od října roku 2017 pokračoval ve studiu dirigování na Hudební Akademii múzických umění v\_Praze.\n\nSOP8 dirigoval v\_letech 2017 – 2018, 2020, 2022."
-  - photo: /ebrachtova.jpg
+  - photo: /erlebachova.jpg
     name: Marie Papežová Erlebachová
     text: "Vystudovala dirigování na Konzervatoři Jaroslava Ježka a na HAMU v Praze, pod vedením doc. Tomáše Koutníka, doc. Leoše Svárovského a prof. Jiřího Chvály.\n\nSOP8 dirigovala v\_letech 2015 - 2016."
   - name: Robert Kružík
