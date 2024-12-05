@@ -21,7 +21,8 @@ conductors:
   - photo: /erlebachova.jpg
     name: Marie Papežová Erlebachová
     text: "Vystudovala dirigování na Konzervatoři Jaroslava Ježka a na HAMU v Praze, pod vedením doc. Tomáše Koutníka, doc. Leoše Svárovského a prof. Jiřího Chvály.\n\nSOP8 dirigovala v\_letech 2015 - 2016."
-  - name: Robert Kružík
+  - photo: /kruzik.jpg
+    name: Robert Kružík
     text: "Studoval na brněnské konzervatoři hru na violoncello a rovněž obor dirigování. Ve studiu pokračoval na pražské AMU, kde jeho pedagogy byli Leoš Svárovský, Charles Olivieri-Munroe, Lubomír Mátl v dirigování a Miroslav Petráš ve hře na violoncello. Je stálým hostujícím dirigentem Filharmonie Brno a šéfdirigentem Filharmonie Bohuslava Martinů ve Zlíně. Je laureátem ceny Jiřího Bělohlávka pro umělce do třiceti let.\n\nSOP8 dirigoval v\_roce 2014."
   - name: Jan Bubák
     text: "Studoval dirigování na Pražské konzervatoři, na Královské konzervatoři v nizozemském Haagu a Akademii múzických umění v Praze. V roce 2009 absolvoval mistrovské kurzy vídeňské Universität für Musik und darstellende Kunst.\n\nSOP8 dirigoval v\_roce 2011."
