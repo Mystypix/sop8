@@ -1,6 +1,7 @@
 ---
 conductors:
-  - name: Zdeněk Červinka
+  - photo: /zdenek-cervinka.jpg
+    name: Zdeněk Červinka
     text: "Je absolventem Konzervatoře Jaroslava Ježka v\_oborech klavír (I.\_Parker, K. Kasíková) a dirigování (H. Farkač, J. Petrdlík). Ve studiu dirigování dále pokračuje na pražské HAMU pod vedením T. Koutníka, L. Svárovského a L. Vasilka. Jako klavírista se během studií na konzervatoři účastnil mnoha klavírních soutěží. Mezi jeho úspěchy patří první cena a\_absolutní vítězství 13. ročníku\_mezinárodní soutěže F. Liszta v\_maďarském Györu, absolutní vítězství a zvláštní cena poroty v\_mezinárodní soutěži Wiener Klassik ve Vídni a\_první cena soutěže L. van Beethovena ve Vídni.\n\nSOP8 diriguje od roku 2023."
   - photo: /flodin.jpg
     name: Markus Flodin
