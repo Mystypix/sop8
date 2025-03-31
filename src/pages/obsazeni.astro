@@ -21,51 +21,51 @@ const {
 <Layout title="SOP8 - Obsazení">
     <Section title="Obsazení">
         <div class="grid">
-            <div class="grid-item">
+            <div class="grid-item section section--violins">
                 <strong>I. housle</strong>
                 {first_violins.map(({name}) => <div class="person">{name}</div>)}
             </div>
-            <div class="grid-item">
+            <div class="grid-item section section--violins">
                 <strong>II. housle</strong>
                 {second_violins.map(({name}) => <div class="person">{name}</div>)}
             </div>
-            <div class="grid-item">
+            <div class="grid-item section section--viols">
                 <strong>Violy</strong>
                 {viols.map(({name}) => <div class="person">{name}</div>)}
             </div>
-            <div class="grid-item">
+            <div class="grid-item section section--cellos">
                 <strong>Violoncella</strong>
                 {violoncellos.map(({name}) => <div class="person">{name}</div>)}
             </div>
-            <div class="grid-item">
+            <div class="grid-item section section--basses">
                 <strong>Kontrabasy</strong>
                 {basses.map(({name}) => <div class="person">{name}</div>)}
             </div>
-            <div class="grid-item">
+            <div class="grid-item section section--flutes">
                 <strong>Flétny</strong>
                 {flutes.map(({name}) => <div class="person">{name}</div>)}
             </div>
-            <div class="grid-item">
+            <div class="grid-item section section--bassoons">
                 <strong>Fagoty</strong>
                 {bassoons.map(({name}) => <div class="person">{name}</div>)}
             </div>
-            <div class="grid-item">
+            <div class="grid-item section section--clarinets">
                 <strong>Klarinety</strong>
                 {clarinets.map(({name}) => <div class="person">{name}</div>)}
             </div>
-            <div class="grid-item">
+            <div class="grid-item section section--trumpets">
                 <strong>Trubky</strong>
                 {trumpets.map(({name}) => <div class="person">{name}</div>)}
             </div>
-            <div class="grid-item">
+            <div class="grid-item section section--oboes">
                 <strong>Hoboje</strong>
                 {oboes.map(({name}) => <div class="person">{name}</div>)}
             </div>
-            <div class="grid-item">
+            <div class="grid-item section section--french-horns">
                 <strong>Lesní rohy</strong>
                 {french_horns.map(({name}) => <div class="person">{name}</div>)}
             </div>
-            <div class="grid-item">
+            <div class="grid-item section section--drums">
                 <strong>Bicí/tympán</strong>
                 {drums.map(({name}) => <div class="person">{name}</div>)}
             </div>
@@ -74,15 +74,112 @@ const {
 </Layout>
 <style>
     .grid-item {
+        position: relative;
         border-left: 2px solid var(--main-color);
         padding: 30px;
+        min-height: 300px;
         background: #fff;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.2;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
 
         strong {
             display: block;
             margin-bottom: 10px;
         }
+    }
+
+    .section--violins {
+        &::before {
+            background-image: url("../assets/housle.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+
+    .section--viols {
+        &::before {
+            background-image: url("../assets/housle.png");
+        }
+    }
+
+
+    .section--violins {
+        &::before {
+            background-image: url("../assets/viola.png");
+        }
+    }
+
+
+    .section--cellos {
+        &::before {
+            background-image: url("../assets/cello.png");
+        }
+    }
+
+    .section--basses {
+        &::before {
+            background-image: url("../assets/basa.png");
+        }
+    }
+
+    .section--flutes {
+        &::before {
+            background-image: url("../assets/fletna.png");
+        }
+    }
+
+    .section--bassoons {
+        &::before {
+            background-image: url("../assets/fagot.png");
+        }
+    }
+
+    .section--clarinets {
+        &::before {
+            background-image: url("../assets/klarinet.png");
+        }
+    }
+
+    .section--trumpets {
+        &::before {
+            background-image: url("../assets/trubka.png");
+        }
+    }
+
+
+    .section--oboes {
+        &::before {
+            background-image: url("../assets/hoboj.png");
+        }
+    }
+
+    .section--french-horns {
+        &::before {
+            background-image: url("../assets/horna.png");
+        }
+    }
+
+    .section--drums {
+        &::before {
+            background-image: url("../assets/bici.png");
+        }
+    }
+
+    .person {
+        font-weight: 500;
     }
 </style>
 <script is:inline src="https://cdn.jsdelivr.net/npm/macy@2"></script>

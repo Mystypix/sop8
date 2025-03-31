@@ -1,5 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import cloudinary from "cloudinary";
+import { defineCollection } from 'astro:content';
+import { cldAssetsLoader } from 'astro-cloudinary/loaders';
+
+export const collections = {
+    assets: defineCollection({
+        loader: cldAssetsLoader({
+            folder: 'Galerie'
+        })
+    }),
+}
+
+import { getCollection } from 'astro:content';
+import { CldImage } from 'astro-cloudinary';
+const assets = await getCollection('assets');
+
+console.log('galleryData', assets);
 ---
 <Layout title="SOP8 - Galerie">
 </Layout>

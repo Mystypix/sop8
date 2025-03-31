@@ -10,6 +10,34 @@ description: |
   Blabla
 concerts:
   - agenda:
+      - composer: Busoni
+        composition: Divertimento pro flétnu a orchestr
+      - composer: Deltour
+        composition: Concertino in Jazz pro harfu a orchestr
+      - composer: Beethoven
+        composition: Symfonie č. 5 "Osudová"
+    date: 2025-03-26T00:00:00.000Z
+    time: '19:30'
+    address: 'Na Rejdišti 1, Praha 1, Staré Město'
+    conductor: Ondřej Hnízda
+    solists: 'Marie Pradáčová - flétna, Aneta Pávková - harfa'
+    price: 150/350 Kč
+    invitation: /Pozvánka SOP8 Beethoven.jpg
+  - agenda:
+      - composer: 'Busoni '
+        composition: Divertimento pro flétnu a orchestr
+      - composer: Deltour
+        composition: Concertino in Jazz pro harfu a orchestr
+      - composer: Beethoven
+        composition: Symfonie č. 5 "Osudová"
+    date: 2025-03-20T00:00:00.000Z
+    time: '19:30'
+    address: 'Na Rejdišti 1, Praha 1, Staré Město'
+    conductor: Ondřej Hnízda
+    solists: 'Marie Pradáčová - flétna, Aneta Pávková - harfa'
+    price: 150/350 Kč
+    invitation: /Pozvánka SOP8 Beethoven.jpg
+  - agenda:
       - composer: R. Schumann
         composition: Symfonie č.4
       - composer: A. Dvořák
