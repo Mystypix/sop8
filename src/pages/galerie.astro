@@ -18,22 +18,26 @@ assets.forEach(item => {
 const sections = Object.entries(galleryDict).map(([name, assets]) => ({
     name,
     assets
-}))
+})).sort((a, b) => {
+    const [dayA, monthA, yearA] = a.name.split('-')[0].trim().split('.').map(part => part.trim());
+    const [dayB, monthB, yearB] = b.name.split('-')[0].trim().split('.').map(part => part.trim());
+    return new Date(`${yearB}-${monthB}-${dayB}`).getTime() - new Date(`${yearA}-${monthA}-${dayA}`).getTime();
+});
 
 ---
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 <Layout title="SOP8 - Galerie">
     <Section title="Galerie">
-        {sections.map(({ name, assets }) => (
+        {sections.map(({ name, assets }: {name: string, assets: string[]}) => (
             <div class="section">
                 <h2 class="sectionTitle">{ name }</h2>
                 <div class="gallery">
-                    <!-- @ts-ignore -->
                     {assets.map((asset) => (
-                        <a class="glightbox" href={asset}>
+                        <a class="glightbox" href={asset} data-title={name}>
                             <img class="img" src={asset} alt={asset} />
                         </a>
-                    ))}
+                    )).slice(0, 4)}
+                    {assets.length > 4 && <div class="showMore">Zobrazit více</div>}
                 </div>
             </div>
         ))}
@@ -55,6 +59,14 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
         grid-template-columns: repeat(5, 1fr);
         gap: 4px;
         width: 100%;
+        height: 200px;
+    }
+
+    .glightbox {
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
     }
 
     .img {
@@ -62,7 +74,33 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
         width: 100%;
         height: 100%;
         object-fit: cover;
+        tansform: scale(1);
+        transition: transform 0.3s linear;
+
+        &:hover {
+            transform: scale(1.05);
+        }
     }
+
+    .showMore {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: var(--main-color);
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        opacity: 0.6;
+        transition: opacity 0.25s linear;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
 </style>
 <script type="module">
     import 'https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js';
