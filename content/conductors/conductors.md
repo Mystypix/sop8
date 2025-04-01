@@ -32,7 +32,7 @@ conductors:
   - photo: /jan-bubak.jpg
     name: Jan Bubák
     text: "Studoval dirigování na Pražské konzervatoři, na Královské konzervatoři v nizozemském Haagu a Akademii múzických umění v Praze. V roce 2009 absolvoval mistrovské kurzy vídeňské Universität für Musik und darstellende Kunst.\n\nSOP8 dirigoval v\_roce 2011."
-  - photo: /milan-bousek.jpg
+  - photo: /Group 1.jpg
     name: Milan Boušek
     text: "Absolvoval Konzervatoř Jaroslava Ježka v\_Praze v\_oboru housle (prof.Lukáš Kuta) a obor dirigování (prof. Hynek Farkač).\n\nSOP8 dirigoval v\_roce 2009."
   - photo: /Group 2.jpg
