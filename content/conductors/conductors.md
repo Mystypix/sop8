@@ -35,7 +35,7 @@ conductors:
   - photo: /milan-bousek.jpg
     name: Milan Boušek
     text: "Absolvoval Konzervatoř Jaroslava Ježka v\_Praze v\_oboru housle (prof.Lukáš Kuta) a obor dirigování (prof. Hynek Farkač).\n\nSOP8 dirigoval v\_roce 2009."
-  - photo: /dirigent_1.jpg
+  - photo: /Group 2.jpg
     name: Jiří Hájek
     text: "Vystudoval na Akademii múzických umění v Praze obor skladba u prof. Ivana Kurze. Při studiu skladby\nna vysoké škole pokračoval ve studiu dirigování. Jiří Hájek je autorem mnoha skladeb komorního a\nsymfonického rázu a dále také scénických a filmových hudeb.\n\nSOP8 dirigoval v\_letech 2004 – 2008."
 ---
