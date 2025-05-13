@@ -19,7 +19,16 @@
         ) : null}
         <div class="concertSection">
             <h2 class="title">Odehrané koncerty</h2>
-            {pastConcerts.map((concert) => <Concert concert={concert} />)}
+            {pastConcerts.map((concert, index) => {
+                const currentYear = new Date(concert.date).getFullYear();
+                const previousYear = index > 0 ? new Date(pastConcerts[index - 1].date).getFullYear() : null;
+                return (
+                    <>
+                        {currentYear !== previousYear && <h3 class="yearTitle">{currentYear}</h3>}
+                        <Concert concert={concert} />
+                    </>
+                );
+            })}
         </div>
     </Section>
 </Layout>
@@ -27,6 +36,14 @@
     .title {
         margin-bottom: 20px;
         font-size: 24px;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .yearTitle {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 20px;
         text-align: center;
         font-weight: 500;
     }

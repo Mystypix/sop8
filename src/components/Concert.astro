@@ -4,6 +4,7 @@
     const {address, agenda, conductor, date, description, invitation, price, solists, time} = concert
 ---
 <div class=`concert  ${isFuture ? 'future' : ''}`>
+    <div class="agenda">
     {agenda.map(({ composition, composer }) => {
         return (
                 <div class="agendaItem">
@@ -12,14 +13,15 @@
                 </div>
         )
     })}
+    </div>
     <div class="date"><strong>Datum: </strong>{dayjs(date).format('D. M. YYYY')}</div>
-    <div class="time"><strong>Čas: </strong>{time}</div>
+    {isFuture && <div class="time"><strong>Čas: </strong>{time}</div>}
     <div class="place"><strong>Adresa: </strong>{address}</div>
-    <div><strong>Dirigent: </strong>{conductor}</div>
-    <div><strong>Sólisté: </strong>{solists}</div>
+    {isFuture && <div><strong>Dirigent: </strong>{conductor}</div>}
+    {isFuture && <div><strong>Sólisté: </strong>{solists}</div>}
     {isFuture && <div><strong>Cena: </strong>{price} Kč</div>}
-    <div class="program">{description}</div>
-    <a href={invitation} target="_blank">Pozvánka</a>
+    {description && <div class="program">{description}</div>}
+    {invitation && <a href={invitation} target="_blank">Pozvánka</a>}
 </div>
 <style>
     .concert {
@@ -29,6 +31,10 @@
         padding: 20px;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         background: #f2f2f2;
+
+        * {
+            font-size: 16px
+        };
 
         + .concert {
             margin-top: 20px;
@@ -43,6 +49,13 @@
         }
     }
 
+    .agenda {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px 20px;
+        margin-bottom: 20px;
+    }
+
     .date,
     .time {
         display: inline-block;
@@ -54,16 +67,15 @@
 
     .agendaItem {
         margin-top: 0 !important;
-        margin-bottom: 20px;
     }
 
     .composer {
-        font-size: 26px;
+        font-size: 20px;
         font-weight: 600;
     }
 
     .composition {
-        font-size: 22px;
+        font-size: 16px;
         font-weight: 600;
     }
 </style>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 import Section from "../components/Section.astro";
@@ -34,11 +35,11 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
                 <div class="gallery">
                     {assets.map((asset) => (
                         <a class="glightbox" href={asset} data-title={name}>
-                            <img class="img" src={asset} alt={asset} />
+                            <Image class="img" src={asset} alt={asset} width="240" height="200"  />
                         </a>
-                    )).slice(0, 4)}
-                    {assets.length > 4 && <div class="showMore">Zobrazit více</div>}
+                    ))}
                 </div>
+                {assets.length > 4 && <div class="showMore">Zobrazit více</div>}
             </div>
         ))}
     </Section>
@@ -55,17 +56,20 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
     }
 
     .gallery {
+        position: relative;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 4px;
         width: 100%;
         height: 200px;
+        overflow: hidden;
+        transition: height 0.25s linear;
     }
 
     .glightbox {
         display: block;
         width: 100%;
-        height: 100%;
+        height: 200px;
         overflow: hidden;
     }
 
@@ -74,7 +78,7 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
         width: 100%;
         height: 100%;
         object-fit: cover;
-        tansform: scale(1);
+        transform: scale(1);
         transition: transform 0.3s linear;
 
         &:hover {
@@ -83,21 +87,19 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
     }
 
     .showMore {
+        margin-top: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        height: 100%;
-        background-color: var(--main-color);
-        color: white;
-        font-size: 20px;
+        color: var(--main-color);
+        font-size: 18px;
         text-align: center;
-        opacity: 0.6;
+        opacity: 1;
         transition: opacity 0.25s linear;
         cursor: pointer;
 
         &:hover {
-            opacity: 1;
+            opacity: .6;
         }
     }
 
@@ -108,4 +110,21 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
     GLightbox({
         zoomable: false,
     })
+
+    document.querySelectorAll('.showMore').forEach(button => {
+        button.addEventListener('click', function() {
+            const section = this.closest('.section');
+            const gallery = section.querySelector('.gallery');
+            const items = gallery.querySelectorAll('.glightbox');
+            const columns = getComputedStyle(gallery).getPropertyValue('grid-template-columns').split(' ').length;
+
+
+            // Calculate the number of rows needed
+            const rows = Math.ceil(items.length / columns);
+
+            // Update the height of the gallery
+            gallery.classList.add('open');
+            gallery.style.maxHeight = `${rows * 200 + (rows - 1) * 4}px`; // 200px height + 4px gap per row
+        });
+    });
 </script>
