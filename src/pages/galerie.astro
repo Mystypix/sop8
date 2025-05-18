@@ -35,11 +35,12 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
                 <div class="gallery">
                     {assets.map((asset) => (
                         <a class="glightbox" href={asset} data-title={name}>
-                            <Image class="img" src={asset} alt={asset} width="240" height="200"  />
+                            <Image class="img" src={asset} alt={asset} width="240" height="200" loading="lazy"
+                                   decoding="async"   />
                         </a>
                     ))}
                 </div>
-                {assets.length > 4 && <div class="showMore">Zobrazit více</div>}
+                <div class="showMore">Zobrazit více</div>
             </div>
         ))}
     </Section>
@@ -61,9 +62,13 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
         grid-template-columns: repeat(5, 1fr);
         gap: 4px;
         width: 100%;
-        height: 200px;
         overflow: hidden;
-        transition: height 0.25s linear;
+        max-height: 200px; /* Default height for 1 row */
+        transition: max-height 0.5s linear;
+    }
+
+    .gallery.expanded {
+        max-height: none; /* Allow full height when expanded */
     }
 
     .glightbox {
@@ -109,22 +114,41 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
 
     GLightbox({
         zoomable: false,
-    })
+    });
 
-    document.querySelectorAll('.showMore').forEach(button => {
-        button.addEventListener('click', function() {
-            const section = this.closest('.section');
-            const gallery = section.querySelector('.gallery');
-            const items = gallery.querySelectorAll('.glightbox');
-            const columns = getComputedStyle(gallery).getPropertyValue('grid-template-columns').split(' ').length;
+    document.querySelectorAll('.section').forEach(section => {
+        const gallery = section.querySelector('.gallery');
+        const items = gallery.querySelectorAll('.glightbox');
+        const showMoreButton = section.querySelector('.showMore');
 
+        if (items.length > 5) {
+            items.forEach((item, index) => {
+                if (index >= 5) {
+                    item.style.display = 'none';
+                }
+            });
 
-            // Calculate the number of rows needed
-            const rows = Math.ceil(items.length / columns);
+            showMoreButton.style.display = 'flex';
 
-            // Update the height of the gallery
-            gallery.classList.add('open');
-            gallery.style.maxHeight = `${rows * 200 + (rows - 1) * 4}px`; // 200px height + 4px gap per row
-        });
+            showMoreButton.addEventListener('click', function () {
+                const isExpanded = gallery.classList.toggle('expanded');
+
+                if (isExpanded) {
+                    items.forEach(item => (item.style.display = 'block'));
+                    gallery.style.maxHeight = `${gallery.scrollHeight}px`;
+                    showMoreButton.textContent = 'Zobrazit méně';
+                } else {
+                    items.forEach((item, index) => {
+                        if (index >= 5) {
+                            item.style.display = 'none';
+                        }
+                    });
+                    gallery.style.maxHeight = '200px';
+                    showMoreButton.textContent = 'Zobrazit více';
+                }
+            });
+        } else {
+            showMoreButton.style.display = 'none';
+        }
     });
 </script>
