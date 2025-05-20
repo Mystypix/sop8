@@ -33,14 +33,24 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
             <div class="section">
                 <h2 class="sectionTitle">{ name }</h2>
                 <div class="gallery">
-                    {assets.map((asset) => (
-                        <a class="glightbox" href={asset} data-title={name}>
-                            <Image class="img" src={asset} alt={asset} width="240" height="200" loading="lazy"
-                                   decoding="async"   />
+                    {assets.map((asset, index) => (
+                        <a class="glightbox" href={asset} data-title={name} style={`display: ${index >= 5 ? 'none' : 'block'}`}>
+                            <Image 
+                                class="img" 
+                                src={asset} 
+                                alt={name} 
+                                width="240" 
+                                height="200" 
+                                loading={index < 5 ? "eager" : "lazy"}
+                                decoding="async"
+                                quality={80}
+                            />
                         </a>
                     ))}
                 </div>
-                <div class="showMore">Zobrazit více</div>
+                {assets.length > 5 && (
+                    <div class="showMore">Zobrazit více</div>
+                )}
             </div>
         ))}
     </Section>
@@ -63,12 +73,13 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
         gap: 4px;
         width: 100%;
         overflow: hidden;
-        max-height: 200px; /* Default height for 1 row */
-        transition: max-height 0.5s linear;
+        max-height: 200px;
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: max-height;
     }
 
     .gallery.expanded {
-        max-height: none; /* Allow full height when expanded */
+        max-height: none;
     }
 
     .glightbox {
@@ -76,6 +87,7 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
         width: 100%;
         height: 200px;
         overflow: hidden;
+        will-change: transform;
     }
 
     .img {
@@ -84,7 +96,8 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
         height: 100%;
         object-fit: cover;
         transform: scale(1);
-        transition: transform 0.3s linear;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
 
         &:hover {
             transform: scale(1.05);
@@ -100,55 +113,112 @@ const sections = Object.entries(galleryDict).map(([name, assets]) => ({
         font-size: 18px;
         text-align: center;
         opacity: 1;
-        transition: opacity 0.25s linear;
+        transition: opacity 0.25s ease;
         cursor: pointer;
+        user-select: none;
 
         &:hover {
             opacity: .6;
         }
     }
-
 </style>
-<script type="module">
-    import 'https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js';
-
-    GLightbox({
-        zoomable: false,
-    });
-
-    document.querySelectorAll('.section').forEach(section => {
-        const gallery = section.querySelector('.gallery');
-        const items = gallery.querySelectorAll('.glightbox');
-        const showMoreButton = section.querySelector('.showMore');
-
-        if (items.length > 5) {
-            items.forEach((item, index) => {
-                if (index >= 5) {
-                    item.style.display = 'none';
-                }
+<script>
+    // Defer non-critical JavaScript
+    document.addEventListener('DOMContentLoaded', () => {
+        // Load GLightbox dynamically
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js';
+        script.onload = () => {
+            // @ts-ignore - GLightbox is loaded dynamically
+            window.GLightbox({
+                zoomable: false,
+                touchNavigation: true,
+                loop: true
             });
+        };
+        document.head.appendChild(script);
 
-            showMoreButton.style.display = 'flex';
+        // Initialize galleries after a small delay to ensure proper rendering
+        setTimeout(() => {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const gallery = section.querySelector('.gallery') as HTMLElement;
+                const items = gallery.querySelectorAll('.glightbox') as NodeListOf<HTMLElement>;
+                const showMoreButton = section.querySelector('.showMore') as HTMLElement;
 
-            showMoreButton.addEventListener('click', function () {
-                const isExpanded = gallery.classList.toggle('expanded');
+                if (showMoreButton) {
+                    // Calculate and store initial heights
+                    const collapsedHeight = 200;
+                    let expandedHeight = 0;
+                    let isExpanded = false;
 
-                if (isExpanded) {
-                    items.forEach(item => (item.style.display = 'block'));
-                    gallery.style.maxHeight = `${gallery.scrollHeight}px`;
-                    showMoreButton.textContent = 'Zobrazit méně';
-                } else {
+                    // Set initial state
+                    gallery.style.maxHeight = `${collapsedHeight}px`;
+                    
+                    // Hide items beyond first 5 and calculate expanded height
                     items.forEach((item, index) => {
                         if (index >= 5) {
                             item.style.display = 'none';
+                        } else {
+                            expandedHeight += item.offsetHeight;
                         }
                     });
-                    gallery.style.maxHeight = '200px';
-                    showMoreButton.textContent = 'Zobrazit více';
+
+                    let isAnimating = false;
+
+                    showMoreButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        if (isAnimating) return;
+                        isAnimating = true;
+
+                        // Explicitly manage expanded state
+                        isExpanded = !isExpanded;
+                        if (isExpanded) {
+                            gallery.classList.add('expanded');
+                        } else {
+                            gallery.classList.remove('expanded');
+                        }
+                        
+                        if (isExpanded) {
+                            // Show all items first
+                            items.forEach(item => {
+                                item.style.display = 'block';
+                            });
+                            
+                            // Force a reflow
+                            gallery.offsetHeight;
+                            
+                            // Then animate the height
+                            requestAnimationFrame(() => {
+                                // Recalculate full height after showing all items
+                                const fullHeight = gallery.scrollHeight;
+                                gallery.style.maxHeight = `${fullHeight}px`;
+                                showMoreButton.textContent = 'Zobrazit méně';
+                                isAnimating = false;
+                            });
+                        } else {
+                            // Force a reflow
+                            gallery.offsetHeight;
+                            
+                            // Animate height first
+                            gallery.style.maxHeight = `${collapsedHeight}px`;
+                            
+                            // Then hide items after animation
+                            setTimeout(() => {
+                                items.forEach((item, index) => {
+                                    if (index >= 5) {
+                                        item.style.display = 'none';
+                                    }
+                                });
+                                showMoreButton.textContent = 'Zobrazit více';
+                                isAnimating = false;
+                            }, 300); // Match the CSS transition duration
+                        }
+                    });
                 }
             });
-        } else {
-            showMoreButton.style.display = 'none';
-        }
+        }, 100); // Small delay to ensure proper rendering
     });
 </script>
