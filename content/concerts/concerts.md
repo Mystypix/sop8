@@ -7,7 +7,7 @@ concerts:
         composition: Rapsodie v modrém
       - composer: Dvořák
         composition: Symfonie č. 8
-    date: 2025-06-24T22:00:00.000Z
+    date: 2025-06-25T00:00:00.000Z
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Michael Housa
@@ -21,7 +21,7 @@ concerts:
         composition: Rapsodie v modrém
       - composer: Dvořák
         composition: Symfonie č. 8
-    date: 2025-06-21T22:00:00.000Z
+    date: 2025-06-22T00:00:00.000Z
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Michael Housa
