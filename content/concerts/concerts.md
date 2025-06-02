@@ -5,7 +5,8 @@ concerts:
         composition: Overture to Candide
       - composer: Gershwin
         composition: Rapsodie v modrém
-      - {}
+      - composer: Dvořák
+        composition: Symfonie č. 8
   - agenda:
       - composer: Busoni
         composition: Divertimento pro flétnu a orchestr
