@@ -1,6 +1,11 @@
 ---
 concerts:
   - agenda:
+      - composer: Bernstein
+        composition: Overture to Candide
+      - {}
+      - {}
+  - agenda:
       - composer: Busoni
         composition: Divertimento pro flétnu a orchestr
       - composer: Deltour
