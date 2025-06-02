@@ -3,7 +3,8 @@ concerts:
   - agenda:
       - composer: Bernstein
         composition: Overture to Candide
-      - {}
+      - composer: Gershwin
+        composition: Rapsodie v modrém
       - {}
   - agenda:
       - composer: Busoni
