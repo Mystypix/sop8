@@ -1,57 +1,85 @@
 ---
-import { client } from '../../tina/__generated__/client'
-import { TinaMarkdown } from 'tinacms/dist/rich-text'
-import Layout from "../layouts/Layout.astro"
+import { client } from "../../tina/__generated__/client";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
+import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 import Concert from "../components/Concert.astro";
-const homepageData = await client.queries.homepage({ relativePath: 'homepage.md' })
-const concertData = await client.queries.concerts({ relativePath: 'concerts.md' })
+const homepageData = await client.queries.homepage({
+  relativePath: "homepage.md",
+});
+const concertData = await client.queries.concerts({
+  relativePath: "concerts.md",
+});
 const futureConcerts = concertData.data.concerts.concerts
-	.filter(({date}) => new Date(date) > new Date())
-	.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  .filter(({ date }) => new Date(date) > new Date())
+  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 ---
 
 <Layout title="SOP8">
-	<Section className="section--intro">
-		<div class="introText">
-			<TinaMarkdown content={homepageData.data.homepage.introText} />
-		</div>
-	</Section>
-		{futureConcerts.length ? (
-			<Section>
-				<div class="concertSection">
-					<h2 class="introConcertTitle">Nadcházející koncerty</h2>
-					{futureConcerts.map((concert) => <Concert isFuture concert={concert} />)}
-				</div>
-			</Section>
-		) : null}
+  <Section className="section--intro">
+    <div class="introText">
+      <TinaMarkdown content={homepageData.data.homepage.introText} />
+    </div>
+  </Section>
+  <div class="joinUs">
+    <h2 class="title">Přidejte se k nám!</h2>
+	<p>Nová sezóna je tu a s ní přichází i možnost si s námi zahrát. Rádi mezi nás přivítáme nové hráče zejména na
+    <strong>smyčcové nástroje</strong>. Chcete se k nám přidat? <a href="mailto:orchestrsop8@gmail.com">Napište nám!</a></p>	
+  </div>
+  {
+    futureConcerts.length ? (
+      <Section>
+        <div class="concertSection">
+          <h2 class="introConcertTitle">Nadcházející koncerty</h2>
+          {futureConcerts.map((concert) => (
+            <Concert isFuture concert={concert} />
+          ))}
+        </div>
+      </Section>
+    ) : null
+  }
 </Layout>
 <style>
-	.introText {
-		margin: 0 auto;
-		max-width: 900px;
+  .introText {
+    margin: 0 auto;
+    max-width: 900px;
 
-		* {
-			font-size: 30px;
-			text-align: center;
-			color: #fff;
-			text-shadow: 0 0 15px rgba(0, 0, 0, 1);
-			font-weight: 900;
-			line-height: 45px;
-		}
+    * {
+      font-size: 30px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 15px rgba(0, 0, 0, 1);
+      font-weight: 900;
+      line-height: 45px;
+    }
+  }
+
+  .joinUs {
+	margin: 0 auto;
+	padding: 40px 20px;
+    max-width: 900px;
+
+	.title {
+		font-size: 30px;
+		margin-bottom: 20px;
 	}
 
-	.introConcertTitle {
-		margin-bottom: 40px;
+	* {
 		text-align: center;
 	}
+}
 
-	@media (max-width: 768px) {
-		.introText {
-			* {
-				font-size: 20px;
-				line-height: 30px;
-			}
-		}
-	}
+  .introConcertTitle {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .introText {
+      * {
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+  }
 </style>
