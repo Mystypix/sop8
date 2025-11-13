@@ -3,7 +3,8 @@ concerts:
   - agenda:
       - composer: Respighi
         composition: Kouzelný krámek
-      - {}
+      - composer: Čajkovskij
+        composition: Symfonie č. 5
     date: 2025-12-10T23:00:00.000Z
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na rejdišti 1, Praha 1'
