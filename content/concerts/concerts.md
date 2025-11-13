@@ -9,6 +9,7 @@ concerts:
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na rejdišti 1, Praha 1'
     conductor: Michael Housa
+    price: 350 Kč
   - agenda:
       - composer: Bernstein
         composition: Overture to Candide
