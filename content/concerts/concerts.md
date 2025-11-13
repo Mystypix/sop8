@@ -20,7 +20,8 @@ concerts:
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na rejdišti 1, Praha 1'
     conductor: Michael Housa
-    price: 350 Kč
+    price: ' 350 Kč dospělá, 150 Kč dětská (pro děti do 12 let včetně)'
+    invitation: /Pozvánka SOP8 Čajkovskij.jpg
   - agenda:
       - composer: Bernstein
         composition: Overture to Candide
