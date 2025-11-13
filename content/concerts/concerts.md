@@ -5,22 +5,22 @@ concerts:
         composition: Kouzelný krámek
       - composer: Čajkovskij
         composition: Symfonie č. 5
-    date: 2025-12-12T23:00:00.000Z
+    date: 2025-12-13T00:00:00.000Z
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1'
     conductor: Michael Housa
-    price: '350 Kč dospělá, 150 Kč dětská (pro děti do 12 let včetně)'
+    price: '150 / 350'
     invitation: /Pozvánka SOP8 Čajkovskij.jpg
   - agenda:
       - composer: Respighi
         composition: Kouzelný krámek
       - composer: Čajkovskij
         composition: Symfonie č. 5
-    date: 2025-12-10T23:00:00.000Z
+    date: 2025-12-11T00:00:00.000Z
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na rejdišti 1, Praha 1'
     conductor: Michael Housa
-    price: ' 350 Kč dospělá, 150 Kč dětská (pro děti do 12 let včetně)'
+    price: '150 / 350'
     invitation: /Pozvánka SOP8 Čajkovskij.jpg
   - agenda:
       - composer: Bernstein
@@ -34,7 +34,7 @@ concerts:
     address: 'Koncertní sál Pražské konzervatoře Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Michael Housa
     solists: Matyáš Papp - klavír
-    price: 150 / 350 Kč
+    price: '150 / 350'
     invitation: /Pozvánka SOP8 Dvořák.jpg
   - agenda:
       - composer: Bernstein
@@ -48,7 +48,7 @@ concerts:
     address: 'Koncertní sál Pražské konzervatoře Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Michael Housa
     solists: Matyáš Papp - klavír
-    price: 150 / 350 Kč
+    price: '150 / 350'
     invitation: /Pozvánka SOP8 Dvořák.jpg
   - agenda:
       - composer: Busoni
@@ -62,7 +62,7 @@ concerts:
     address: 'Na Rejdišti 1, Praha 1, Staré Město'
     conductor: Ondřej Hnízda
     solists: 'Marie Pradáčová - flétna, Aneta Pávková - harfa'
-    price: 150/350 Kč
+    price: '150 / 350'
     invitation: /Pozvánka SOP8 Beethoven.jpg
   - agenda:
       - composer: 'Busoni '
@@ -76,7 +76,7 @@ concerts:
     address: 'Na Rejdišti 1, Praha 1, Staré Město'
     conductor: Ondřej Hnízda
     solists: 'Marie Pradáčová - flétna, Aneta Pávková - harfa'
-    price: 150/350 Kč
+    price: '150 / 350'
     invitation: /Pozvánka SOP8 Beethoven.jpg
   - agenda:
       - composer: R. Schumann
@@ -791,4 +791,3 @@ concerts:
     date: 2004-12-17T00:00:00.000Z
     address: 'Modlitebna, Korunní 60, Praha 2 Vinohrady'
 ---
-

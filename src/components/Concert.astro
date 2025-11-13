@@ -1,27 +1,76 @@
 ---
-    import dayjs from 'dayjs';
-    const {concert, isFuture} = Astro.props
-    const {address, agenda, conductor, date, description, invitation, price, solists, time} = concert
+import dayjs from "dayjs";
+const { concert, isFuture } = Astro.props;
+const {
+    address,
+    agenda,
+    conductor,
+    date,
+    description,
+    invitation,
+    price,
+    solists,
+    time,
+} = concert;
 ---
+
 <div class=`concert  ${isFuture ? 'future' : ''}`>
     <div class="agenda">
-    {agenda.map(({ composition, composer }) => {
-        return (
-                <div class="agendaItem">
-                    <div class="composer">{composer}</div>
-                    <div class="composition">{composition}</div>
-                </div>
-        )
-    })}
+        {
+            agenda.map(({ composition, composer }) => {
+                return (
+                    <div class="agendaItem">
+                        <div class="composer">{composer}</div>
+                        <div class="composition">{composition}</div>
+                    </div>
+                );
+            })
+        }
     </div>
-    <div class="date"><strong>Datum: </strong>{dayjs(date).format('D. M. YYYY')}</div>
-    {isFuture && <div class="time"><strong>Čas: </strong>{time}</div>}
+    <div class="date">
+        <strong>Datum: </strong>{dayjs(date).format("D. M. YYYY")}
+    </div>
+    {
+        isFuture && (
+            <div class="time">
+                <strong>Čas: </strong>
+                {time}
+            </div>
+        )
+    }
     <div class="place"><strong>Adresa: </strong>{address}</div>
-    {isFuture && <div><strong>Dirigent: </strong>{conductor}</div>}
-    {isFuture && <div><strong>Sólisté: </strong>{solists}</div>}
-    {isFuture && <div><strong>Cena: </strong>{price} Kč</div>}
+    {
+        isFuture && (
+            <div>
+                <strong>Dirigent: </strong>
+                {conductor}
+            </div>
+        )
+    }
+    {
+        isFuture && solists && (
+            <div>
+                <strong>Sólisté: </strong>
+                {solists}
+            </div>
+        )
+    }
+    {
+        isFuture && (
+            <div>
+                <strong>Cena: </strong>
+                {price} Kč
+            </div>
+        )
+    }
     {description && <div class="program">{description}</div>}
-    {invitation && <a href={invitation} target="_blank">Pozvánka</a>}
+    {
+        invitation && (
+            <a href={invitation} target="_blank">
+                Pozvánka
+            </a>
+        )
+    }
 </div>
 <style>
     .concert {
@@ -33,8 +82,8 @@
         background: #f2f2f2;
 
         * {
-            font-size: 16px
-        };
+            font-size: 16px;
+        }
 
         + .concert {
             margin-top: 20px;
@@ -62,7 +111,7 @@
     }
 
     .time {
-        margin-left: 10px
+        margin-left: 10px;
     }
 
     .agendaItem {
