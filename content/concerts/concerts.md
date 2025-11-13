@@ -5,6 +5,17 @@ concerts:
         composition: Kouzelný krámek
       - composer: Čajkovskij
         composition: Symfonie č. 5
+    date: 2025-12-12T23:00:00.000Z
+    time: '19:30'
+    address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1'
+    conductor: Michael Housa
+    price: '350 Kč dospělá, 150 Kč dětská (pro děti do 12 let včetně)'
+    invitation: /Pozvánka SOP8 Čajkovskij.jpg
+  - agenda:
+      - composer: Respighi
+        composition: Kouzelný krámek
+      - composer: Čajkovskij
+        composition: Symfonie č. 5
     date: 2025-12-10T23:00:00.000Z
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na rejdišti 1, Praha 1'
