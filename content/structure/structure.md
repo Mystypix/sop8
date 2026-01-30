@@ -30,6 +30,7 @@ second_violins:
   - name: Ondřej Trpálek
   - name: Jan Weinert
 viols:
+  - name: Ben Polášek
   - name: Denisa Kocvárová
   - name: Radka Maršnerová
   - name: Kristýna Mezerová
