@@ -61,9 +61,9 @@ oboes:
   - name: Jan Řezníček
   - name: Julie Kojdovská
 clarinets:
-  - name: Jan Hraba
   - name: Alois Maršner
   - name: Marek Štika
+  - name: Jan Hraba
 bassoons:
   - name: Pavel Rensa
   - name: Hynek Řezníček
@@ -77,6 +77,6 @@ trumpets:
   - name: Jan Polanský
   - name: Vít Sládeček
 drums:
-  - name: Hana Dittrichová
+  - name: Jakub Trpálek
 ---
 
