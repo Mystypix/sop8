@@ -61,6 +61,7 @@ oboes:
   - name: Jan Řezníček
   - name: Julie Kojdovská
 clarinets:
+  - name: Jan Hraba
   - name: Alois Maršner
   - name: Marek Štika
 bassoons:
