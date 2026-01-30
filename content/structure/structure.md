@@ -51,6 +51,7 @@ violoncellos:
   - name: Martin Vyskočil
 basses:
   - name: Ondřej Švehelka
+    concert: true
 flutes:
   - name: Pavlína Kolářová
   - name: Marie Pradáčková
