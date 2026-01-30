@@ -42,7 +42,7 @@ violoncellos:
   - name: Jiří Benda
   - name: Marie Bláhová
   - name: Monika Krejčí
-  - name: Markéta Kunešová
+  - name: Barbora Larischová
   - name: Petra Losová
   - name: Barbora Markalousová
   - name: Anežka Skurčáková
