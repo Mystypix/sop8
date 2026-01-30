@@ -57,21 +57,21 @@ flutes:
   - name: Marie Pradáčková
   - name: Jana Sládečková
 oboes:
+  - name: Julie Kojdovská
   - name: Tereza Poláková
   - name: Jan Řezníček
-  - name: Julie Kojdovská
 clarinets:
+  - name: Jan Hraba
   - name: Alois Maršner
   - name: Marek Štika
-  - name: Jan Hraba
 bassoons:
   - name: Pavel Rensa
   - name: Hynek Řezníček
 french_horns:
+  - name: Štěpánka Černá
   - name: Veronika Gloserová
   - name: Lenka Libenská
   - name: Lucie Sadlíková
-  - name: Štěpánka Černá
 trumpets:
   - name: Barbora Irová
   - name: Jan Polanský
