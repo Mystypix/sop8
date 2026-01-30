@@ -1,10 +1,10 @@
 ---
 first_violins:
+  - name: Justová Petra
   - name: Eliška Cibulková
   - name: Jana Černá
   - name: Renata Čornejová
   - name: Lukáš Dostálek
-  - name: Matěj Ira
   - name: Lenka Kozáková
   - name: Jana Kučerová
   - name: Tomáš Los
