@@ -1,6 +1,6 @@
 ---
 first_violins:
-  - name: Alžběta Lojeková
+  - name: Kateřina Kraťuková
   - name: Eliška Cibulková
   - name: Jana Černá
   - name: Renata Čornejová
@@ -8,10 +8,10 @@ first_violins:
   - name: Petra Justová
   - name: Lenka Kozáková
   - name: Jana Kučerová
+  - name: Alžběta Lojeková
   - name: Tomáš Los
   - name: Martin Mezera
   - name: Jáchym Pavliš
-  - name: Kaleb Politis
   - name: Markéta Seige
   - name: Růžena Víšková
 second_violins:
