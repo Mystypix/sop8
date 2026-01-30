@@ -1,6 +1,6 @@
 ---
 first_violins:
-  - name: Justová Petra
+  - name: Petra Justová
   - name: Eliška Cibulková
   - name: Jana Černá
   - name: Renata Čornejová
