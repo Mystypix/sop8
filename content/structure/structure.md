@@ -47,6 +47,7 @@ violoncellos:
   - name: Barbora Markalousová
   - name: Anežka Skurčáková
   - name: Bořek Šťastný
+    concert: true
   - name: Martin Vyskočil
 basses:
   - name: Ondřej Švehelka
