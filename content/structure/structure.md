@@ -1,12 +1,12 @@
 ---
 first_violins:
-  - name: Kateřina Kraťuková
   - name: Eliška Cibulková
   - name: Jana Černá
   - name: Renata Čornejová
   - name: Lukáš Dostálek
   - name: Petra Justová
   - name: Lenka Kozáková
+  - name: Kateřina Kraťuková
   - name: Jana Kučerová
   - name: Alžběta Lojeková
   - name: Tomáš Los
@@ -15,13 +15,13 @@ first_violins:
   - name: Markéta Seige
   - name: Růžena Víšková
 second_violins:
+  - name: Zuzana Řezníčková
   - name: Veronika Dětinská
   - name: Lada Grigarová
   - name: Pavla Gründlerová
   - name: Zuzana Halamíčková
   - name: Marie Hofmanová
   - name: Martin Kolda
-  - name: Magdaléna Kopková
   - name: Pavel Lejdar
   - name: Anežka Náhlíková
   - name: Anna Peterková
