@@ -41,7 +41,7 @@ violoncellos:
   - name: Daniel Arden
   - name: Jiří Benda
   - name: Marie Bláhová
-  - name: Václav Huml
+  - name: Monika Krejčí
   - name: Markéta Kunešová
   - name: Petra Losová
   - name: Barbora Markalousová
