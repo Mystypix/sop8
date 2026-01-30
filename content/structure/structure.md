@@ -30,14 +30,15 @@ second_violins:
   - name: Ondřej Trpálek
   - name: Jan Weinert
 viols:
-  - name: Ben Polášek
   - name: Denisa Kocvárová
   - name: Radka Maršnerová
   - name: Kristýna Mezerová
+  - name: Ben Polášek
   - name: Natalie Smaginová
   - name: Hana Šarbortová
   - name: Veronika Šírová
 violoncellos:
+  - name: Daniel Arden
   - name: Jiří Benda
   - name: Marie Bláhová
   - name: Václav Huml
