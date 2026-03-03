@@ -7,7 +7,7 @@ concerts:
         composition: Planety
       - composer: Výběr z filmové hudby
         composition: Rocky • Růžový panter • Vzpomínky na Afriku • Nimbus Nekonečný příběh • La La Land • Sedm statečných
-    date: 2026-03-30T22:00:00.000Z
+    date: 2026-03-31T00:00:00.000Z
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Zdeněk Červinka
@@ -20,7 +20,7 @@ concerts:
         composition: Planety
       - composer: Výběr z filmové hudby
         composition: Rocky • Růžový panter • Vzpomínky na Afriku • Nimbus Nekonečný příběh • La La Land • Sedm statečných
-    date: 2026-03-28T23:00:00.000Z
+    date: 2026-03-29T00:00:00.000Z
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Zdeněk Červinka
