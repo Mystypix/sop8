@@ -335,7 +335,7 @@ export default defineConfig({
             ]
           },
           {
-            label: 'Tombony',
+            label: 'Trombony',
             name: 'trombones',
             type: 'object',
             list: true,
