@@ -1,7 +1,8 @@
 ---
 concerts:
   - agenda:
-      - {}
+      - composer: Elgar
+        composition: Enigma
       - composer: Holst
         composition: Planety
       - composer: Výběr z filmové hudby
