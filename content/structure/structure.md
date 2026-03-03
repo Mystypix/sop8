@@ -75,6 +75,9 @@ trumpets:
   - name: Barbora Irová
   - name: Jan Polanský
   - name: Vít Sládeček
+trombones:
+  - name: Richard Boček
+  - name: Ivan Kapičák
 drums:
   - name: Jakub Trpálek
 ---
