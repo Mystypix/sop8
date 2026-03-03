@@ -2,7 +2,8 @@
 concerts:
   - agenda:
       - {}
-      - {}
+      - composer: Holst
+        composition: Planety
       - composer: Výběr z filmové hudby
         composition: Rocky • Růžový panter • Vzpomínky na Afriku • Nimbus Nekonečný příběh • La La Land • Sedm statečných
     date: 2026-03-30T22:00:00.000Z
