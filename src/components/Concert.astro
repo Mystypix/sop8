@@ -99,9 +99,9 @@ const {
     }
 
     .agenda {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 40px;
         margin-bottom: 20px;
     }
 
@@ -126,11 +126,5 @@ const {
     .composition {
         font-size: 16px;
         font-weight: 600;
-    }
-
-    @media (max-width: 768px) {
-        .agenda {
-            grid-template-columns: 1fr;
-        }
     }
 </style>
