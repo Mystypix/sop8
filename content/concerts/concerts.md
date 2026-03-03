@@ -2,6 +2,8 @@
 concerts:
   - {}
   - agenda:
+      - composer: Holst
+        composition: Planety
       - composer: Elgar
         composition: Enigma
   - agenda:
