@@ -335,6 +335,31 @@ export default defineConfig({
             ]
           },
           {
+            label: 'Tombony',
+            name: 'trombones',
+            type: 'object',
+            list: true,
+            ui: {
+              component: 'group-list',
+              itemProps: (item) => {
+                // Field values are accessed by item?.<Field name>
+                return { label: item?.name };
+              },
+            },
+            fields: [
+              {
+                label: 'Jméno hráče',
+                name: 'name',
+                type: 'string',
+              },
+              {
+                label: 'Koncertní?',
+                name: 'concert',
+                type: 'boolean',
+              }
+            ]
+          },
+          {
             label: 'Bicí/tympán',
             name: 'drums',
             type: 'object',
