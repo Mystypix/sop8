@@ -1,6 +1,16 @@
 ---
 concerts:
-  - {}
+  - agenda:
+      - {}
+      - {}
+      - composer: Výběr z filmové hudby
+        composition: Rocky • Růžový panter • Vzpomínky na Afriku • Nimbus Nekonečný příběh • La La Land • Sedm statečných
+    date: 2026-03-30T22:00:00.000Z
+    time: '19:30'
+    address: 'Koncertní sál Pražské konzervatoře Na Rejdišti 1, Praha 1 – Staré Město'
+    conductor: Zdeněk Červinka
+    price: 350 Kč / 150 Kč děti do 12 let
+    invitation: /Pozvánka SOP8 Planety.jpg
   - agenda:
       - composer: Elgar
         composition: Enigma
