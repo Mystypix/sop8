@@ -1,5 +1,9 @@
 ---
 concerts:
+  - {}
+  - agenda:
+      - composer: Elgar
+        composition: Enigma
   - agenda:
       - composer: Respighi
         composition: Kouzelný krámek
@@ -9,7 +13,7 @@ concerts:
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1'
     conductor: Michael Housa
-    price: '150 / 350'
+    price: 150 / 350
     invitation: /Pozvánka SOP8 Čajkovskij.jpg
   - agenda:
       - composer: Respighi
@@ -20,7 +24,7 @@ concerts:
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na rejdišti 1, Praha 1'
     conductor: Michael Housa
-    price: '150 / 350'
+    price: 150 / 350
     invitation: /Pozvánka SOP8 Čajkovskij.jpg
   - agenda:
       - composer: Bernstein
@@ -34,7 +38,7 @@ concerts:
     address: 'Koncertní sál Pražské konzervatoře Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Michael Housa
     solists: Matyáš Papp - klavír
-    price: '150 / 350'
+    price: 150 / 350
     invitation: /Pozvánka SOP8 Dvořák.jpg
   - agenda:
       - composer: Bernstein
@@ -48,7 +52,7 @@ concerts:
     address: 'Koncertní sál Pražské konzervatoře Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Michael Housa
     solists: Matyáš Papp - klavír
-    price: '150 / 350'
+    price: 150 / 350
     invitation: /Pozvánka SOP8 Dvořák.jpg
   - agenda:
       - composer: Busoni
@@ -62,7 +66,7 @@ concerts:
     address: 'Na Rejdišti 1, Praha 1, Staré Město'
     conductor: Ondřej Hnízda
     solists: 'Marie Pradáčová - flétna, Aneta Pávková - harfa'
-    price: '150 / 350'
+    price: 150 / 350
     invitation: /Pozvánka SOP8 Beethoven.jpg
   - agenda:
       - composer: 'Busoni '
@@ -76,7 +80,7 @@ concerts:
     address: 'Na Rejdišti 1, Praha 1, Staré Město'
     conductor: Ondřej Hnízda
     solists: 'Marie Pradáčová - flétna, Aneta Pávková - harfa'
-    price: '150 / 350'
+    price: 150 / 350
     invitation: /Pozvánka SOP8 Beethoven.jpg
   - agenda:
       - composer: R. Schumann
@@ -127,9 +131,7 @@ concerts:
     conductor: Markus Flodin
     solists: 'Richard Kolař - tenor, Jonathan Ditrich - baryton'
     price: '200'
-    description: >-
-      Symfonický orchestr Prahy 8 společně s Břevnovským chrámovým sborem Praha
-      a Emauzským sborem ESO Praha
+    description: Symfonický orchestr Prahy 8 společně s Břevnovským chrámovým sborem Praha a Emauzským sborem ESO Praha
     invitation: /Pozvanka_Puccini_Olomouc.jpg
   - agenda:
       - composer: J. Suk
@@ -151,9 +153,7 @@ concerts:
       - composer: L. Minkus
         composition: Don Quijote
     date: 2023-06-18T00:00:00.000Z
-    address: >-
-      Stavovské divadlo, absoloventské představení Taneční konzervatoře hlavního
-      města Prahy
+    address: 'Stavovské divadlo, absoloventské představení Taneční konzervatoře hlavního města Prahy'
   - agenda:
       - composer: G. Puccini
         composition: Preludio Symfonico
@@ -167,9 +167,7 @@ concerts:
       - composer: L. Minkus
         composition: Don Quijote
     date: 2023-01-22T00:00:00.000Z
-    address: >-
-      Divadlo na Vinohradech, společné představení s Taneční konzervatoří
-      hlavního města Prahy
+    address: 'Divadlo na Vinohradech, společné představení s Taneční konzervatoří hlavního města Prahy'
   - agenda:
       - composer: K. Pexidr
         composition: Hymnus pro smyčcový orchestr
@@ -753,9 +751,7 @@ concerts:
       - composer: F. Mendelssohn-Barhtoldy
         composition: 'Koncert pro housle a orchestr, e-moll, sólo Stanislav Lukš'
       - composer: B. Martinů
-        composition: >-
-          Špalíček, suita z baletu (tanec stínu, tanec lva, tanec krahujce,
-          tanec malé myšky)
+        composition: 'Špalíček, suita z baletu (tanec stínu, tanec lva, tanec krahujce, tanec malé myšky)'
     date: 2006-03-24T00:00:00.000Z
     address: 'Modlitebna, Korunní 60, Praha 2 Vinohrady'
   - agenda:
@@ -791,3 +787,4 @@ concerts:
     date: 2004-12-17T00:00:00.000Z
     address: 'Modlitebna, Korunní 60, Praha 2 Vinohrady'
 ---
+
