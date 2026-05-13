@@ -1,6 +1,10 @@
 ---
 concerts:
-  - {}
+  - agenda:
+      - composer: Dvořák
+        composition: Biblické písně
+      - {}
+      - {}
   - agenda:
       - composer: Dvořák
         composition: Biblické písně
