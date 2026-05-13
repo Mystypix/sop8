@@ -7,7 +7,7 @@ concerts:
         composition: Noc na Lysé hoře
       - composer: Beethoven
         composition: Symfonie č. 7
-    date: 2026-06-24T22:00:00.000Z
+    date: 2026-06-25T00:00:00.000Z
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Igor Karpilovskij
@@ -21,7 +21,7 @@ concerts:
         composition: Noc na Lysé hoře
       - composer: Beethoven
         composition: Symfonie č. 7
-    date: 2026-06-23T22:00:00.000Z
+    date: 2026-06-24T00:00:00.000Z
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Igor Karpilovskij
@@ -837,4 +837,3 @@ concerts:
     date: 2004-12-17T00:00:00.000Z
     address: 'Modlitebna, Korunní 60, Praha 2 Vinohrady'
 ---
-
