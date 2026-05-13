@@ -12,7 +12,7 @@ concerts:
     address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Igor Karpilovskij
     solists: Pavel Josef Kšica - baryton
-    price: ''
+    price: '350 Kč / 150 '
     invitation: /Pozvánka SOP8 Beethoven.jpg
   - agenda:
       - composer: Dvořák
