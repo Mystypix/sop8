@@ -6,7 +6,8 @@ concerts:
         composition: Biblické písně
       - composer: Musorgskij
         composition: Noc na Lysé hoře
-      - {}
+      - composer: Beethoven
+        composition: Symfonie č. 7
   - agenda:
       - composer: Elgar
         composition: Enigma
