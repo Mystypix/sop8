@@ -8,6 +8,13 @@ concerts:
         composition: Noc na Lysé hoře
       - composer: Beethoven
         composition: Symfonie č. 7
+    date: 2026-06-23T22:00:00.000Z
+    time: '19:30'
+    address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1 – Staré Město'
+    conductor: Igor Karpilovskij
+    solists: Pavel Josef Kšica - baryton
+    price: 350 Kč / 150 Kč děti do 12 let
+    invitation: /Pozvánka SOP8 Beethoven.jpg
   - agenda:
       - composer: Elgar
         composition: Enigma
