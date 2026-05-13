@@ -4,7 +4,8 @@ concerts:
   - agenda:
       - composer: Dvořák
         composition: Biblické písně
-      - {}
+      - composer: Musorgskij
+        composition: Noc na Lysé hoře
       - {}
   - agenda:
       - composer: Elgar
