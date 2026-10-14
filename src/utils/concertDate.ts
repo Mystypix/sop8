@@ -25,8 +25,8 @@ export function concertDateKey(value: string | Date): string {
 }
 
 /** Sort and compare a concert's Prague-local date and time consistently. */
-export function concertDateTimeKey(date: string | Date, time = '00:00'): string {
-  return `${concertDateKey(date)}T${time.slice(0, 5) || '00:00'}`;
+export function concertDateTimeKey(date: string | Date, time?: string | null): string {
+  return `${concertDateKey(date)}T${time?.slice(0, 5) || '00:00'}`;
 }
 
 export function pragueNowKey(now = new Date()): string {
