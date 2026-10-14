@@ -1,6 +1,5 @@
 ---
-    const pathname = new URL(Astro.request.url).pathname;
-    const currentPath = pathname.slice(1);
+    const currentPath = new URL(Astro.request.url).pathname.replace(/\/+$/, '') || '/';
 ---
 <nav class="nav">
     <a class="logo" href="/">Symfonický orchestr Prahy 8</a>
@@ -8,12 +7,12 @@
         <input type="checkbox" />
         <div class="hamburger"></div>
         <div class="navLinks">
-            <a class={currentPath === "o-nas/" ? "active navLink" : "navLink"} href="/o-nas">O nás</a>
-            <a class={currentPath === "obsazeni/" ? "active navLink" : "navLink"} href="/obsazeni">Obsazení</a>
-            <a class={currentPath === "dirigenti/" ? "active navLink" : "navLink"} href="/dirigenti">Dirigenti</a>
-            <a class={currentPath === "koncerty/" ? "active navLink" : "navLink"} href="/koncerty">Koncerty</a>
-            <a class={currentPath === "galerie/" ? "active navLink" : "navLink"} href="/galerie">Galerie</a>
-            <a class={currentPath === "kontakty/" ? "active navLink" : "navLink"} href="/kontakty">Kontakty</a>
+            <a class={currentPath === "/o-nas" ? "active navLink" : "navLink"} aria-current={currentPath === "/o-nas" ? "page" : undefined} href="/o-nas">O nás</a>
+            <a class={currentPath === "/obsazeni" ? "active navLink" : "navLink"} aria-current={currentPath === "/obsazeni" ? "page" : undefined} href="/obsazeni">Obsazení</a>
+            <a class={currentPath === "/dirigenti" ? "active navLink" : "navLink"} aria-current={currentPath === "/dirigenti" ? "page" : undefined} href="/dirigenti">Dirigenti</a>
+            <a class={currentPath === "/koncerty" ? "active navLink" : "navLink"} aria-current={currentPath === "/koncerty" ? "page" : undefined} href="/koncerty">Koncerty</a>
+            <a class={currentPath === "/galerie" ? "active navLink" : "navLink"} aria-current={currentPath === "/galerie" ? "page" : undefined} href="/galerie">Galerie</a>
+            <a class={currentPath === "/kontakty" ? "active navLink" : "navLink"} aria-current={currentPath === "/kontakty" ? "page" : undefined} href="/kontakty">Kontakty</a>
         </div>
     </div>
 </nav>
@@ -201,44 +200,11 @@
     }
 </style>
 <script>
-    function addClassOnScroll() {
-        const nav = document.querySelector('nav');
-        const scrollThreshold = 10;
+    const nav = document.querySelector('nav');
+    const updateNavOnScroll = () => {
+        nav?.classList.toggle('scrolled', window.scrollY > 10);
+    };
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > scrollThreshold) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    }
-
-    addClassOnScroll();
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const navItems = document.querySelectorAll('.navLink'); // Adjust the selector as needed
-        const sections = document.querySelectorAll('section'); // Adjust the selector as needed
-
-        function onScroll() {
-            let currentSection = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - sectionHeight / 3) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href').substring(1) === currentSection) {
-                    item.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', onScroll);
-    });
+    updateNavOnScroll();
+    window.addEventListener('scroll', updateNavOnScroll, { passive: true });
 </script>
