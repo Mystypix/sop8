@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 const { concert, isFuture } = Astro.props;
 const {
     address,
-    agenda,
+    agenda = [],
     conductor,
     date,
     description,
@@ -12,12 +12,15 @@ const {
     solists,
     time,
 } = concert;
+// Tina can return null for an unset optional list, even when the schema
+// describes it as a list. Keep older or partially edited concerts renderable.
+const concertAgenda = Array.isArray(agenda) ? agenda : [];
 ---
 
 <div class=`concert  ${isFuture ? 'future' : ''}` data-concert-date={date} data-concert-time={time}>
     <div class="agenda">
         {
-            agenda.map(({ composition, composer }) => {
+            concertAgenda.map(({ composition, composer }) => {
                 return (
                     <div class="agendaItem">
                         <div class="composer">{composer}</div>
