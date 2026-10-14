@@ -16,16 +16,19 @@ function partsInPrague(value: Date) {
 }
 
 /** Return the date as a YYYY-MM-DD calendar value in Prague. */
-export function concertDateKey(value: string | Date): string {
+export function concertDateKey(value: string | Date | null | undefined): string {
+  if (value == null) return '';
   // Keep date-only values intact. Tina datetime values are ISO timestamps;
   // date-only strings are useful for already-normalized markup values.
   if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
-  const parts = partsInPrague(value instanceof Date ? value : new Date(value));
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) return '';
+  const parts = partsInPrague(date);
   return `${parts.year}-${parts.month}-${parts.day}`;
 }
 
 /** Sort and compare a concert's Prague-local date and time consistently. */
-export function concertDateTimeKey(date: string | Date, time?: string | null): string {
+export function concertDateTimeKey(date: string | Date | null | undefined, time?: string | null): string {
   return `${concertDateKey(date)}T${time?.slice(0, 5) || '00:00'}`;
 }
 
@@ -34,7 +37,9 @@ export function pragueNowKey(now = new Date()): string {
   return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}`;
 }
 
-export function formatConcertDate(value: string | Date): string {
-  const [year, month, day] = concertDateKey(value).split('-');
+export function formatConcertDate(value: string | Date | null | undefined): string {
+  const key = concertDateKey(value);
+  if (!key) return '';
+  const [year, month, day] = key.split('-');
   return `${Number(day)}. ${Number(month)}. ${year}`;
 }

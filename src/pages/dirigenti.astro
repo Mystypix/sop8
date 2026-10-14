@@ -2,13 +2,15 @@
 import { client } from "../../tina/__generated__/client";
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
+import { nonNullItems } from "../utils/collections";
 const data = await client.queries.conductors({ relativePath: "conductors.md" });
+const conductors = nonNullItems(data.data.conductors.conductors);
 ---
 
 <Layout title="SOP8 - Dirigenti" description="Seznamte se s dirigenty Symfonického orchestru Prahy 8.">
     <Section title="Dirigenti">
         {
-            data.data.conductors.conductors.map((conductor, index) => (
+            conductors.map((conductor, index) => (
                 <div class="conductor">
                     <img
                         class="photo"

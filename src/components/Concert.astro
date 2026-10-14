@@ -1,5 +1,6 @@
 ---
 import { concertDateKey, formatConcertDate } from '../utils/concertDate';
+import { nonNullItems } from '../utils/collections';
 const { concert, isFuture } = Astro.props;
 const {
     address,
@@ -14,7 +15,7 @@ const {
 } = concert;
 // Tina can return null for an unset optional list, even when the schema
 // describes it as a list. Keep older or partially edited concerts renderable.
-const concertAgenda = Array.isArray(agenda) ? agenda : [];
+const concertAgenda = nonNullItems(agenda);
 ---
 
 <div class=`concert  ${isFuture ? 'future' : ''}` data-concert-date={concertDateKey(date)} data-concert-time={time}>

@@ -3,28 +3,31 @@ import { client } from '../../tina/__generated__/client'
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 const data = await client.queries.contact({ relativePath: 'contact.md' })
+const contact = data.data.contact;
+const leadership = contact.leadership ?? {};
+const practice = contact.practice ?? {};
 ---
 <Layout title="SOP8 - Kontakty" description="Kontaktujte Symfonický orchestr Prahy 8 a zjistěte, kde a kdy probíhají zkoušky.">
     <Section title="Kontakty">
         <div class="wrapper">
             <div>
                 <div>
-                    <strong>Orchestrální e-mail: </strong><a href={`mailto:${data.data.contact.email}`}>{data.data.contact.email}</a>
+                    <strong>Orchestrální e-mail: </strong><a href={`mailto:${contact.email ?? ''}`}>{contact.email}</a>
                 </div>
                 <div>
-                    <strong>Vedoucí orchestru: </strong>{data.data.contact.leadership.name}
+                    <strong>Vedoucí orchestru: </strong>{leadership.name}
                 </div>
                 <div>
-                    <strong>Email: </strong><a href=`mailto:${data.data.contact.leadership.email}`>{data.data.contact.leadership.email}</a>
+                    <strong>Email: </strong><a href=`mailto:${leadership.email ?? ''}`>{leadership.email}</a>
                 </div>
                 <div>
-                    <strong>Telefon: </strong><a href=`tel:${data.data.contact.leadership.phone}`>{data.data.contact.leadership.phone}</a>
+                    <strong>Telefon: </strong><a href=`tel:${leadership.phone ?? ''}`>{leadership.phone}</a>
                 </div>
             </div>
             <div>
                 <strong>Kde hrajeme</strong>
-                <p>{data.data.contact.practice.text}</p>
-                <p>{data.data.contact.practice.address}</p>
+                <p>{practice.text}</p>
+                <p>{practice.address}</p>
                 <a class="mapLink" href="https://mapy.com/s/defapavako" target="_blank" rel="noreferrer">
                     Otevřít místo zkoušek na mapě
                 </a>

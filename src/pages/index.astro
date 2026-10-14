@@ -5,13 +5,16 @@ import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 import Concert from "../components/Concert.astro";
 import { concertDateKey, pragueNowKey } from "../utils/concertDate";
+import { nonNullItems } from "../utils/collections";
 const homepageData = await client.queries.homepage({
   relativePath: "homepage.md",
 });
 const concertData = await client.queries.concerts({
   relativePath: "concerts.md",
 });
-const futureConcerts = concertData.data.concerts.concerts
+const concerts = nonNullItems(concertData.data.concerts.concerts)
+  .filter((concert) => concert.date && !Number.isNaN(Date.parse(concert.date)));
+const futureConcerts = concerts
   .filter(({ date }) => concertDateKey(date) >= pragueNowKey().slice(0, 10))
   .sort((a, b) => concertDateKey(a.date).localeCompare(concertDateKey(b.date)));
 ---

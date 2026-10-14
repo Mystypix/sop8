@@ -2,6 +2,7 @@
 import { client } from '../../tina/__generated__/client'
 import Layout from "../layouts/Layout.astro"
 import Section from "../components/Section.astro";
+import { nonNullItems } from "../utils/collections";
 const data = await client.queries.structure({ relativePath: 'structure.md' })
 const {
     basses,
@@ -18,61 +19,74 @@ const {
     violoncellos,
     viols,
 } = data.data.structure
+const firstViolins = nonNullItems(first_violins);
+const secondViolins = nonNullItems(second_violins);
+const violinSection = nonNullItems(viols);
+const celloSection = nonNullItems(violoncellos);
+const bassSection = nonNullItems(basses);
+const fluteSection = nonNullItems(flutes);
+const bassoonSection = nonNullItems(bassoons);
+const clarinetSection = nonNullItems(clarinets);
+const drumSection = nonNullItems(drums);
+const hornSection = nonNullItems(french_horns);
+const oboeSection = nonNullItems(oboes);
+const tromboneSection = nonNullItems(trombones);
+const trumpetSection = nonNullItems(trumpets);
 ---
 <Layout title="SOP8 - Obsazení" description="Poznejte nástrojové sekce a členy Symfonického orchestru Prahy 8.">
     <Section title="Obsazení">
         <div class="grid">
             <div class="grid-item section section--violins">
                 <strong>I. housle</strong>
-                {first_violins.map(({name}) => <div class="person">{name}</div>)}
+                {firstViolins.map(({name}) => <div class="person">{name}</div>)}
             </div>
             <div class="grid-item section section--violins">
                 <strong>II. housle</strong>
-                {second_violins.map(({name}) => <div class="person">{name}</div>)}
+                {secondViolins.map(({name}) => <div class="person">{name}</div>)}
             </div>
             <div class="grid-item section section--viols">
                 <strong>Violy</strong>
-                {viols.map(({name}) => <div class="person">{name}</div>)}
+                {violinSection.map(({name}) => <div class="person">{name}</div>)}
             </div>
             <div class="grid-item section section--cellos">
                 <strong>Violoncella</strong>
-                {violoncellos.map(({name}) => <div class="person">{name}</div>)}
+                {celloSection.map(({name}) => <div class="person">{name}</div>)}
             </div>
             <div class="grid-item section section--basses">
                 <strong>Kontrabasy</strong>
-                {basses.map(({name}) => <div class="person">{name}</div>)}
+                {bassSection.map(({name}) => <div class="person">{name}</div>)}
             </div>
             <div class="grid-item section section--flutes">
                 <strong>Flétny</strong>
-                {flutes.map(({name}) => <div class="person">{name}</div>)}
+                {fluteSection.map(({name}) => <div class="person">{name}</div>)}
             </div>
             <div class="grid-item section section--bassoons">
                 <strong>Fagoty</strong>
-                {bassoons.map(({name}) => <div class="person">{name}</div>)}
+                {bassoonSection.map(({name}) => <div class="person">{name}</div>)}
             </div>
             <div class="grid-item section section--clarinets">
                 <strong>Klarinety</strong>
-                {clarinets.map(({name}) => <div class="person">{name}</div>)}
+                {clarinetSection.map(({name}) => <div class="person">{name}</div>)}
             </div>
             <div class="grid-item section section--trumpets">
                 <strong>Trubky</strong>
-                {trumpets.map(({name}) => <div class="person">{name}</div>)}
+                {trumpetSection.map(({name}) => <div class="person">{name}</div>)}
             </div>
             <div class="grid-item section section--oboes">
                 <strong>Hoboje</strong>
-                {oboes.map(({name}) => <div class="person">{name}</div>)}
+                {oboeSection.map(({name}) => <div class="person">{name}</div>)}
             </div>
             <div class="grid-item section section--french-horns">
                 <strong>Lesní rohy</strong>
-                {french_horns.map(({name}) => <div class="person">{name}</div>)}
+                {hornSection.map(({name}) => <div class="person">{name}</div>)}
             </div>
             <div class="grid-item section section--trombones">
                 <strong>Trombóny</strong>
-                {trombones.map(({name}) => <div class="person">{name}</div>)}
+                {tromboneSection.map(({name}) => <div class="person">{name}</div>)}
             </div>
             <div class="grid-item section section--drums">
                 <strong>Bicí/tympán</strong>
-                {drums.map(({name}) => <div class="person">{name}</div>)}
+                {drumSection.map(({name}) => <div class="person">{name}</div>)}
             </div>
         </div>
     </Section>

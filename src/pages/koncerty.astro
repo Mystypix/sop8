@@ -4,12 +4,15 @@
     import Section from "../components/Section.astro";
     import Concert from "../components/Concert.astro";
     import { concertDateTimeKey, pragueNowKey } from "../utils/concertDate";
+    import { nonNullItems } from "../utils/collections";
     const data = await client.queries.concerts({ relativePath: 'concerts.md' })
     const nowKey = pragueNowKey();
-    const futureConcerts = data.data.concerts.concerts
+    const concerts = nonNullItems(data.data.concerts.concerts)
+        .filter((concert) => concert.date && !Number.isNaN(Date.parse(concert.date)));
+    const futureConcerts = concerts
         .filter(({date, time}) => concertDateTimeKey(date, time) >= nowKey)
         .sort((a, b) => concertDateTimeKey(a.date, a.time).localeCompare(concertDateTimeKey(b.date, b.time)));
-    const pastConcerts = data.data.concerts.concerts.filter(({date, time}) => concertDateTimeKey(date, time) < nowKey);
+    const pastConcerts = concerts.filter(({date, time}) => concertDateTimeKey(date, time) < nowKey);
 ---
 <Layout title="SOP8 - Koncerty" description="Program a termíny nadcházejících koncertů Symfonického orchestru Prahy 8 i archiv odehraných koncertů.">
     <Section title="Koncerty">
@@ -63,7 +66,7 @@
         const pastByYear = new Map<number, HTMLElement[]>();
         for (const card of pastCards) {
             card.classList.remove('future');
-            const year = new Date(getStart(card)).getFullYear();
+            const year = Number(getStart(card).slice(0, 4));
             const concerts = pastByYear.get(year) ?? [];
             concerts.push(card);
             pastByYear.set(year, concerts);
