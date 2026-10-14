@@ -16,6 +16,7 @@ first_violins:
   - name: Markéta Seige
   - name: Růžena Víšková
 second_violins:
+  - name: Jana Žárová
   - name: Veronika Dětinská
   - name: Lada Grigarová
   - name: Pavla Gründlerová
