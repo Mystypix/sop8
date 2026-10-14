@@ -78,7 +78,6 @@ trumpets:
   - name: Vít Sládeček
   - name: Mariana Vařeková
 trombones:
-  - name: Richard Boček
   - name: Ivan Kapičák
 drums:
   - name: Jakub Trpálek
