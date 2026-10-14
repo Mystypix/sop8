@@ -16,7 +16,6 @@ first_violins:
   - name: Markéta Seige
   - name: Růžena Víšková
 second_violins:
-  - name: Jana Žárová
   - name: Veronika Dětinská
   - name: Lada Grigarová
   - name: Pavla Gründlerová
@@ -32,6 +31,7 @@ second_violins:
   - name: Dana Trojanová
   - name: Ondřej Trpálek
   - name: Jan Weinert
+  - name: Jana Žárová
 viols:
   - name: Denisa Kocvárová
   - name: Radka Maršnerová
@@ -41,6 +41,7 @@ viols:
   - name: Hana Šarbortová
   - name: Veronika Šírová
 violoncellos:
+  - name: Sára Gracerová
   - name: Daniel Arden
   - name: Jiří Benda
   - name: Marie Bláhová
