@@ -1,5 +1,8 @@
 ---
 concerts:
+  - date: 2026-12-16T23:00:00.000Z
+    time: '19:30'
+    address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1 – Staré Město'
   - agenda:
       - composer: Dvořák
         composition: Biblické písně
@@ -837,3 +840,4 @@ concerts:
     date: 2004-12-17T00:00:00.000Z
     address: 'Modlitebna, Korunní 60, Praha 2 Vinohrady'
 ---
+
