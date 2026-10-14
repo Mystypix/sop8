@@ -1,5 +1,5 @@
 ---
-import dayjs from "dayjs";
+import { concertDateKey, formatConcertDate } from '../utils/concertDate';
 const { concert, isFuture } = Astro.props;
 const {
     address,
@@ -17,7 +17,7 @@ const {
 const concertAgenda = Array.isArray(agenda) ? agenda : [];
 ---
 
-<div class=`concert  ${isFuture ? 'future' : ''}` data-concert-date={date} data-concert-time={time}>
+<div class=`concert  ${isFuture ? 'future' : ''}` data-concert-date={concertDateKey(date)} data-concert-time={time}>
     <div class="agenda">
         {
             concertAgenda.map(({ composition, composer }) => {
@@ -31,7 +31,7 @@ const concertAgenda = Array.isArray(agenda) ? agenda : [];
         }
     </div>
     <div class="date">
-        <strong>Datum: </strong>{dayjs(date).format("D. M. YYYY")}
+        <strong>Datum: </strong>{formatConcertDate(date)}
     </div>
     {
         isFuture && (

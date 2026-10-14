@@ -4,6 +4,7 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 import Concert from "../components/Concert.astro";
+import { concertDateKey, pragueNowKey } from "../utils/concertDate";
 const homepageData = await client.queries.homepage({
   relativePath: "homepage.md",
 });
@@ -11,8 +12,8 @@ const concertData = await client.queries.concerts({
   relativePath: "concerts.md",
 });
 const futureConcerts = concertData.data.concerts.concerts
-  .filter(({ date }) => new Date(date).toDateString() >= new Date().toDateString())
-  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  .filter(({ date }) => concertDateKey(date) >= pragueNowKey().slice(0, 10))
+  .sort((a, b) => concertDateKey(a.date).localeCompare(concertDateKey(b.date)));
 ---
 
 <Layout title="SOP8 - Symfonický orchestr Prahy 8" description="Symfonický orchestr Prahy 8 tvoří studenti a mladí pracující. Podívejte se na naše koncerty nebo se k nám přidejte.">
@@ -39,13 +40,14 @@ const futureConcerts = concertData.data.concerts.concerts
   }
 </Layout>
 <script>
+  import { pragueNowKey } from "../utils/concertDate";
+
   const removePastHomepageConcerts = () => {
-    const now = new Date();
+    const now = pragueNowKey();
     document.querySelectorAll<HTMLElement>('.introConcerts [data-concert-date]').forEach((card) => {
-      const [year, month, day] = (card.dataset.concertDate ?? '').slice(0, 10).split('-').map(Number);
-      const [hours = 0, minutes = 0] = (card.dataset.concertTime ?? '').split(':').map(Number);
-      const start = new Date(year, month - 1, day, hours, minutes);
-      if (start <= now) card.remove();
+      const date = card.dataset.concertDate ?? '';
+      const time = (card.dataset.concertTime ?? '00:00').slice(0, 5);
+      if (`${date}T${time}` <= now) card.remove();
     });
     const section = document.querySelector<HTMLElement>('.introConcerts');
     if (section) section.hidden = !section.querySelector('[data-concert-date]');

@@ -3,11 +3,13 @@
     import Layout from "../layouts/Layout.astro";
     import Section from "../components/Section.astro";
     import Concert from "../components/Concert.astro";
+    import { concertDateTimeKey, pragueNowKey } from "../utils/concertDate";
     const data = await client.queries.concerts({ relativePath: 'concerts.md' })
+    const nowKey = pragueNowKey();
     const futureConcerts = data.data.concerts.concerts
-        .filter(({date}) => new Date(date) > new Date())
-        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-    const pastConcerts = data.data.concerts.concerts.filter(({date}) => new Date(date) < new Date());
+        .filter(({date, time}) => concertDateTimeKey(date, time) >= nowKey)
+        .sort((a, b) => concertDateTimeKey(a.date, a.time).localeCompare(concertDateTimeKey(b.date, b.time)));
+    const pastConcerts = data.data.concerts.concerts.filter(({date, time}) => concertDateTimeKey(date, time) < nowKey);
 ---
 <Layout title="SOP8 - Koncerty" description="Program a termíny nadcházejících koncertů Symfonického orchestru Prahy 8 i archiv odehraných koncertů.">
     <Section title="Koncerty">
@@ -24,6 +26,8 @@
     </Section>
 </Layout>
 <script>
+    import { pragueNowKey } from '../utils/concertDate';
+
     const updateConcertSections = () => {
         const upcoming = document.querySelector<HTMLElement>('.upcomingConcerts');
         const past = document.querySelector<HTMLElement>('.pastConcerts');
@@ -31,19 +35,19 @@
         if (!upcoming || !past || !yearContainer) return;
 
         const cards = [...document.querySelectorAll<HTMLElement>('[data-concert-date]')];
-        const now = new Date();
+        const now = pragueNowKey();
         const getStart = (card: HTMLElement) => {
-            const [year, month, day] = (card.dataset.concertDate ?? '').slice(0, 10).split('-').map(Number);
-            const [hours = 0, minutes = 0] = (card.dataset.concertTime ?? '').split(':').map(Number);
-            return new Date(year, month - 1, day, hours, minutes).getTime();
+            const date = card.dataset.concertDate ?? '';
+            const time = (card.dataset.concertTime ?? '00:00').slice(0, 5);
+            return `${date}T${time}`;
         };
 
-        const futureCards = cards.filter((card) => getStart(card) > now.getTime())
-            .sort((a, b) => getStart(a) - getStart(b));
-        const pastCards = cards.filter((card) => getStart(card) <= now.getTime())
-            .sort((a, b) => getStart(b) - getStart(a));
+        const futureCards = cards.filter((card) => getStart(card) > now)
+            .sort((a, b) => getStart(a).localeCompare(getStart(b)));
+        const pastCards = cards.filter((card) => getStart(card) <= now)
+            .sort((a, b) => getStart(b).localeCompare(getStart(a)));
         const hasUpdatedOnce = yearContainer.dataset.initialized === 'true';
-        const needsUpdate = cards.some((card) => card.classList.contains('future') !== (getStart(card) > now.getTime()));
+        const needsUpdate = cards.some((card) => card.classList.contains('future') !== (getStart(card) > now));
         if (hasUpdatedOnce && !needsUpdate) return;
 
         const previouslyOpenYears = new Set(
