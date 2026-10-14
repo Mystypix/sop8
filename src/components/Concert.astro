@@ -16,35 +16,32 @@ const {
 // Tina can return null for an unset optional list, even when the schema
 // describes it as a list. Keep older or partially edited concerts renderable.
 const concertAgenda = nonNullItems(agenda);
+const hasText = (value?: string | null) => Boolean(value?.trim());
 ---
 
 <div class=`concert  ${isFuture ? 'future' : ''}` data-concert-date={concertDateKey(date)} data-concert-time={time}>
-    <div class="agenda">
-        {
-            concertAgenda.map(({ composition, composer }) => {
-                return (
-                    <div class="agendaItem">
-                        <div class="composer">{composer}</div>
-                        <div class="composition">{composition}</div>
-                    </div>
-                );
-            })
-        }
-    </div>
-    <div class="date">
-        <strong>Datum: </strong>{formatConcertDate(date)}
-    </div>
+    {concertAgenda.some(({ composer, composition }) => hasText(composer) || hasText(composition)) && (
+        <div class="agenda">
+            {concertAgenda.map(({ composition, composer }) => (hasText(composer) || hasText(composition)) && (
+                <div class="agendaItem">
+                    {hasText(composer) && <div class="composer">{composer}</div>}
+                    {hasText(composition) && <div class="composition">{composition}</div>}
+                </div>
+            ))}
+        </div>
+    )}
+    {hasText(date) && <div class="date"><strong>Datum: </strong>{formatConcertDate(date)}</div>}
     {
-        isFuture && (
+        isFuture && hasText(time) && (
             <div class="time future-only">
                 <strong>Čas: </strong>
                 {time}
             </div>
         )
     }
-    <div class="place"><strong>Adresa: </strong>{address}</div>
+    {hasText(address) && <div class="place"><strong>Adresa: </strong>{address}</div>}
     {
-        isFuture && (
+        isFuture && hasText(conductor) && (
             <div class="future-only">
                 <strong>Dirigent: </strong>
                 {conductor}
@@ -52,7 +49,7 @@ const concertAgenda = nonNullItems(agenda);
         )
     }
     {
-        isFuture && solists && (
+        isFuture && hasText(solists) && (
             <div class="future-only">
                 <strong>Sólisté: </strong>
                 {solists}
@@ -60,16 +57,16 @@ const concertAgenda = nonNullItems(agenda);
         )
     }
     {
-        isFuture && (
+        isFuture && hasText(price) && (
             <div class="future-only">
                 <strong>Cena: </strong>
                 {price} Kč
             </div>
         )
     }
-    {description && <div class="program">{description}</div>}
+    {hasText(description) && <div class="program">{description}</div>}
     {
-        invitation && (
+        hasText(invitation) && (
             <a href={invitation} target="_blank">
                 Pozvánka
             </a>
