@@ -1,224 +1,171 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
-
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import Section from "../components/Section.astro";
-const assets = await getCollection('assets');
-const galleryDict = {};
-assets.forEach(item => {
-    const galleryName = item.id.split('/')[1];
 
-    if (!galleryDict[galleryName]) {
-        galleryDict[galleryName] = [];
-    }
+const assets = await getCollection("assets");
+const galleryDict: Record<string, string[]> = {};
 
-    galleryDict[galleryName].push(item.data.url);
-});
+for (const item of assets) {
+  const galleryName = item.id.split("/")[1];
+  if (!galleryName) continue;
+  (galleryDict[galleryName] ??= []).push(item.data.url);
+}
 
-const sections = Object.entries(galleryDict).map(([name, assets]) => ({
-    name,
-    assets
-})).sort((a, b) => {
-    const [dayA, monthA, yearA] = a.name.split('-')[0].trim().split('.').map(part => part.trim());
-    const [dayB, monthB, yearB] = b.name.split('-')[0].trim().split('.').map(part => part.trim());
+const sections = Object.entries(galleryDict)
+  .map(([name, images]) => ({ name, images }))
+  .sort((a, b) => {
+    const [dayA, monthA, yearA] = a.name.split("-")[0].trim().split(".").map((part) => part.trim());
+    const [dayB, monthB, yearB] = b.name.split("-")[0].trim().split(".").map((part) => part.trim());
     return new Date(`${yearB}-${monthB}-${dayB}`).getTime() - new Date(`${yearA}-${monthA}-${dayA}`).getTime();
-});
-
+  });
 ---
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
-<Layout title="SOP8 - Galerie">
-    <Section title="Galerie">
-        {sections.map(({ name, assets }: {name: string, assets: string[]}) => (
-            <div class="section">
-                <h2 class="sectionTitle">{ name }</h2>
-                <div class="gallery">
-                    {assets.map((asset, index) => (
-                        <a class="glightbox" href={asset} data-title={name} style={`display: ${index >= 5 ? 'none' : 'block'}`}>
-                            <Image 
-                                class="img" 
-                                src={asset} 
-                                alt={name} 
-                                width="240" 
-                                height="200" 
-                                loading={index < 5 ? "eager" : "lazy"}
-                                decoding="async"
-                                quality={80}
-                            />
-                        </a>
-                    ))}
-                </div>
-                {assets.length > 5 && (
-                    <div class="showMore">Zobrazit více</div>
-                )}
-            </div>
-        ))}
-    </Section>
+
+<Layout title="SOP8 - Galerie" description="Fotografie z koncertů a dalších akcí Symfonického orchestru Prahy 8.">
+  <Section title="Galerie">
+    {sections.map(({ name, images }, sectionIndex) => {
+      const galleryId = `galerie-${sectionIndex}`;
+      const hiddenCount = Math.max(0, images.length - 5);
+
+      return (
+        <section class="gallerySection" aria-labelledby={`${galleryId}-title`}>
+          <h2 id={`${galleryId}-title`} class="sectionTitle">{name}</h2>
+          <div class="gallery" id={galleryId}>
+            {images.map((image, index) => (
+              <a
+                class="glightbox"
+                href={image}
+                data-gallery={galleryId}
+                data-title={name}
+                aria-label={`${name}, fotografie ${index + 1}`}
+                hidden={index >= 5}
+              >
+                <Image
+                  class="img"
+                  src={image}
+                  alt={`${name}, fotografie ${index + 1}`}
+                  width={240}
+                  height={200}
+                  loading={sectionIndex === 0 && index === 0 ? "eager" : "lazy"}
+                  fetchpriority={sectionIndex === 0 && index === 0 ? "high" : "auto"}
+                  decoding="async"
+                  quality={75}
+                />
+              </a>
+            ))}
+          </div>
+          {hiddenCount > 0 && (
+            <button class="showMore" type="button" aria-expanded="false" aria-controls={galleryId}>
+              Zobrazit dalších {hiddenCount} fotografií
+            </button>
+          )}
+        </section>
+      );
+    })}
+  </Section>
 </Layout>
+
+<script>
+  import GLightbox from "glightbox";
+  import "glightbox/dist/css/glightbox.min.css";
+
+  GLightbox({
+    selector: ".glightbox",
+    zoomable: false,
+    touchNavigation: true,
+    loop: true,
+  });
+
+  document.querySelectorAll<HTMLButtonElement>(".showMore").forEach((button) => {
+    const gallery = document.getElementById(button.getAttribute("aria-controls") ?? "");
+    if (!gallery) return;
+
+    const images = [...gallery.querySelectorAll<HTMLAnchorElement>(".glightbox")];
+    const hiddenCount = images.filter((image) => image.hidden).length;
+    button.addEventListener("click", () => {
+      const expanded = button.getAttribute("aria-expanded") !== "true";
+      button.setAttribute("aria-expanded", String(expanded));
+      images.forEach((image, index) => {
+        image.hidden = !expanded && index >= 5;
+      });
+      button.textContent = expanded
+        ? "Zobrazit méně"
+        : `Zobrazit dalších ${hiddenCount} fotografií`;
+    });
+  });
+</script>
+
 <style>
-    .section {
-        + .section {
-            margin-top: 60px;
-        }
-    }
+  .gallerySection + .gallerySection {
+    margin-top: 60px;
+  }
 
-    .sectionTitle {
-        margin-bottom: 20px;
-    }
+  .sectionTitle {
+    margin-bottom: 20px;
+  }
 
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 4px;
+    width: 100%;
+  }
+
+  .glightbox {
+    display: block;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .glightbox[hidden] {
+    display: none;
+  }
+
+  .img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (hover: hover) {
+    .img:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .showMore {
+    display: block;
+    margin: 20px auto 0;
+    padding: 8px 16px;
+    border: 1px solid var(--main-color);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--main-color);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .showMore:hover {
+    background: var(--main-color);
+    color: #fff;
+  }
+
+  .showMore:focus-visible {
+    outline: 3px solid var(--text-color);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 768px) {
     .gallery {
-        position: relative;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 4px;
-        width: 100%;
-        overflow: hidden;
-        max-height: 200px;
-        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        will-change: max-height;
-    }
-
-    .gallery.expanded {
-        max-height: none;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .glightbox {
-        display: block;
-        width: 100%;
-        height: 200px;
-        overflow: hidden;
-        will-change: transform;
+      height: auto;
+      aspect-ratio: 6 / 5;
     }
-
-    .img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transform: scale(1);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        will-change: transform;
-
-        &:hover {
-            transform: scale(1.05);
-        }
-    }
-
-    .showMore {
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: var(--main-color);
-        font-size: 18px;
-        text-align: center;
-        opacity: 1;
-        transition: opacity 0.25s ease;
-        cursor: pointer;
-        user-select: none;
-
-        &:hover {
-            opacity: .6;
-        }
-    }
+  }
 </style>
-<script>
-    // Defer non-critical JavaScript
-    document.addEventListener('DOMContentLoaded', () => {
-        // Load GLightbox dynamically
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js';
-        script.onload = () => {
-            // @ts-ignore - GLightbox is loaded dynamically
-            window.GLightbox({
-                zoomable: false,
-                touchNavigation: true,
-                loop: true
-            });
-        };
-        document.head.appendChild(script);
-
-        // Initialize galleries after a small delay to ensure proper rendering
-        setTimeout(() => {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                const gallery = section.querySelector('.gallery') as HTMLElement;
-                const items = gallery.querySelectorAll('.glightbox') as NodeListOf<HTMLElement>;
-                const showMoreButton = section.querySelector('.showMore') as HTMLElement;
-
-                if (showMoreButton) {
-                    // Calculate and store initial heights
-                    const collapsedHeight = 200;
-                    let expandedHeight = 0;
-                    let isExpanded = false;
-
-                    // Set initial state
-                    gallery.style.maxHeight = `${collapsedHeight}px`;
-                    
-                    // Hide items beyond first 5 and calculate expanded height
-                    items.forEach((item, index) => {
-                        if (index >= 5) {
-                            item.style.display = 'none';
-                        } else {
-                            expandedHeight += item.offsetHeight;
-                        }
-                    });
-
-                    let isAnimating = false;
-
-                    showMoreButton.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        
-                        if (isAnimating) return;
-                        isAnimating = true;
-
-                        // Explicitly manage expanded state
-                        isExpanded = !isExpanded;
-                        if (isExpanded) {
-                            gallery.classList.add('expanded');
-                        } else {
-                            gallery.classList.remove('expanded');
-                        }
-                        
-                        if (isExpanded) {
-                            // Show all items first
-                            items.forEach(item => {
-                                item.style.display = 'block';
-                            });
-                            
-                            // Force a reflow
-                            gallery.offsetHeight;
-                            
-                            // Then animate the height
-                            requestAnimationFrame(() => {
-                                // Recalculate full height after showing all items
-                                const fullHeight = gallery.scrollHeight;
-                                gallery.style.maxHeight = `${fullHeight}px`;
-                                showMoreButton.textContent = 'Zobrazit méně';
-                                isAnimating = false;
-                            });
-                        } else {
-                            // Force a reflow
-                            gallery.offsetHeight;
-                            
-                            // Animate height first
-                            gallery.style.maxHeight = `${collapsedHeight}px`;
-                            
-                            // Then hide items after animation
-                            setTimeout(() => {
-                                items.forEach((item, index) => {
-                                    if (index >= 5) {
-                                        item.style.display = 'none';
-                                    }
-                                });
-                                showMoreButton.textContent = 'Zobrazit více';
-                                isAnimating = false;
-                            }, 300); // Match the CSS transition duration
-                        }
-                    });
-                }
-            });
-        }, 100); // Small delay to ensure proper rendering
-    });
-</script>

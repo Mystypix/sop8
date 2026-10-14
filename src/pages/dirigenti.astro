@@ -5,15 +5,20 @@ import Section from "../components/Section.astro";
 const data = await client.queries.conductors({ relativePath: "conductors.md" });
 ---
 
-<Layout title="SOP8 - Dirigenti">
+<Layout title="SOP8 - Dirigenti" description="Seznamte se s dirigenty Symfonického orchestru Prahy 8.">
     <Section title="Dirigenti">
         {
-            data.data.conductors.conductors.map((conductor) => (
+            data.data.conductors.conductors.map((conductor, index) => (
                 <div class="conductor">
                     <img
                         class="photo"
                         src={conductor.photo}
                         alt={conductor.name}
+                        width="200"
+                        height="200"
+                        loading={index === 0 ? "eager" : "lazy"}
+                        fetchpriority={index === 0 ? "high" : "auto"}
+                        decoding="async"
                     />
                     <div>
                         <h2 class="name">{conductor.name}</h2>

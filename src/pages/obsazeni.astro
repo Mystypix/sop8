@@ -19,7 +19,7 @@ const {
     viols,
 } = data.data.structure
 ---
-<Layout title="SOP8 - Obsazení">
+<Layout title="SOP8 - Obsazení" description="Poznejte nástrojové sekce a členy Symfonického orchestru Prahy 8.">
     <Section title="Obsazení">
         <div class="grid">
             <div class="grid-item section section--violins">
@@ -78,6 +78,12 @@ const {
     </Section>
 </Layout>
 <style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
     .grid-item {
         position: relative;
         border-left: 2px solid var(--main-color);
@@ -107,93 +113,91 @@ const {
 
     .section--viols {
         &::before {
-            background-image: url("../assets/viola.png");
+            background-image: url("../assets/viola.webp");
         }
     }
 
     .section--violins {
         &::before {
-            background-image: url("../assets/housle.png");
+            background-image: url("../assets/housle.webp");
         }
     }
 
 
     .section--cellos {
         &::before {
-            background-image: url("../assets/cello.png");
+            background-image: url("../assets/cello.webp");
         }
     }
 
     .section--basses {
         &::before {
-            background-image: url("../assets/basa.png");
+            background-image: url("../assets/basa.webp");
         }
     }
 
     .section--flutes {
         &::before {
-            background-image: url("../assets/fletna.png");
+            background-image: url("../assets/fletna.webp");
         }
     }
 
     .section--bassoons {
         &::before {
-            background-image: url("../assets/fagot.png");
+            background-image: url("../assets/fagot.webp");
         }
     }
 
     .section--clarinets {
         &::before {
-            background-image: url("../assets/klarinet.png");
+            background-image: url("../assets/klarinet.webp");
         }
     }
 
     .section--trumpets {
         &::before {
-            background-image: url("../assets/trubka.png");
+            background-image: url("../assets/trubka.webp");
         }
     }
 
 
     .section--oboes {
         &::before {
-            background-image: url("../assets/hoboj.png");
+            background-image: url("../assets/hoboj.webp");
         }
     }
 
     .section--french-horns {
         &::before {
-            background-image: url("../assets/horna.png");
+            background-image: url("../assets/horna.webp");
         }
     }
 
     .section--trombones {
         &::before {
-            background-image: url("../assets/trombon.png");
+            background-image: url("../assets/trombon.webp");
         }
     }
 
     .section--drums {
         &::before {
-            background-image: url("../assets/bici.png");
+            background-image: url("../assets/bici.webp");
         }
     }
 
     .person {
         font-weight: 500;
     }
-</style>
-<script is:inline src="https://cdn.jsdelivr.net/npm/macy@2"></script>
-<script is:inline>
-    const macy = Macy({
-        container: '.grid',
-        trueOrder: false,
-        waitForImages: false,
-        margin: 20,
-        columns: 3,
-        breakAt: {
-            1200: 2,
-            940: 1,
+
+    @media (max-width: 1100px) {
+        .grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
-    });
-</script>
+    }
+
+    @media (max-width: 700px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

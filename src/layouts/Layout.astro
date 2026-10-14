@@ -2,17 +2,18 @@
 import Navigation from "../components/Navigation.astro";
 interface Props {
     title: string;
+    description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description = "Symfonický orchestr Prahy 8 tvoří studenti a mladí pracující. Objevte jeho koncerty, obsazení a možnosti zapojení." } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="cs">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Astro description" />
+        <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -22,9 +23,6 @@ const currentYear = new Date().getFullYear();
         <meta name="theme-color" content="#ffffff">
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
         <Navigation />
@@ -43,7 +41,7 @@ const currentYear = new Date().getFullYear();
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Montserrat", sans-serif;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         font-optical-sizing: auto;
         font-style: normal;
         font-size: 18px;

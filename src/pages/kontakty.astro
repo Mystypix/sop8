@@ -4,12 +4,12 @@ import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 const data = await client.queries.contact({ relativePath: 'contact.md' })
 ---
-<Layout title="SOP8 - Kontakty">
+<Layout title="SOP8 - Kontakty" description="Kontaktujte Symfonický orchestr Prahy 8 a zjistěte, kde a kdy probíhají zkoušky.">
     <Section title="Kontakty">
         <div class="wrapper">
             <div>
                 <div>
-                    <strong>Orchestrální email: </strong>{data.data.contact.email}
+                    <strong>Orchestrální e-mail: </strong><a href={`mailto:${data.data.contact.email}`}>{data.data.contact.email}</a>
                 </div>
                 <div>
                     <strong>Vedoucí orchestru: </strong>{data.data.contact.leadership.name}
@@ -23,13 +23,21 @@ const data = await client.queries.contact({ relativePath: 'contact.md' })
             </div>
             <div>
                 <strong>Kde hrajeme</strong>
-                <div>
-                    {data.data.contact.practice.text}
-                    {data.data.contact.practice.address}
-                </div>
+                <p>{data.data.contact.practice.text}</p>
+                <p>{data.data.contact.practice.address}</p>
+                <a class="mapLink" href="https://mapy.com/s/defapavako" target="_blank" rel="noreferrer">
+                    Otevřít místo zkoušek na mapě
+                </a>
             </div>
         </div>
-        <iframe class="map" src="https://en.frame.mapy.cz/s/defapavako" frameborder="0"></iframe>
+        <iframe
+            class="map"
+            src="https://frame.mapy.cz/s/defapavako"
+            title="Mapa místa zkoušek v Gymnáziu Christiana Dopplera"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+        ></iframe>
     </Section>
 </Layout>
 <style>
@@ -43,11 +51,22 @@ const data = await client.queries.contact({ relativePath: 'contact.md' })
         margin-top: 30px;
         width: 100%;
         min-height: 400px;
+        border: 0;
+        background: #f2f2f2;
+    }
+
+    .mapLink {
+        display: inline-block;
+        margin-top: 8px;
     }
 
     @media (max-width: 768px) {
         .wrapper {
             grid-template-columns: 1fr;
+        }
+
+        .map {
+            min-height: 320px;
         }
     }
 </style>

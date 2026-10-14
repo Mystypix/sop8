@@ -1,12 +1,13 @@
 ---
     const currentPath = new URL(Astro.request.url).pathname.replace(/\/+$/, '') || '/';
 ---
-<nav class="nav">
+<nav class="nav" aria-label="Hlavní navigace">
     <a class="logo" href="/">Symfonický orchestr Prahy 8</a>
     <div class="toggleMenu">
-        <input type="checkbox" />
-        <div class="hamburger"></div>
-        <div class="navLinks">
+        <button class="menuToggle" type="button" aria-label="Otevřít navigaci" aria-expanded="false" aria-controls="primary-navigation">
+            <span class="hamburger" aria-hidden="true"></span>
+        </button>
+        <div class="navLinks" id="primary-navigation">
             <a class={currentPath === "/o-nas" ? "active navLink" : "navLink"} aria-current={currentPath === "/o-nas" ? "page" : undefined} href="/o-nas">O nás</a>
             <a class={currentPath === "/obsazeni" ? "active navLink" : "navLink"} aria-current={currentPath === "/obsazeni" ? "page" : undefined} href="/obsazeni">Obsazení</a>
             <a class={currentPath === "/dirigenti" ? "active navLink" : "navLink"} aria-current={currentPath === "/dirigenti" ? "page" : undefined} href="/dirigenti">Dirigenti</a>
@@ -75,18 +76,8 @@
         }
     }
 
-    .toggleMenu input {
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        cursor: pointer;
-        opacity: 0;
-        z-index: 3;
-        -webkit-touch-callout: none;
-        pointer-events: none;
+    .menuToggle {
+        display: none;
     }
 
     @media screen and (max-width: 980px) {
@@ -102,18 +93,32 @@
             display: block;
             position: relative;
             z-index: 3;
-            width: 33px;
-            height: 22px;
+            width: 44px;
+            height: 44px;
             -webkit-user-select: none;
             user-select: none;
         }
 
-        .toggleMenu input {
-            pointer-events: all;
+        .menuToggle {
+            display: block;
+            position: relative;
+            z-index: 3;
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .menuToggle:focus-visible {
+            outline: 3px solid var(--main-color);
+            outline-offset: 3px;
         }
 
         .hamburger {
             position: absolute;
+            left: 5px;
             top: auto;
             bottom: 0;
             width: 33px;
@@ -150,19 +155,19 @@
             }
         }
 
-        .toggleMenu input:checked ~ .hamburger {
+        .menuToggle[aria-expanded="true"] .hamburger {
             transition-delay: .22s;
             transition-timing-function: cubic-bezier(.215, .61, .355, 1);
             transform: translate3d(0, -10px, 0) rotate(-45deg);
         }
 
-        .toggleMenu input:checked ~ .hamburger::before {
+        .menuToggle[aria-expanded="true"] .hamburger::before {
             top: 0;
             transition: top .1s cubic-bezier(.33333, 0, .66667, .33333) .16s, transform .13s cubic-bezier(.215, .61, .355, 1) .25s;
             transform: rotate(-90deg);
         }
 
-        .toggleMenu input:checked ~ .hamburger::after {
+        .menuToggle[aria-expanded="true"] .hamburger::after {
             top: 0;
             transition: top .2s cubic-bezier(.33333, 0, .66667, .33333), opacity .1s linear .22s;
             opacity: 0;
@@ -177,6 +182,7 @@
             align-items: flex-end;
             height: 100vh;
             width: 300px;
+            max-width: 85vw;
             margin: 0;
             padding: 70px 30px 30px;
             background: #ededed;
@@ -184,11 +190,20 @@
             -webkit-font-smoothing: antialiased;
             transform-origin: 0 0;
             transform: translate(100%, 0);
-            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), visibility 0s linear 0.5s;
         }
 
-        .toggleMenu input:checked ~ .navLinks {
+        .toggleMenu.menuOpen .navLinks {
             transform: none;
+            transition-delay: 0s;
+        }
+
+        .toggleMenu:not(.menuOpen) .navLinks {
+            visibility: hidden;
+        }
+
+        .toggleMenu.menuOpen .navLinks {
+            visibility: visible;
         }
 
         .navLink {
@@ -201,10 +216,37 @@
 </style>
 <script>
     const nav = document.querySelector('nav');
+    const menu = document.querySelector<HTMLElement>('.toggleMenu');
+    const menuToggle = menu?.querySelector<HTMLButtonElement>('.menuToggle');
+    const navLinks = menu?.querySelector<HTMLElement>('.navLinks');
+    const mobileNavigation = window.matchMedia('(max-width: 980px)');
+
     const updateNavOnScroll = () => {
         nav?.classList.toggle('scrolled', window.scrollY > 10);
     };
 
+    const setMenuOpen = (open: boolean) => {
+        if (!menu || !menuToggle || !navLinks) return;
+        menu.classList.toggle('menuOpen', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Zavřít navigaci' : 'Otevřít navigaci');
+        navLinks.inert = mobileNavigation.matches && !open;
+    };
+
+    setMenuOpen(false);
     updateNavOnScroll();
     window.addEventListener('scroll', updateNavOnScroll, { passive: true });
+    menuToggle?.addEventListener('click', () => {
+        setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
+    });
+    navLinks?.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setMenuOpen(false));
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menuToggle?.getAttribute('aria-expanded') === 'true') {
+            setMenuOpen(false);
+            menuToggle.focus();
+        }
+    });
+    mobileNavigation.addEventListener('change', () => setMenuOpen(false));
 </script>
