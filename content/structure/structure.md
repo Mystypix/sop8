@@ -62,7 +62,7 @@ flutes:
   - name: Jana Sládečková
 oboes:
   - name: Julie Kojdovská
-  - name: Tereza Poláková
+  - name: Tereza Dušková
   - name: Jan Řezníček
 clarinets:
   - name: Jan Hraba
