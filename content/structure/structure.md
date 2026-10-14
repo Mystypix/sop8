@@ -1,5 +1,6 @@
 ---
 first_violins:
+  - name: Anna Kratofilová
   - name: Eliška Cibulková
   - name: Jana Černá
   - name: Renata Čornejová
