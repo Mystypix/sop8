@@ -39,6 +39,11 @@ export default defineConfig({
             label: "Úvodní text",
             required: true,
           },
+          {
+            type: "rich-text",
+            name: "joinUsText",
+            label: "Text „Přidejte se k nám“",
+          },
         ],
       },
       {

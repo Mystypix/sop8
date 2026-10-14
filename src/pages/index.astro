@@ -11,7 +11,7 @@ const concertData = await client.queries.concerts({
   relativePath: "concerts.md",
 });
 const futureConcerts = concertData.data.concerts.concerts
-  .filter(({ date }) => new Date(date) > new Date())
+  .filter(({ date }) => new Date(date).toDateString() >= new Date().toDateString())
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 ---
 
@@ -23,12 +23,11 @@ const futureConcerts = concertData.data.concerts.concerts
   </Section>
   <div class="joinUs">
     <h2 class="title">Přidejte se k nám!</h2>
-	<p>Nová sezóna je tu a s ní přichází i možnost si s námi zahrát. Rádi mezi nás přivítáme nové hráče zejména na
-    <strong>smyčcové nástroje</strong>. Chcete se k nám přidat? <a href="mailto:orchestrsop8@gmail.com">Napište nám!</a></p>	
+    <div class="joinUsText"><TinaMarkdown content={homepageData.data.homepage.joinUsText} /></div>
   </div>
   {
     futureConcerts.length ? (
-      <Section>
+      <Section className="introConcerts">
         <div class="concertSection">
           <h2 class="introConcertTitle">Nadcházející koncerty</h2>
           {futureConcerts.map((concert) => (
@@ -39,6 +38,21 @@ const futureConcerts = concertData.data.concerts.concerts
     ) : null
   }
 </Layout>
+<script>
+  const removePastHomepageConcerts = () => {
+    const now = new Date();
+    document.querySelectorAll<HTMLElement>('.introConcerts [data-concert-date]').forEach((card) => {
+      const [year, month, day] = (card.dataset.concertDate ?? '').slice(0, 10).split('-').map(Number);
+      const [hours = 0, minutes = 0] = (card.dataset.concertTime ?? '').split(':').map(Number);
+      const start = new Date(year, month - 1, day, hours, minutes);
+      if (start <= now) card.remove();
+    });
+    const section = document.querySelector<HTMLElement>('.introConcerts');
+    if (section) section.hidden = !section.querySelector('[data-concert-date]');
+  };
+  removePastHomepageConcerts();
+  window.setInterval(removePastHomepageConcerts, 60_000);
+</script>
 <style>
   .introText {
     margin: 0 auto;
@@ -68,6 +82,10 @@ const futureConcerts = concertData.data.concerts.concerts
 		text-align: center;
 	}
 }
+
+  .joinUsText :global(p) {
+    margin: 0;
+  }
 
   .introConcertTitle {
     margin-bottom: 40px;

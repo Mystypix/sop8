@@ -14,7 +14,7 @@ const {
 } = concert;
 ---
 
-<div class=`concert  ${isFuture ? 'future' : ''}`>
+<div class=`concert  ${isFuture ? 'future' : ''}` data-concert-date={date} data-concert-time={time}>
     <div class="agenda">
         {
             agenda.map(({ composition, composer }) => {
@@ -32,7 +32,7 @@ const {
     </div>
     {
         isFuture && (
-            <div class="time">
+            <div class="time future-only">
                 <strong>Čas: </strong>
                 {time}
             </div>
@@ -41,7 +41,7 @@ const {
     <div class="place"><strong>Adresa: </strong>{address}</div>
     {
         isFuture && (
-            <div>
+            <div class="future-only">
                 <strong>Dirigent: </strong>
                 {conductor}
             </div>
@@ -49,7 +49,7 @@ const {
     }
     {
         isFuture && solists && (
-            <div>
+            <div class="future-only">
                 <strong>Sólisté: </strong>
                 {solists}
             </div>
@@ -57,7 +57,7 @@ const {
     }
     {
         isFuture && (
-            <div>
+            <div class="future-only">
                 <strong>Cena: </strong>
                 {price} Kč
             </div>
@@ -92,6 +92,8 @@ const {
         &.future {
             background: #fff;
         }
+
+        &:not(.future) .future-only { display: none; }
 
         > div {
             margin-top: 5px;
