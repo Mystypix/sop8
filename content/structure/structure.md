@@ -41,10 +41,10 @@ viols:
   - name: Hana Šarbortová
   - name: Veronika Šírová
 violoncellos:
-  - name: Sára Gracerová
   - name: Daniel Arden
   - name: Jiří Benda
   - name: Marie Bláhová
+  - name: Sára Gracerová
   - name: Monika Krejčí
   - name: Barbora Larischová
   - name: Petra Losová
@@ -58,7 +58,7 @@ basses:
     concert: true
 flutes:
   - name: Pavlína Kolářová
-  - name: Marie Pradáčková
+  - name: Marie Pradáčová
   - name: Jana Sládečková
 oboes:
   - name: Julie Kojdovská
