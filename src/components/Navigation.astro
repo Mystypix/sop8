@@ -1,19 +1,75 @@
 ---
-    const currentPath = new URL(Astro.request.url).pathname.replace(/\/+$/, '') || '/';
+const currentPath =
+    new URL(Astro.request.url).pathname.replace(/\/+$/, "") || "/";
 ---
+
 <nav class="nav" aria-label="Hlavní navigace">
-    <a class="logo" href="/">Symfonický orchestr Prahy 8</a>
+    <a class="logo" href="/">
+        Symfonický orchestr Prahy 8
+    </a>
     <div class="toggleMenu">
-        <button class="menuToggle" type="button" aria-label="Otevřít navigaci" aria-expanded="false" aria-controls="primary-navigation">
+        <button
+            class="menuToggle"
+            type="button"
+            aria-label="Otevřít navigaci"
+            aria-expanded="false"
+            aria-controls="primary-navigation"
+        >
             <span class="hamburger" aria-hidden="true"></span>
         </button>
         <div class="navLinks" id="primary-navigation">
-            <a class={currentPath === "/o-nas" ? "active navLink" : "navLink"} aria-current={currentPath === "/o-nas" ? "page" : undefined} href="/o-nas">O nás</a>
-            <a class={currentPath === "/obsazeni" ? "active navLink" : "navLink"} aria-current={currentPath === "/obsazeni" ? "page" : undefined} href="/obsazeni">Obsazení</a>
-            <a class={currentPath === "/dirigenti" ? "active navLink" : "navLink"} aria-current={currentPath === "/dirigenti" ? "page" : undefined} href="/dirigenti">Dirigenti</a>
-            <a class={currentPath === "/koncerty" ? "active navLink" : "navLink"} aria-current={currentPath === "/koncerty" ? "page" : undefined} href="/koncerty">Koncerty</a>
-            <a class={currentPath === "/galerie" ? "active navLink" : "navLink"} aria-current={currentPath === "/galerie" ? "page" : undefined} href="/galerie">Galerie</a>
-            <a class={currentPath === "/kontakty" ? "active navLink" : "navLink"} aria-current={currentPath === "/kontakty" ? "page" : undefined} href="/kontakty">Kontakty</a>
+            <a
+                class={currentPath === "/o-nas" ? "active navLink" : "navLink"}
+                aria-current={currentPath === "/o-nas" ? "page" : undefined}
+                href="/o-nas"
+            >
+                O nás
+            </a>
+            <a
+                class={
+                    currentPath === "/obsazeni" ? "active navLink" : "navLink"
+                }
+                aria-current={currentPath === "/obsazeni" ? "page" : undefined}
+                href="/obsazeni"
+            >
+                Obsazení
+            </a>
+            <a
+                class={
+                    currentPath === "/dirigenti" ? "active navLink" : "navLink"
+                }
+                aria-current={currentPath === "/dirigenti" ? "page" : undefined}
+                href="/dirigenti"
+            >
+                Dirigenti
+            </a>
+            <a
+                class={
+                    currentPath === "/koncerty" ? "active navLink" : "navLink"
+                }
+                aria-current={currentPath === "/koncerty" ? "page" : undefined}
+                href="/koncerty"
+            >
+                Koncerty
+            </a>
+            <a
+                class={
+                    currentPath === "/galerie" ? "active navLink" : "navLink"
+                }
+                aria-current={currentPath === "/galerie" ? "page" : undefined}
+                href="/galerie"
+            >
+                Galerie
+            </a>
+            <a
+                class={
+                    currentPath === "/kontakty" ? "active navLink" : "navLink"
+                }
+                aria-current={currentPath === "/kontakty" ? "page" : undefined}
+                href="/kontakty"
+            >
+                Kontakty
+            </a>
         </div>
     </div>
 </nav>
@@ -35,13 +91,15 @@
         align-items: center;
         padding: 10px 30px;
         background-color: rgba(255, 255, 255, 0.6);
-        transition: background-color .3s, box-shadow .3s;
+        transition:
+            background-color 0.3s,
+            box-shadow 0.3s;
 
         &.scrolled {
             background-color: rgba(255, 255, 255, 1);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
-    }   
+    }
     .navLink {
         position: relative;
         margin: 0 8px;
@@ -51,7 +109,7 @@
         line-height: 40px;
         color: var(--text-color);
         text-decoration: none;
-        transition: color .3s;
+        transition: color 0.3s;
         overflow: hidden;
 
         &.active,
@@ -64,7 +122,7 @@
         }
 
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             bottom: 0;
             left: 0;
@@ -72,7 +130,7 @@
             height: 2px;
             background: var(--main-color);
             transform: translateX(-100%);
-            transition: transform .3s;
+            transition: transform 0.3s;
         }
     }
 
@@ -123,22 +181,30 @@
             width: 33px;
             height: 3px;
             transform: translateY(-50%);
-            transition: transform .2s cubic-bezier(.55, .055, .675, .19), background-color .15s;
-            transition-timing-function: cubic-bezier(.55, .055, .675, .19);
+            transition:
+                transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19),
+                background-color 0.15s;
+            transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
             background: var(--text-color);
             border-radius: 4px;
             z-index: 2;
 
             &::before {
-                content: '';
+                content: "";
                 top: -9px;
-                transition: top .12s cubic-bezier(.33333, .66667, .66667, 1) .2s, transform .13s cubic-bezier(.55, .055, .675, .19);
+                left: 0;
+                transition:
+                    top 0.12s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s,
+                    transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
             }
 
             &::after {
-                content: '';
+                content: "";
                 top: 9px;
-                transition: top .2s cubic-bezier(.33333, .66667, .66667, 1) .2s, opacity .1s linear;
+                left: 0;
+                transition:
+                    top 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s,
+                    opacity 0.1s linear;
             }
 
             &::before,
@@ -148,7 +214,7 @@
                 width: 33px;
                 height: 3px;
                 transition-timing-function: ease;
-                transition-duration: .15s;
+                transition-duration: 0.15s;
                 transition-property: transform, background;
                 border-radius: 3px;
             }
@@ -160,13 +226,17 @@
 
         .menuToggle[aria-expanded="true"] .hamburger::before {
             top: 0;
-            transition: top .1s cubic-bezier(.33333, 0, .66667, .33333) .16s, transform .13s cubic-bezier(.215, .61, .355, 1) .25s;
+            transition:
+                top 0.1s cubic-bezier(0.33333, 0, 0.66667, 0.33333) 0.16s,
+                transform 0.13s cubic-bezier(0.215, 0.61, 0.355, 1) 0.25s;
             transform: rotate(-90deg);
         }
 
         .menuToggle[aria-expanded="true"] .hamburger::after {
             top: 0;
-            transition: top .2s cubic-bezier(.33333, 0, .66667, .33333), opacity .1s linear .22s;
+            transition:
+                top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+                opacity 0.1s linear 0.22s;
             opacity: 0;
         }
 
@@ -182,14 +252,17 @@
             height: 100dvh;
             width: min(300px, 85vw);
             margin: 0;
-            padding: max(80px, calc(env(safe-area-inset-top) + 64px)) 30px max(30px, env(safe-area-inset-bottom));
+            padding: max(80px, calc(env(safe-area-inset-top) + 64px)) 30px
+                max(30px, env(safe-area-inset-bottom));
             background: #fff;
             box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
             list-style-type: none;
             -webkit-font-smoothing: antialiased;
             transform-origin: 0 0;
             transform: translate(100%, 0);
-            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), visibility 0s linear 0.5s;
+            transition:
+                transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+                visibility 0s linear 0.5s;
         }
 
         .toggleMenu.menuOpen .navLinks {
@@ -214,38 +287,44 @@
     }
 </style>
 <script>
-    const nav = document.querySelector('nav');
-    const menu = document.querySelector<HTMLElement>('.toggleMenu');
-    const menuToggle = menu?.querySelector<HTMLButtonElement>('.menuToggle');
-    const navLinks = menu?.querySelector<HTMLElement>('.navLinks');
-    const mobileNavigation = window.matchMedia('(max-width: 980px)');
+    const nav = document.querySelector("nav");
+    const menu = document.querySelector<HTMLElement>(".toggleMenu");
+    const menuToggle = menu?.querySelector<HTMLButtonElement>(".menuToggle");
+    const navLinks = menu?.querySelector<HTMLElement>(".navLinks");
+    const mobileNavigation = window.matchMedia("(max-width: 980px)");
 
     const updateNavOnScroll = () => {
-        nav?.classList.toggle('scrolled', window.scrollY > 10);
+        nav?.classList.toggle("scrolled", window.scrollY > 10);
     };
 
     const setMenuOpen = (open: boolean) => {
         if (!menu || !menuToggle || !navLinks) return;
-        menu.classList.toggle('menuOpen', open);
-        menuToggle.setAttribute('aria-expanded', String(open));
-        menuToggle.setAttribute('aria-label', open ? 'Zavřít navigaci' : 'Otevřít navigaci');
+        menu.classList.toggle("menuOpen", open);
+        menuToggle.setAttribute("aria-expanded", String(open));
+        menuToggle.setAttribute(
+            "aria-label",
+            open ? "Zavřít navigaci" : "Otevřít navigaci",
+        );
         navLinks.inert = mobileNavigation.matches && !open;
     };
 
     setMenuOpen(false);
     updateNavOnScroll();
-    window.addEventListener('scroll', updateNavOnScroll, { passive: true });
-    menuToggle?.addEventListener('click', () => {
-        setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
+    window.addEventListener("scroll", updateNavOnScroll, { passive: true });
+    menuToggle?.addEventListener("click", () => {
+        setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
     });
-    navLinks?.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => setMenuOpen(false));
+    navLinks?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => setMenuOpen(false));
     });
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && menuToggle?.getAttribute('aria-expanded') === 'true') {
+    document.addEventListener("keydown", (event) => {
+        if (
+            event.key === "Escape" &&
+            menuToggle?.getAttribute("aria-expanded") === "true"
+        ) {
             setMenuOpen(false);
             menuToggle.focus();
         }
     });
-    mobileNavigation.addEventListener('change', () => setMenuOpen(false));
+    mobileNavigation.addEventListener("change", () => setMenuOpen(false));
 </script>
