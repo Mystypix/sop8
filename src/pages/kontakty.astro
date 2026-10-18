@@ -1,34 +1,61 @@
 ---
-import { client } from '../../tina/__generated__/client'
+import { client } from "../../tina/__generated__/client";
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
-const data = await client.queries.contact({ relativePath: 'contact.md' })
+const data = await client.queries.contact({ relativePath: "contact.md" });
 const contact = data.data.contact;
 const leadership = contact.leadership ?? {};
 const practice = contact.practice ?? {};
 ---
-<Layout title="SOP8 - Kontakty" description="Kontaktujte Symfonický orchestr Prahy 8 a zjistěte, kde a kdy probíhají zkoušky.">
+
+<Layout
+    title="SOP8 - Kontakty"
+    description="Kontaktujte Symfonický orchestr Prahy 8 a zjistěte, kde a kdy probíhají zkoušky."
+>
     <Section title="Kontakty">
         <div class="wrapper">
             <div>
-                <div>
-                    <strong>Orchestrální e-mail: </strong><a href={`mailto:${contact.email ?? ''}`}>{contact.email}</a>
-                </div>
-                <div>
-                    <strong>Vedoucí orchestru: </strong>{leadership.name}
-                </div>
-                <div>
-                    <strong>Email: </strong><a href=`mailto:${leadership.email ?? ''}`>{leadership.email}</a>
-                </div>
-                <div>
-                    <strong>Telefon: </strong><a href=`tel:${leadership.phone ?? ''}`>{leadership.phone}</a>
-                </div>
+                {contact.email && (
+                    <div>
+                        <strong>Orchestrální e-mail: </strong>
+                        <a href={`mailto:${contact.email ?? ""}`}>
+                            {contact.email}
+                        </a>
+                    </div>
+                )}
+                {leadership.name && (
+                    <div>
+                        <strong>Vedoucí orchestru: </strong>
+                        {leadership.name}
+                    </div>
+                )}
+                {leadership.email && (
+                    <div>
+                        <strong>Email: </strong>
+                        <a href=`mailto:${leadership.email ?? ""}`>
+                            {leadership.email}
+                        </a>
+                    </div>
+                )}
+                {leadership.phone && (
+                    <div>
+                        <strong>Telefon: </strong>
+                        <a href=`tel:${leadership.phone ?? ""}`>
+                            {leadership.phone}
+                        </a>
+                    </div>
+                )}
             </div>
             <div>
                 <strong>Kde hrajeme</strong>
-                <p>{practice.text}</p>
-                <p>{practice.address}</p>
-                <a class="mapLink" href="https://mapy.com/s/defapavako" target="_blank" rel="noreferrer">
+                {practice.text && <p>{practice.text}</p>}
+                {practice.address && <p>{practice.address}</p>}
+                <a
+                    class="mapLink"
+                    href="https://mapy.com/s/defapavako"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     Otevřít místo zkoušek na mapě
                 </a>
             </div>
