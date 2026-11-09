@@ -1,6 +1,8 @@
 ---
 concerts:
   - agenda:
+      - composer: Schubert
+        composition: Symfonie č.8 h moll "Nedokončená"
       - composer: Dvořák
         composition: 'Symfonická báseň Polednice, op.108, Symfonická báseň Vodník, op.107'
     date: 2026-12-19T23:00:00.000Z
