@@ -7,7 +7,10 @@ concerts:
     solists: Kristýna Mezerová
     price: '350 Kč / 150 '
     invitation: /pozvánka prosinec 2026 (1).pdf
-  - date: 2026-12-16T23:00:00.000Z
+  - agenda:
+      - composer: Williams
+        composition: Suita pro violu a komorní orchestr
+    date: 2026-12-16T23:00:00.000Z
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Viktor Le Minh
