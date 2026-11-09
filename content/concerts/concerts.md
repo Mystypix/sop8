@@ -1,6 +1,9 @@
 ---
 concerts:
-  - date: 2026-12-19T23:00:00.000Z
+  - agenda:
+      - composer: Dvořák
+        composition: 'Symfonická báseň Polednice, op.108, Symfonická báseň Vodník, op.107'
+    date: 2026-12-19T23:00:00.000Z
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1 – Staré Město'
     conductor: Viktor Le Minh
