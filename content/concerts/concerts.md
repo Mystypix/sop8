@@ -12,6 +12,8 @@ concerts:
         composition: Suita pro violu a komorní orchestr
       - composer: Schubert
         composition: Symfonie č.8 h moll "Nedokončená"
+      - composer: Dvořák
+        composition: 'Symfonická báseň Polednice, op.108, Symfonická báseň Vodník, op.107'
     date: 2026-12-16T23:00:00.000Z
     time: '19:30'
     address: 'Koncertní sál Pražské konzervatoře, Na Rejdišti 1, Praha 1 – Staré Město'
